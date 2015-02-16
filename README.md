@@ -7,7 +7,7 @@
 本站使用 Jekyll 搭建，目前仍在搭建过程中，有以下的任务需要完成：
 
 - [ ] Integrate with comment system (such as disqus)
-- [ ] Add site icon
+- [x] Add site icon
 - [ ] Write the first post
 - [ ] Support org-mode
 

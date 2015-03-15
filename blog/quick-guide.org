@@ -3,6 +3,7 @@
 #+EMAIL:       ini.kelvin@gmail.com
 #+DATE:        2013-08-24 Sat
 
+#+tags: org-page
 
 * Installation
 

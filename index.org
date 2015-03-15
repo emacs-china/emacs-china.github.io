@@ -1,0 +1,36 @@
+#+title: 主页
+#+author: emacs-china
+#+email: emacs-china@googlegroups.com
+
+#+URI:     /
+#+TAGS:     index
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+DESCRIPTION:  主页
+
+* emacs-china 项目列表
+以下所有项目均可在 [[https://github.com/emacs-china]] 上找到。本站点对应项目是 emacs-china.github.io 哟。
+** 新人入门资料
+*** hello-emacs
+darksun 同学所写的关于 emacs 的中文笔记，十分详实，看的出作者是个优等生。欢迎拍砖（即是向该项目提交patch，改进它）。
+** 字体与输入法
+*** chinese-fonts-setup
+从 tumashu 先生那 fork 过来的项目，用于解决 org-mode 表格中的中文字体无法对齐的问题，使 org-mode 中的中文变得十分美观。
+*** chinese-pyim
+从 tumashu 先生那 fork 过来的项目，一个 emacs 中的中文拼音输入法，相对 emacs 自带的那些中文输入法，使用起来十分便捷。
+** 静态站点生成器
+*** org-page
+Kelvin Hu 先生所写的静态站点生成器，基于 emacs 和 org-mode 本站点即由该生成器生成，简约美观，设计合理（如有不合理之处，欢迎拍砖（即是向该项目提交patch，改进它））。
+
+* 中文资料
+在本站点的 Blog 目录下面，可以在 Tags 下面按标签索引文件，也可使用 search 框。
+
+所有文档的 org-mode 原文件都在 emacs-china.github.io 项目的 source branch 下，欢迎改进（请好好学习 git 和 github 的用法）。
+
+另外，欢迎各位用 org-mode 文件投稿，我们不会修改一篇文章的 =author= 和 =email= 。（请好好学习 org-mode 的用法，hello-emacs 中有 darksun  写的 org-manual （ org-mode 的中文使用手册））
+
+* 各种各样的联系方式
++ weibo :: ……
++ IRC :: ……
++ email :: ……
++ QQ群 :: ……
+期待和各位 emacs 中文用户的交流！

@@ -3,7 +3,6 @@
 #+email: emacs-china@googlegroups.com
 
 #+URI:     /
-#+TAGS:     index
 #+OPTIONS:     H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+DESCRIPTION:  主页
 

@@ -4,7 +4,6 @@
 
 #+URI:     /
 #+OPTIONS:     H:4 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
-#+DESCRIPTION:  主页
 
 * emacs-china 项目列表
 以下所有项目均可在 [[https://github.com/emacs-china]] 上找到。本站点对应项目是 emacs-china.github.io 哟。

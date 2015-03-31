@@ -1,11 +1,11 @@
-#+title: 主页
+#+title: 欢迎来到 emacs-china
 #+author: emacs-china
 #+email: emacs-china@googlegroups.com
 
 #+URI:     /
 #+OPTIONS:     H:4 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 
- [[./img/dragon.svg][logo]]
+ [[./img/dragon.svg]]
 
 * emacs-china 项目列表
 以下所有项目均可在 [[https://github.com/emacs-china]] 上找到。本站点对应项目是 [[https://github.com/emacs-china/emacs-china.github.io][emacs-china.github.io]] 哟。

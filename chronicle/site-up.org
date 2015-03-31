@@ -2,7 +2,7 @@
 #+AUTHOR:      皐月中二
 #+EMAIL:       kuangdash@163.com
 #+DATE:        2015-03-15 Sun
-#+URI:     /chronicle/
+
 #+TAGS:     site-date
 #+LANGUAGE:    en
 #+OPTIONS:     H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t

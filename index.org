@@ -5,8 +5,10 @@
 #+URI:     /
 #+OPTIONS:     H:4 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 
+ [[./img/dragon.svg][logo]]
+
 * emacs-china 项目列表
-以下所有项目均可在 [[https://github.com/emacs-china]] 上找到。本站点对应项目是 emacs-china.github.io 哟。
+以下所有项目均可在 [[https://github.com/emacs-china]] 上找到。本站点对应项目是 [[https://github.com/emacs-china/emacs-china.github.io][emacs-china.github.io]] 哟。
 ** 新人入门资料
 *** hello-emacs
 darksun 同学所写的关于 emacs 的中文笔记，十分详实，看的出作者是个优等生。欢迎拍砖（即是向该项目提交patch，改进它）。

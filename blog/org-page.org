@@ -86,13 +86,13 @@ _悬停卡片_[fn:4]
 
 那个 =kd/custom-org-page= 函数才是代码的主体， =add-to-list= 和 =require= 则用来导入本函数对 =org-page= 的依赖关系。实际上，该 *交互* 函数是每次都重新定义了正常定制法的内容，看懂它然后使用吧（做个填空题就行）。
 
-在 =kd/custom-org-page= 的 =cond= 里面我们还可以写一些其他代码，以方便对 org-page 生成的站点进行测试。
+我们还可以写一些其他代码，以方便对 org-page 生成的站点进行测试。
 
 ** 对 org-page 生成的站点进行测试
 
 本人使用基于emacs的 [[https://github.com/skeeto/emacs-web-server][simple-httpd]] 来进行站点测试，根据实际情况，各位也可以用自己喜欢的 web 服务器来进行测试。
 
-在 =kd/custom-org-page= 的 =cond= 里面我们还可以写一些其他代码，这样就能起到测试的效果了：
+接下来我们在配置文件中写一些其他代码，这样就能起到测试的效果了：
 
 #+BEGIN_SRC emacs-lisp :tangle no
   (require 'simple-httpd)

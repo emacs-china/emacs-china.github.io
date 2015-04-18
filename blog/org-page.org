@@ -8,6 +8,11 @@
 #+OPTIONS:     H:3 num:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 #+DESCRIPTION: org-page的配置与使用
 
+觉得咱（博客）还不够好，想修改咱？请点击以下按钮：
+#+BEGIN_HTML
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/org-page.org">点我修改</a>
+#+END_HTML
+
 * org-page 的特点
 
 这是一个基于 org-mode 、 git 和 emacs 自身（这三个你都得耍的起来）的静态站点生成器（static site generator），实现了 /org文档内容/ 和 /文档修饰（主题）/ 的分离。它本身具有高度的可定制性[fn:1]。

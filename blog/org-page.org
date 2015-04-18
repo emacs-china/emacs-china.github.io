@@ -10,7 +10,7 @@
 
 觉得咱（博客）还不够好，想修改咱？请点击以下按钮：
 #+BEGIN_HTML
-<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/org-page.org">点我修改</a>
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/org-page.org" class="center">点我修改</a>
 #+END_HTML
 
 * org-page 的特点

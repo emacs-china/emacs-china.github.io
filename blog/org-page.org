@@ -10,7 +10,7 @@
 
 #+BEGIN_HTML
 <p class="center">
-觉得咱（博客）还不够好，想修改咱？请点击以下按钮：
+觉得咱（博客）还不够好，想修改咱？请点击以下按钮：<br/>
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/org-page.org">点我修改</a>
 </p>
 #+END_HTML

@@ -1,0 +1,50 @@
+#+TITLE:       介绍一下 org-mode 内置的模板系统
+#+AUTHOR:      Feng Shu
+#+EMAIL:       tumashu@163.com
+#+DATE:        2015-04-20 一
+
+#+URI:         /blog/%y/%m/%d/%t/
+#+KEYWORDS:    org-mode
+#+TAGS:        org-mode
+
+#+LANGUAGE:    zh-CN
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+
+
+
+Emacs 拥有许多优秀的模板系统，其中最流行的莫过于 yasnippet 了，但本人发现，这个包功能
+太过强大，常常驾驭不了。。。。
+
+
+org-mode 自带的模板系统，简单却很实用，一般也不会出现那些莫名其妙的问题，
+下面是本人经常使用的模板：
+
+#+BEGIN_SRC emacs-lisp
+(setq org-structure-template-alist
+      (append '(("r" "#+BEGIN_SRC R\n?\n#+END_SRC")
+                ("e" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC")
+                ("ex" "#+BEGIN_EXAMPLE\n?\n#+END_EXAMPLE")
+                ("rh" "#+PROPERTY: header-args:R  :session *R* :tangle yes :colnames yes :rownames no :width 700 :height 500 :exports both")
+                ("rv" "#+BEGIN_SRC R :results value\n?\n#+END_SRC")
+                ("ro" "#+BEGIN_SRC R :results output verbatim\n?\n#+END_SRC")
+                ("rg" "#+BEGIN_SRC R :results graphics :file ?\n\n#+END_SRC")
+                ("rs" "#+BEGIN_SRC R :results output silent\n?\n#+END_SRC")
+                ("rd" "#+BEGIN_SRC R :colnames no :results value drawer\n`%c%` <- function(a,b){c(a,b)}\n?\n#+END_SRC"))
+              org-structure-template-alist))
+#+END_SRC
+
+只要输入：
+
+#+BEGIN_EXAMPLE
+<e
+#+END_EXAMPLE
+
+然后按 *TAB* 键，你就会得到：
+
+#+BEGIN_EXAMPLE
+,#+BEGIN_SRC emacs-lisp
+-I-
+,#+END_SRC
+#+END_EXAMPLE
+
+注："-I-" 代表光标所在位置。

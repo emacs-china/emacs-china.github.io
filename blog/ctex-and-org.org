@@ -8,7 +8,7 @@
 #+TAGS:        org-mode, latex, ctex
 
 #+LANGUAGE:    zh-CN
-#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+OPTIONS:     H:3 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 
 * 安装 texlive
 安装 texlive 可以使用两种方式

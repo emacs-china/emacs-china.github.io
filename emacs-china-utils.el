@@ -28,7 +28,7 @@
 
 ;;; Codes
 ;; #+BEGIN_SRC emacs-lisp
-(require 'op-theme-emacslove)
+(require 'owp-theme-emacslove)
 
 (defun emacs-china-repo-path ()
   (file-name-directory
@@ -36,7 +36,7 @@
 
 (defun emacs-china-theme-path ()
   (file-name-directory
-   (locate-library "op-theme-emacslove")))
+   (locate-library "owp-theme-emacslove")))
 
 (add-to-list 'owp/project-config-alist
              `("emacs-china.github.io"

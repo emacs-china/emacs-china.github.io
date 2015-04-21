@@ -8,6 +8,12 @@
 #+ATTR_HTML: :class center
 [[./assets/dragon.svg]]
 
+#+BEGIN_HTML
+<p class="center">
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/index.org">点我修改</a><br/>
+</p>
+#+END_HTML
+
 * emacs-china 项目列表
 以下所有项目均可在 [[https://github.com/emacs-china]] 上找到。本站点对应项目是 [[https://github.com/emacs-china/emacs-china.github.io][emacs-china.github.io]] 。
 ** 新人入门资料

@@ -8,8 +8,13 @@
 #+TAGS:        org-mode
 
 #+LANGUAGE:    zh-CN
-#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+OPTIONS:     H:3 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 
+#+BEGIN_HTML
+<p class="center">
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/manager-emacs-china-with-org-webpage.org">点我修改</a><br/>
+</p>
+#+END_HTML
 
 * 前言
 

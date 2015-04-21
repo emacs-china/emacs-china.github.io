@@ -24,8 +24,6 @@
 
 使用命令 ~M-x package-list-packages~ 找到 =org-page= 安装即可，或者去这个链接 [[https://github.com/kelvinh/org-page][org-page]] 下载。
 
-下载完的安装步骤请看那个链接的代码目录下的 doc 目录之下的 [[https://github.com/kelvinh/org-page/blob/master/doc/quick-guide.org][quick-guide.org]] 。
-
 * org-page 的用法
 
 首先，在想写 blog 的文件夹下用 ~git init~ 建立一个 git repository ，然后创建并进入 source 分支，再新建三个基本文件： 
@@ -35,7 +33,7 @@
 
 剩下的交给 ~M-x op/do-publication~ 命令。
 
-接下来，英语好的话，参考之前提到的 *quick-guide.org* ，英语不好，请 *慎用* emacs 。
+接下来，英语好的话，请参考这里 [[https://github.com/kelvinh/org-page/blob/master/doc/quick-guide.org][quick-guide.org]] ，英语不好，请 *慎用* emacs 。
 
 * org-page 效果举例
 

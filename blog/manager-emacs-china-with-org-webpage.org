@@ -19,15 +19,11 @@
 
 注： org-webpage 是 org-page 的一个fork版本。
 
-* 安装 org-webpage
-org-webpage 已经提交到 Melpa，同学可以通过下面几个步骤来安装：
+* 安装 org-webpage 和 owp-theme-emacslove
+org-webpage 和 owp-theme-emacslove 已经提交到 melpa，同学可以通过下面几个步骤来安装：
 1. 配置melpa源，参考：[[http://melpa.org/#/getting-started]] 。
 2. M-x package-install RET org-webpage RET
-3. 在emacs配置文件中（比如: ~/.emacs）添加如下代码：
-
-#+BEGIN_SRC emacs-lisp
-(require 'org-webpage)
-#+END_SRC
+3. M-x package-install RET owp-theme-emacslove RET
 
 * 搭建 emacs-china 本地开发环境
 emacs-china 已经包含了 org-webpage 对应的配置，所以同学只需要做如下工作:
@@ -48,16 +44,10 @@ git branch source origin/source
 git checkout source
 #+END_EXAMPLE
 
-(3) 下载 org-webpage emacs-love 主题
-
-#+BEGIN_EXAMPLE
-cd ~/.emacs.d
-git clone https://github.com/emacs-china/owp-theme-emacslove.git
-#+END_EXAMPLE
-
-(4) 在 ~/.emacs 中添加并 *执行* 如下代码：
+(3) 在 ~/.emacs 中添加并 *执行* 如下代码：
 
 #+BEGIN_SRC emacs-lisp
+(require 'org-webpage)
 (require 'emacs-china-utils)
 #+END_SRC
 
@@ -65,7 +55,7 @@ git clone https://github.com/emacs-china/owp-theme-emacslove.git
  owp-theme-emacslove/ 两个子目录包含到 emacs 搜索路径中（load-path）就可以了。
 
 * 使用
-当上述工作完成后， emacs-china 基于 org-webpage 的本地开发环境就搭建完成，
+当上述工作完成后， 基于 org-webpage 的 emacs-china 本地开发环境就搭建完成，
 用户可以通过命令：
 
 #+BEGIN_EXAMPLE

@@ -31,9 +31,9 @@
 + about.org 文件 :: 在这里介绍自己。
 + index.org 文件 :: 在这里写自己博客的首页。
 
-剩下的交给 ~M-x op/do-publication~ 命令。
+接下来，还有一些参数要设置，英语好的话，请参考这里 [[https://github.com/kelvinh/org-page/blob/master/doc/quick-guide.org][quick-guide.org]] ，英语不好，请 *慎用* emacs 。
 
-接下来，英语好的话，请参考这里 [[https://github.com/kelvinh/org-page/blob/master/doc/quick-guide.org][quick-guide.org]] ，英语不好，请 *慎用* emacs 。
+html 页面的生成与发布都交给了 ~M-x op/do-publication~ 命令。
 
 * org-page 效果举例
 

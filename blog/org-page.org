@@ -186,6 +186,6 @@ _悬停卡片_[fn:4]
 
 [fn:3] 参见 emacs manual 的 [[http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Advising-Functions][advice-add]] 函数。
 
-[fn:4] 这里是悬停卡片的内容哦~~~
+[fn:4] 这里是悬停卡片的内容哦~~~(该功能是emacs_love主题包提供的……)
 
 

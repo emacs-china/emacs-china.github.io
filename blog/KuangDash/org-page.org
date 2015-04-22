@@ -63,7 +63,9 @@ _悬停卡片_[fn:4]
   (require 'org-page)
   (defun kd/custom-org-page (&optional site)
     "choose the org-page's main repository"
-    (interactive (let ((sitet (read-string "静态站点名：")))
+    (interactive (let ((sitet (completing-read "静态站点名: "
+                                  '("kuangdash" "emacs-china")
+                                  nil t nil nil "kuangdash")))
                    (list sitet)))
     (cond ((equal site "kuangdash")
            (setq op/repository-directory "~/github/kuangdash.github.io"
@@ -106,7 +108,9 @@ _悬停卡片_[fn:4]
   (require 'simple-httpd)
   (defun kd/test-org-page (&optional site)
     "test the org-page's main repository"
-    (interactive (let ((sitet (read-string "测试静态站点名：")))
+    (interactive (let ((sitet (completing-read "测试静态站点名: "
+                                  '("kuangdash" "emacs-china")
+                                  nil t nil nil "kuangdash")))
                    (list sitet)))
     (cond ((equal site "kuangdash")
            (op/do-publication t nil "~/webRoot/kuangdash.github.io")

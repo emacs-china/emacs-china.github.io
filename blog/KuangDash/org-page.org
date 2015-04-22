@@ -73,7 +73,8 @@ _悬停卡片_[fn:4]
                  op/personal-disqus-shortname "kuangdash"
                  op/personal-duoshuo-shortname "kuangdash"
                  op/site-main-title "有为山深"
-                 op/site-sub-title "It's only when it is truly dark that we can see the stars")
+                 op/site-sub-title "It's only when it is truly dark that we can see the stars"
+                 op/organization nil)
            )
 
           ;;emacs-china
@@ -85,7 +86,8 @@ _悬停卡片_[fn:4]
                  op/personal-disqus-shortname "emacs-china"
                  op/personal-duoshuo-shortname "emacs-china"
                  op/site-main-title "EMACS-CHINA"
-                 op/site-sub-title "=============>集思广益")
+                 op/site-sub-title "=============>集思广益"
+                 op/organization t)
            )
           (t (message "error! no repository"))))
 #+END_SRC
@@ -109,12 +111,14 @@ _悬停卡片_[fn:4]
     (cond ((equal site "kuangdash")
            (op/do-publication t nil "~/webRoot/kuangdash.github.io")
            (httpd-serve-directory "~/webRoot/kuangdash.github.io")
+           (browse-url (format "http://%s:%d" system-name httpd-port))
            )
 
           ;;emacs-china
           ((equal site "emacs-china")
            (op/do-publication t nil "~/webRoot/emacs-china.github.io")
            (httpd-serve-directory "~/webRoot/emacs-china.github.io")
+           (browse-url (format "http://%s:%d" system-name httpd-port))
            )
           (t (message "error! no repository"))))
 #+END_SRC

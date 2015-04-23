@@ -20,7 +20,7 @@
 
 [[http://emacs-china.org/][emacs-china]] 默认使用 [[https://github.com/kelvinh/org-page][org-page]] 来生成静态网站，用户也可以
 使用[[https://github.com/tumashu/org-webpage][ org-webpage]] 来搭建 emacs-china 本地开发环境，
-用与添加和测试 new-post。
+用于添加和测试 new-post。
 
 注： org-webpage 是 org-page 的一个fork版本。
 

@@ -6,7 +6,7 @@
 #+OPTIONS:     H:4 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 
 #+ATTR_HTML: :class center
-[[./assets/dragon.svg]]
+[[./assets/dragon2.svg]]
 
 #+BEGIN_HTML
 <p class="center">
@@ -21,6 +21,7 @@
 这里是一些新人入门的中文资料。
 
 *** hello-emacs
+
 darksun 同学所写的关于 emacs 的中文笔记，十分详实，看的出作者是个优等生。欢迎拍砖（即是向该项目提交patch，改进它）。
 
 ** 字体与输入法

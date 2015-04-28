@@ -21,7 +21,6 @@
 这里是一些新人入门的中文资料。
 
 *** hello-emacs
-
 darksun 同学所写的关于 emacs 的中文笔记，十分详实，看的出作者是个优等生。欢迎拍砖（即是向该项目提交patch，改进它）。
 
 ** 字体与输入法
@@ -39,7 +38,10 @@ emacs自带各国输入法，当然也包括中文。
 用 emacs 写 blog，乐趣多多。
 
 *** org-page
-Kelvin Hu 先生所写的静态站点生成器，基于 emacs 和 org-mode 本站点即由该生成器生成，简约美观，设计合理（如有不合理之处，欢迎拍砖（即是向该项目提交patch，改进它））。
+Kelvin Hu 先生所写的静态站点生成器，基于 emacs、 org-mode 和 git （git 功能的添加使它支持 增量式的文档发布功能） ，简约美观，设计合理。
+
+*** org-webpage
+tumashu 先生在 Kelvin Hu 先生的 org-page 基础上所写的静态站点生成器（org-webpage 在 org-page 上添加了主题继承功能，但该观点未被 Kelvin Hu 采纳，后来独立出该分支，并集成了站点本地测试的功能）。相较 org-page ，org-webpage 更适合多站点管理时使用，本站点即是由它生成。
 
 * 中文资料
 在本站点的 Blog 目录下面，可以在 Tags 下面按标签索引文件，也可使用 search 框。

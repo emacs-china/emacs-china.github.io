@@ -41,7 +41,7 @@ emacs自带各国输入法，当然也包括中文。
 Kelvin Hu 先生所写的静态站点生成器，基于 emacs、 org-mode 和 git （git 功能的添加使它支持 增量式的文档发布功能） ，简约美观，设计合理。
 
 *** org-webpage
-tumashu 先生在 Kelvin Hu 先生的 org-page 基础上所写的静态站点生成器（org-webpage 在 org-page 上添加了主题继承功能，但该观点未被 Kelvin Hu 采纳，后来独立出该分支，并集成了站点本地测试的功能）。相较 org-page ，org-webpage 更适合多站点管理时使用，本站点即是由它生成。
+tumashu 先生在 Kelvin Hu 先生的 org-page 基础上所写的 _静态站点生成器_[fn:1] 。相较 org-page ，org-webpage 更适合多站点管理时使用，本站点即是由它生成。
 
 * 中文资料
 在本站点的 Blog 目录下面，可以在 Tags 下面按标签索引文件，也可使用 search 框。
@@ -57,3 +57,8 @@ tumashu 先生在 Kelvin Hu 先生的 org-page 基础上所写的静态站点生
 + QQ群 :: ……
 + gitter(内部使用) :: [[https://gitter.im/emacs-china][点击我]]
 期待和各位 emacs 中文用户的交流！
+
+* Footnotes
+
+[fn:1] org-webpage 在 org-page 上添加了主题继承功能，但该观点未被 Kelvin Hu 采纳，后来独立出该分支，并集成了站点本地测试的功能。
+

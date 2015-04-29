@@ -39,6 +39,7 @@ org-webpage 的着重点在于 *多站点的管理* ，这导致了它在设置�
                  :source-browse-url ("Github" "https://github.com/emacs-china")
                  :personal-disqus-shortname "emacs-china"
                  :personal-duoshuo-shortname "emacs-china"
+                 :confound-email nil
                  :web-server-docroot "~/webRoot/emacs-china.github.io"
                  :web-server-port 5432))
 #+END_SRC
@@ -54,6 +55,7 @@ org-webpage 的着重点在于 *多站点的管理* ，这导致了它在设置�
 + =:summary= :: 你的导航栏可拉出来的选项。
 + =:source-browse-url= :: 看到 “Github” 的话，也应该了解。
 + =:personal-disqus-shortname= :: 和下面的 =:personal-duoshuo-shortname= 一样，用于设置评论系统。
++ =:confound-email= :: 该值为 boolean 型；为t时，站点下方邮件地址为防垃圾邮件模式；为nil时，站点下方邮件地址正常显示。（防恶意邮件的功能）
 + =:web-server-docroot= :: 这里放用于测试站点的目录，org-webpage 集成了一个用于测试的小型服务器。
 + =:web-server-port= :: 这里是服务器的服务端口。
 

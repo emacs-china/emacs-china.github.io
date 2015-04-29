@@ -51,7 +51,7 @@ org-webpage 的着重点在于 *多站点的管理* ，这导致了它在设置�
 + =:repository-directory= :: 你的 project 所在的目录。
 + =:site-domain= :: 你的站点域名。
 + =:site-xxx-title= :: 站点标语一类的。
-+ =:theme= :: 你的 project 所使用的主题，这里使用 [[https://github.com/kuangdash/owp_emacs_love][emacs_love]] _主题_[fn:2]。
++ =:theme= :: 你的 project 所使用的主题，这里使用 [[https://github.com/kuangdash/owp_emacs_love][emacs_love]] _主题_[fn:2]。由于 emacs-china 的 source branch 下的 themes 文件夹内已经包含了该主题，所以 emacs-china 可以无需设置，直接用 =owp/do-publication= 进行发布。
 + =:summary= :: 你的导航栏可拉出来的选项。
 + =:source-browse-url= :: 看到 “Github” 的话，也应该了解。
 + =:personal-disqus-shortname= :: 和下面的 =:personal-duoshuo-shortname= 一样，用于设置评论系统。

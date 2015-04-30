@@ -21,7 +21,7 @@
 
 #+BEGIN_EXAMPLE
   ,*** emacs-china
-  + 项目链接：[[http://github.com/emacs-china]] 
+  + 项目链接：[[http://github.com/emacs-china]]
   + 项目作者：emacs-china
   + 项目介绍：参考 [[http://emacs-china.github.io/about/][About]] 页面
 #+END_EXAMPLE
@@ -42,12 +42,13 @@
 emacs自带各国输入法，当然也包括中文。
 
 *** chinese-fonts-setup
-+ 项目链接：
++ 项目链接：[[https://github.com/tumashu/chinese-fonts-setup]]
 + 项目作者：tumashu
 + 项目介绍：emacs 中的中文字体设置，也可用于解决 org-mode 表格中的中文字体无法对齐的问题，使 org-mode 中的中文变得十分美观。
 
 *** chinese-pyim
-+ 项目链接：
++ 项目链接：[[http://tumashu.github.io/chinese-pyim]]
++ 代码浏览：[[https://github.com/tumashu/chinese-pyim]]
 + 项目作者：tumashu
 + 项目介绍：一个 emacs 中的中文拼音输入法，相对 emacs 自带的那些中文输入法，使用起来十分便捷。
 
@@ -61,7 +62,8 @@ emacs自带各国输入法，当然也包括中文。
 + 项目介绍：静态站点生成器，基于 emacs、 org-mode 和 git （git 功能的添加使它支持 增量式的文档发布功能） ，简约美观，设计合理。
 
 *** org-webpage
-+ 项目链接：
++ 项目链接：[[http://tumashu.github.io/org-webpage]]
++ 代码浏览：[[https://github.com/tumashu/org-webpage]]
 + 项目作者：tumashu
 + 项目介绍：在 Kelvin Hu 先生的 org-page 基础上所写的 _静态站点生成器_[fn:1] 。相较 org-page ，org-webpage 更适合多站点管理时使用，本站点即是由它生成。
 
@@ -86,4 +88,3 @@ emacs自带各国输入法，当然也包括中文。
 [fn:1] org-webpage 在 org-page 上添加了主题继承功能，但该观点未被 Kelvin Hu 采纳，后来独立出该分支，并集成了站点本地测试的功能。
 
 [fn:2] 请好好学习 git 和 github 的用法，非 emacs-china 成员可以使用 pull request 的方式，emacs-china 成员可以直接选择文档页面的 “点我修改” 链接（如果有的话）。
-

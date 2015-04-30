@@ -21,7 +21,8 @@
 这里是一些新人入门的中文资料。
 
 *** hello-emacs
-darksun 同学所写的关于 emacs 的中文笔记，十分详实，看的出作者是个优等生。欢迎拍砖（即是向该项目提交patch，改进它）。
+1. 项目链接：[[https://github.com/emacs-china/hello-emacs]]
+2. 项目介绍：darksun 同学所写的关于 emacs 的中文笔记，十分详实，看的出作者是个优等生。欢迎拍砖（即是向该项目提交patch，改进它）。
 
 ** 字体与输入法
 

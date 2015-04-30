@@ -19,10 +19,12 @@
 
 创建项目列表的基本范式：
 
-*** emacs-china
-+ 项目链接：[[http://github.com/emacs-china]] 
-+ 项目作者：emacs-china
-+ 项目介绍：参考 [[http://emacs-china.github.io/about/][About]] 页面
+#+BEGIN_EXAMPLE
+  ,*** emacs-china
+  + 项目链接：[[http://github.com/emacs-china]] 
+  + 项目作者：emacs-china
+  + 项目介绍：参考 [[http://emacs-china.github.io/about/][About]] 页面
+#+END_EXAMPLE
 
 ** 新人入门资料
 

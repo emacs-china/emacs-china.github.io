@@ -52,6 +52,11 @@ emacs自带各国输入法，当然也包括中文。
 + 项目作者：tumashu
 + 项目介绍：一个 emacs 中的中文拼音输入法，相对 emacs 自带的那些中文输入法，使用起来十分便捷。
 
+*** scel2pyim
++ 项目链接：https://github.com/E-Neo/scel2pyim
++ 项目作者：E-Neo
++ 项目介绍：一个将搜狗输入法 scel 细胞词库转换为 chinese-pyim 文本词库的小工具。
+
 ** 静态站点生成器
 
 用 emacs 写 blog，乐趣多多。

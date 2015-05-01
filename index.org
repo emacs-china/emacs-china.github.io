@@ -1,3 +1,4 @@
+# -*- coding: utf-8-unix; -*-
 #+title: 欢迎来到 emacs-china
 #+author: emacs-china
 #+email: emacs-china@googlegroups.com

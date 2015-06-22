@@ -1,0 +1,1075 @@
+#+TITLE:       使用 ctex 将 org 文件转化为 pdf
+#+AUTHOR:      Feng Shu
+#+EMAIL:       tumashu@163.com
+#+DATE:        2015-04-20 一
+
+#+URI:         /blog/%y/%m/%d/%t/
+#+KEYWORDS:    org-mode, latex, ctex
+#+TAGS:        org-mode, latex, ctex
+
+#+LANGUAGE:    zh-CN
+#+OPTIONS:     H:3 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+
+* 安装 texlive
+安装 texlive 可以使用两种方式
+1. Linux 发行版自带的包管理器，比如：apt-get 等。
+2. Texlive 自带的包管理器：tlmgr。
+
+由于 Debian 自带的 texlive 版本相对比较旧，所以本人使用 tlmgr 来安装texlive，
+具体安装方式请参考：[[http://www.tug.org/texlive/quickinstall.html][TexLive快速安装手册]] 。
+
+注：LaTeX 系统安装不完整或者没有安装 org-mode 依赖的 LaTeX 宏包时，
+org-mode 不能正确生成 pdf 文档，同学可以参考本人的 LaTeX 宏包列表，来寻找没有安装
+的宏包。
+
+#+BEGIN_SRC shell :output :results output verbatim :eval no :exports both
+/usr/local/texlive/2014/bin/i386-linux/tlmgr  info --only-installed
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+i 12many: Generalising mathematical index sets.
+i FAQ-en: A compilation of Frequently Asked Questions with answers.
+i MemoirChapStyles: Chapter styles in memoir class.
+i Type1fonts: Font installation guide.
+i a2ping: Advanced PS, PDF, EPS converter.
+i a2ping.i386-linux: i386-linux files of a2ping
+i accfonts: Utilities to derive new fonts from existing ones.
+i accfonts.i386-linux: i386-linux files of accfonts
+i adhocfilelist: '\listfiles' entries from the command line.
+i adhocfilelist.i386-linux: i386-linux files of adhocfilelist
+i adobemapping: Adobe cmap and pdfmapping files
+i ae: Virtual fonts for T1 encoded CMR-fonts.
+i aeguill: Add several kinds of guillemets to the ae fonts.
+i afm2pl: (shortdesc missing)
+i afm2pl.i386-linux: i386-linux files of afm2pl
+i amscls: AMS document classes for LaTeX.
+i amsfonts: TeX fonts from the American Mathematical Society.
+i amslatex-primer: Getting up and running with AMS-LaTeX.
+i amsldoc-it: (shortdesc missing)
+i amsmath: AMS mathematical facilities for LaTeX.
+i amsmath-it: Italian translations of some old AMSmath documents.
+i amstex: American Mathematical Society plain TeX macros.
+i amstex.i386-linux: i386-linux files of amstex
+i amsthdoc-it: (shortdesc missing)
+i anysize: A simple package to set up document margins.
+i apprends-latex: Apprends LaTeX!
+i arabxetex: An ArabTeX-like interface for XeLaTeX.
+i arara: Automation of LaTeX compilation.
+i arara.i386-linux: i386-linux files of arara
+i armtex: A sytem for writing Armenian with TeX and LaTeX.
+i around-the-bend: Typeset exercises in TeX, with answers.
+i arphic: Arphic (Chinese) font packages.
+i ascii-chart: An ASCII wall chart.
+i asymptote: 2D and 3D TeX-Aware Vector Graphics Language.
+i asymptote-by-example-zh-cn: Asymptote by example.
+i asymptote-faq-zh-cn: Asymptote FAQ (Chinese translation).
+i asymptote-manual-zh-cn: A Chinese translation of the asymptote manual.
+i asymptote.i386-linux: i386-linux files of asymptote
+i automata: Finite state machines, graphs and trees in MetaPost.
+i avantgar: URW "Base 35" font pack for LaTeX.
+i babel: Multilingual support for Plain TeX or LaTeX.
+i babel-albanian: Support for Albanian within babel
+i babel-basque: Babel contributed support for Basque.
+i babel-breton: Babel contributed support for Breton.
+i babel-catalan: Babel contributed support for Catalan.
+i babel-croatian: Babel contributed support for Croatian.
+i babel-czech: Babel support for Czech.
+i babel-danish: Babel contributed support for Danish.
+i babel-dutch: Babel contributed support for Dutch.
+i babel-english: Babel support for English.
+i babel-estonian: Babel support for Estonian.
+i babel-finnish: (shortdesc missing)
+i babel-french: Babel contributed support for French.
+i babel-friulan: Babel/Polyglossia support for Friulan(Furlan).
+i babel-galician: (shortdesc missing)
+i babel-german: Babel support for documents written in German.
+i babel-hungarian: Babel support for Hungarian (Magyar).
+i babel-icelandic: Babel support for Icelandic.
+i babel-irish: Babel support for Irish.
+i babel-italian: Babel support for Italian text.
+i babel-kurmanji: Babel support for Kurmanji.
+i babel-latin: Babel support for Latin.
+i babel-latvian: Babel support for Latvian.
+i babel-norsk: Babel support for Norwegian.
+i babel-piedmontese: Babel support for Piedmontese.
+i babel-polish: Babel support for Polish.
+i babel-portuges: Babel support for Portuges.
+i babel-romanian: Babel support for Romanian.
+i babel-romansh: Babel/Polyglossia support for the Romansh language.
+i babel-samin: Babel support for Samin.
+i babel-scottish: Babel support for Scottish Gaelic.
+i babel-slovak: Babel support for typesetting Slovak.
+i babel-slovenian: Babel support for typesetting Slovenian.
+i babel-spanish: Babel support for Spanish.
+i babel-swedish: Babel support for typesetting Swedish.
+i babel-turkish: Babel support for Turkish documents.
+i babel-welsh: Babel support for Welsh.
+i babelbib: Multilingual bibliographies.
+i backnaur: Typeset Backus Naur Form definitions.
+i basque-book: Class for book-type documents written in Basque.
+i basque-date: Print the date in Basque.
+i bbcard: Bullshit bingo, calendar and baseball-score cards.
+i beamer: A LaTeX class for producing presentations and slides.
+i beamer-tut-pt: An introduction to the Beamer class, in Portuguese.
+i begriff: Typeset Begriffschrift.
+i bib-fr: French translation of classical BibTeX styles
+i bibleref-french: French translations for bibleref.
+i bibleref-german: German adaptation of bibleref.
+i bibtex: Process bibliographies for LaTeX, etc.
+i bibtex.i386-linux: i386-linux files of bibtex
+i bibtex8: A fully 8-bit adaptation of BibTeX 0.99.
+i bibtex8.i386-linux: i386-linux files of bibtex8
+i bibtexu: (shortdesc missing)
+i bibtexu.i386-linux: i386-linux files of bibtexu
+i bidi-atbegshi: Bidi-aware shipout macros.
+i bidicontour: Bidi-aware coloured contour around text.
+i bidipagegrid: Bidi-aware page grid in background.
+i bidipresentation: Experimental bidi presentation.
+i bidishadowtext: Bidi-aware shadow text.
+i binomexp: Calculate Pascal's triangle.
+i blockdraw_mp: Block diagrams and bond graphs, with MetaPost.
+i boldtensors: Bold latin and greek characters through simple prefix characters.
+i bookman: URW "Base 35" font pack for LaTeX.
+i booktabs: Publication quality tables in LaTeX
+i booktabs-de: German version of booktabs.
+i booktabs-fr: French translation of booktabs documentation.
+i bosisio: A collection of packages by Francesco Bosisio.
+i bpolynomial: Drawing polynomial functions of up to order 3.
+i breqn: Automatic line breaking of displayed equations.
+i bropd: Simplified brackets and differentials in LaTeX.
+i bundledoc: Bundle together all the files needed to build a LaTeX document.
+i bundledoc.i386-linux: i386-linux files of bundledoc
+i c90: (shortdesc missing)
+i capt-of: Captions on more than floats.
+i caption: Customising captions in floating environments.
+i carlisle: David Carlisle's small packages.
+i cc-pl: Polish extension of Computer Concrete fonts.
+i ccfonts: Support for Concrete text and math fonts in LaTeX.
+i charter: Charter fonts.
+i checkcites: Check citation commands in a document.
+i checkcites.i386-linux: i386-linux files of checkcites
+i chickenize: Use lua callbacks for "interesting" textual effects.
+i chktex: Check for errors in LaTeX documents.
+i chktex.i386-linux: i386-linux files of chktex
+i cite: Improved citation handling in LaTeX.
+i cjk: CJK language support.
+i cjkpunct: Adjust locations and kerning of CJK punctuation marks.
+i cjkutils: (shortdesc missing)
+i cjkutils.i386-linux: i386-linux files of cjkutils
+i cm: Computer Modern fonts.
+i cm-super: CM-Super family of fonts
+i cmap: Make PDF files searchable and copyable.
+i cmarrows: MetaPost arrows and braces in the Computer Modern style.
+i cmextra: Knuth's local information.
+i cnbwp: Typeset working papers of the Czech National Bank.
+i cns: (shortdesc missing)
+i codicefiscaleitaliano: Test the consistency of the Italian personal Fiscal Code.
+i collection-basic: Essential programs and files
+i collection-binextra: TeX auxiliary programs
+i collection-context: ConTeXt and packages
+i collection-fontsrecommended: Recommended fonts
+i collection-fontutils: Graphics and font utilities
+i collection-genericrecommended: Generic recommended packages
+i collection-langchinese: Chinese
+i collection-langcjk: Chinese/Japanese/Korean (base)
+i collection-langczechslovak: Czech/Slovak
+i collection-langenglish: US and UK English
+i collection-langeuropean: Other European languages
+i collection-langfrench: French
+i collection-langgerman: German
+i collection-langitalian: Italian
+i collection-langpolish: Polish
+i collection-langportuguese: Portuguese
+i collection-langspanish: Spanish
+i collection-latex: LaTeX fundamental packages
+i collection-latexrecommended: LaTeX recommended packages
+i collection-luatex: LuaTeX packages
+i collection-mathextra: Mathematics packages
+i collection-metapost: MetaPost and Metafont packages
+i collection-plainextra: Plain TeX packages
+i collection-texworks: TeXworks editor
+i collection-xetex: XeTeX and packages
+i colortbl: Add colour to LaTeX tables.
+i commath: Mathematics typesetting support.
+i components-of-TeX: Components of TeX.
+i comprehensive: Symbols accessible from LaTeX.
+i concmath: Concrete Math fonts.
+i concrete: Concrete Roman fonts.
+i conteq: Typeset multiline continued equalities.
+i context: The ConTeXt macro package.
+i context-account: A simple accounting package.
+i context-algorithmic: Algorithm handling in ConTeXt.
+i context-bnf: A BNF module for Context.
+i context-chromato: ConTeXt macros for chromatograms.
+i context-construction-plan: Construction plans in ConTeXt.
+i context-cyrillicnumbers: Write numbers as cyrillic glyphs.
+i context-degrade: Degrading JPEG images in ConTeXt.
+i context-filter: Run external programs on the contents of a start-stop environment.
+i context-fixme: Make editorial marks on a document.
+i context-french: Support for writing French in ConTeXt.
+i context-fullpage: Overfull pages with ConTeXt
+i context-games: (shortdesc missing)
+i context-gantt: GANTT module for ConTeXt.
+i context-gnuplot: Inclusion of Gnuplot graphs in ConTeXt.
+i context-letter: Context package for writing letters.
+i context-lettrine: A ConTeXt implementation of lettrines.
+i context-lilypond: Lilypond code in ConTeXt.
+i context-mathsets: Set notation in ConTeXt.
+i context-notes-zh-cn: Notes on using ConTeXt MkIV.
+i context-rst: Process reStructuredText with ConTeXt.
+i context-ruby: Ruby annotations in ConTeXt.
+i context-simplefonts: Simplified font usage for ConTeXt.
+i context-simpleslides: (shortdesc missing)
+i context-transliterator: Transliterate text from 'other' alphabets.
+i context-typearea: Something like Koma-Script typearea.
+i context-typescripts: Small modules to load various fonts for use in ConTeXt.
+i context-vim: Generate Context syntax highlighting code from vim.
+i context.i386-linux: i386-linux files of context
+i courier: URW "Base 35" font pack for LaTeX.
+i crop: Support for cropmarks.
+i cs: Czech/Slovak-tuned Computer Modern fonts.
+i csbulletin: LaTeX class for articles submitted to the CSTUG Bulletin (Zpravodaj).
+i cslatex: LaTeX support for Czech/Slovak typesetting.
+i cslatex.i386-linux: i386-linux files of cslatex
+i csplain: Plain TeX multilanguage support
+i csplain.i386-linux: i386-linux files of csplain
+i csquotes-de: German translation of csquotes documentation.
+i cstex: Support for Czech/Slovak languages.
+i ctable: Flexible typesetting of table and figure floats using key/value directives.
+i ctanify: Prepare a package for upload to CTAN.
+i ctanify.i386-linux: i386-linux files of ctanify
+i ctanupload: Support for users uploading to CTAN.
+i ctanupload.i386-linux: i386-linux files of ctanupload
+i ctex: LaTeX classes and packages for Chinese typesetting.
+i ctex-faq: LaTeX FAQ by the Chinese TeX Society (ctex.org).
+i ctie: C version of tie (merging Web change files).
+i ctie.i386-linux: i386-linux files of ctie
+i cursolatex: A LaTeX tutorial.
+i cweb: A Web system in C.
+i cweb.i386-linux: i386-linux files of cweb
+i de-macro: Expand private macros in a document.
+i de-macro.i386-linux: i386-linux files of de-macro
+i dehyph-exptl: Experimental hyphenation patterns for the German language.
+i detex: Strip TeX from a source file.
+i detex.i386-linux: i386-linux files of detex
+i dhua: German abbreviations using thin space.
+i dickimaw: Books and tutorials from the "Dickimaw LaTeX Series".
+i dnp: (shortdesc missing)
+i dosepsbin: Deal with DOS binary EPS files.
+i dosepsbin.i386-linux: i386-linux files of dosepsbin
+i droit-fr: Document class and bibliographic style for French law.
+i drv: Derivation trees with MetaPost.
+i dtl: Tools to dis-assemble and re-assemble DVI files.
+i dtl.i386-linux: i386-linux files of dtl
+i dtxgen: Creates a template for a self-extracting .dtx file.
+i dtxgen.i386-linux: i386-linux files of dtxgen
+i dtxtut: Tutorial on writing .dtx and .ins files
+i dvi2tty: Produce ASCII from DVI.
+i dvi2tty.i386-linux: i386-linux files of dvi2tty
+i dviasm: A utility for editing DVI files.
+i dviasm.i386-linux: i386-linux files of dviasm
+i dvicopy: Copy DVI files, flattening VFs.
+i dvicopy.i386-linux: i386-linux files of dvicopy
+i dvidvi: Convert one DVI file into another.
+i dvidvi.i386-linux: i386-linux files of dvidvi
+i dviincl: Include a DVI page into MetaPost output.
+i dviljk: DVI to Laserjet output.
+i dviljk.i386-linux: i386-linux files of dviljk
+i dvipdfmx: An extended version of dvipdfm.
+i dvipdfmx-def: Configuration file for dvipdfmx graphics.
+i dvipdfmx.i386-linux: i386-linux files of dvipdfmx
+i dvipng: A fast DVI to PNG/GIF converter.
+i dvipng.i386-linux: i386-linux files of dvipng
+i dvipos: (shortdesc missing)
+i dvipos.i386-linux: i386-linux files of dvipos
+i dvips: A DVI to PostScript driver.
+i dvips.i386-linux: i386-linux files of dvips
+i dvipsconfig: Collection of dvips PostScript headers.
+i dvisvgm: Convert DVI files to Scalable Vector Graphics format (SVG).
+i dvisvgm.i386-linux: i386-linux files of dvisvgm
+i ec: Computer modern fonts in T1 and TS1 encodings.
+i einfuehrung: Examples from the book Einfuhrung in LaTeX.
+i emp: "Encapsulate" MetaPost figures in a document.
+i enctex: A TeX extension that translates input on its way into TeX.
+i enigma: Encrypt documents with a three rotor Enigma.
+i environ: A new interface for environments in LaTeX.
+i epsf: Simple macros for EPS inclusion.
+i epsincl: Include EPS in MetaPost figures.
+i epslatex-fr: French version of "graphics in LaTeX".
+i epstopdf: Convert EPS to 'encapsulated' PDF using Ghostscript.
+i epstopdf.i386-linux: i386-linux files of epstopdf
+i eqnarray: More generalised equation arrays with numbering.
+i es-tex-faq: CervanTeX (Spanish TeX Group) FAQ
+i eso-pic: Add picture commands (or backgrounds) to every page.
+i etex: An extended version of TeX, from the NTS project.
+i etex-pkg: E-TeX support package.
+i etoolbox: Tool-box for LaTeX programmers using e-TeX.
+i etoolbox-de: German translation of documentation of etoolbox.
+i euenc: Unicode font encoding definitions for XeTeX.
+i euler: Use AMS Euler fonts for math.
+i euro: Provide Euro values for national currency amounts.
+i euro-ce: Euro and CE sign font.
+i eurosym: Metafont and macros for Euro sign.
+i everypage: Provide hooks to be run on every page of a document.
+i expressg: Diagrams consisting of boxes, lines, and annotations.
+i extarrows: Extra Arrows beyond those provided in AMSmath
+i exteps: Include EPS figures in MetaPost.
+i extpfeil: Extensible arrows in mathematics.
+i extsizes: Extend the standard classes' size options.
+i facture: Generate an invoice.
+i faktor: Typeset quotient structures with LaTeX.
+i fancybox: Variants of \fbox and other games with boxes.
+i fancyhdr: Extensive control of page headers and footers in LaTeX2e.
+i fancyhdr-it: Italian translation of fancyhdr documentation.
+i fancyref: A LaTeX package for fancy cross-referencing.
+i fancyvrb: Sophisticated verbatim text.
+i fandol: Four basic fonts for Chinese typesetting.
+i featpost: MetaPost macros for 3D.
+i feupphdteses: Typeset Engineering PhD theses at the University of Porto.
+i feynmf: Macros and fonts for creating Feynman (and other) diagrams.
+i feynmp-auto: Automatic processing of feynmp graphics.
+i fifinddo-info: German HTML beamer presentation on nicetext and morehype.
+i figflow: Flow text around a figure.
+i finbib: A Finnish version of plain.bst.
+i findhyph: Find hyphenated words in a document.
+i findhyph.i386-linux: i386-linux files of findhyph
+i first-latex-doc: A document for absolute LaTeX beginners.
+i fix2col: Fix miscellaneous two column mode features.
+i fixlatvian: Improve Latvian language support in XeLaTeX.
+i fixltxhyph: Allow hyphenation of partially-emphasised substrings.
+i fixpdfmag: Fix magnification in PDFTeX.
+i float: Improved interface for floating objects.
+i font-change: Macros to change text and mathematics fonts in plain TeX.
+i fontbook: Generate a font book.
+i fontch: Changing fonts, sizes and encodings in Plain TeX.
+i fontinst: Help with installing fonts for TeX and LaTeX.
+i fontinst.i386-linux: i386-linux files of fontinst
+i fontname: Scheme for naming fonts in TeX.
+i fontools: Tools to simplify using fonts (especially TT/OTF ones).
+i fontools.i386-linux: i386-linux files of fontools
+i fonts-tlwg: Thai fonts for LaTeX from TLWG.
+i fontspec: Advanced font selection in XeLaTeX and LuaLaTeX.
+i fontware: (shortdesc missing)
+i fontware.i386-linux: i386-linux files of fontware
+i fontwrap: Bind fonts to specific unicode blocks.
+i fp: Fixed point arithmetic.
+i fpl: SC and OsF fonts for URW Palladio L
+i fragmaster: Using psfrag with PDFLaTeX.
+i fragmaster.i386-linux: i386-linux files of fragmaster
+i frenchle: French macros, usable stand-alone or with Babel.
+i frletter: Typeset letters in the French style.
+i frontespizio: Create a frontispiece for Italian theses.
+i garrigues: MetaPost macros for the reproduction of Garrigues' Easter nomogram.
+i garuda-c90: TeX support (from CJK) for the garuda font
+i genmisc: (shortdesc missing)
+i gentle: A Gentle Introduction to TeX.
+i geometry: Flexible and complete interface to document dimensions.
+i geometry-de: German translation of the geometry package.
+i german: Support for German typography.
+i germbib: German variants of standard BibTeX styles.
+i germkorr: Change kerning for german quotation marks.
+i getoptk: Define macros with sophisticated options.
+i glyphlist: (shortdesc missing)
+i gmp: Enable integration between MetaPost pictures and LaTeX.
+i graphics: Standard LaTeX graphics.
+i graphics-pln: LaTeX-style graphics for Plain TeX users.
+i grundgesetze: Typeset Frege's Grundgesetze der Arithmetik
+i gsftopk: Convert "ghostscript fonts" to PK files.
+i gsftopk.i386-linux: i386-linux files of gsftopk
+i guide-to-latex: (shortdesc missing)
+i gustlib: (shortdesc missing)
+i gustprog: (shortdesc missing)
+i happy4th: A firework display in obfuscated TeX.
+i hatching: MetaPost macros for hatching interior of closed paths.
+i hausarbeit-jura: Class for writing "juristiche Hausarbeiten" at German Universities.
+i helvetic: URW "Base 35" font pack for LaTeX.
+i hrlatex: LaTeX support for Croatian documents.
+i hyperref: Extensive support for hypertext in LaTeX.
+i hyph-utf8: Hyphenation patterns expressed in UTF-8.
+i hyphen-armenian: Armenian hyphenation patterns.
+i hyphen-base: (shortdesc missing)
+i hyphen-basque: Basque hyphenation patterns.
+i hyphen-catalan: Catalan hyphenation patterns.
+i hyphen-chinese: Chinese pinyin hyphenation patterns.
+i hyphen-croatian: Croatian hyphenation patterns.
+i hyphen-czech: Czech hyphenation patterns.
+i hyphen-danish: Danish hyphenation patterns.
+i hyphen-dutch: Dutch hyphenation patterns.
+i hyphen-english: English hyphenation patterns.
+i hyphen-estonian: Estonian hyphenation patterns.
+i hyphen-finnish: Finnish hyphenation patterns.
+i hyphen-french: French hyphenation patterns.
+i hyphen-friulan: Friulan hyphenation patterns.
+i hyphen-galician: Galician hyphenation patterns.
+i hyphen-german: German hyphenation patterns.
+i hyphen-hungarian: Hungarian hyphenation patterns.
+i hyphen-icelandic: Icelandic hyphenation patterns.
+i hyphen-irish: Irish hyphenation patterns.
+i hyphen-italian: Italian hyphenation patterns.
+i hyphen-kurmanji: Kurmanji hyphenation patterns.
+i hyphen-latin: Latin and classical Latin hyphenation patterns.
+i hyphen-latvian: Latvian hyphenation patterns.
+i hyphen-lithuanian: Lithuanian hyphenation patterns.
+i hyphen-norwegian: Norwegian Bokmal and Nynorsk hyphenation patterns.
+i hyphen-piedmontese: Piedmontese hyphenation patterns.
+i hyphen-polish: Polish hyphenation patterns.
+i hyphen-portuguese: Portuguese hyphenation patterns.
+i hyphen-romanian: Romanian hyphenation patterns.
+i hyphen-romansh: Romansh hyphenation patterns.
+i hyphen-slovak: Slovak hyphenation patterns.
+i hyphen-slovenian: Slovenian hyphenation patterns.
+i hyphen-spanish: Spanish hyphenation patterns.
+i hyphen-swedish: Swedish hyphenation patterns.
+i hyphen-turkish: Turkish hyphenation patterns.
+i hyphen-uppersorbian: Upper Sorbian hyphenation patterns.
+i hyphen-welsh: Welsh hyphenation patterns.
+i hyphenex: US English hyphenation exceptions file.
+i hyplain: Basic support for multiple languages in Plain TeX.
+i ifluatex: Provides the \ifluatex switch.
+i iftex: Am I running under pdfTeX, XeTeX or LuaTeX?
+i ifxetex: Am I running under XeTeX?
+i impatient: Free edition of the book "TeX for the Impatient"
+i impatient-fr: Free edition of the book "TeX for the Impatient"
+i impnattypo: Support typography of l'Imprimerie Nationale FranASSaise.
+i index: Extended index for LaTeX including multiple indexes.
+i installfont: A bash script for installing a LaTeX font family.
+i installfont.i386-linux: i386-linux files of installfont
+i interpreter: Translate input files on the fly.
+i interval: Format mathematical intervals, ensuring proper spacing.
+i intro-scientific: Introducing scientific/mathematical documents using LaTeX.
+i ionumbers: Restyle numbers in maths mode.
+i isomath: Mathematics style for science and technology.
+i itnumpar: Spell numbers in words (Italian).
+i jknapltx: Miscellaneous packages by Joerg Knappen.
+i jmn: (shortdesc missing)
+i js-misc: Miscellaneous macros from Joachim Schrod.
+i kastrup: Convert numbers into binary, octal and hexadecimal.
+i knuth: Knuth's published errata.
+i knuth-lib: A small library of MetaFont sources.
+i knuth-local: Knuth's local information.
+i koma-script: A bundle of versatile classes and packages
+i koma-script-examples: Examples from the KOMA-Script book.
+i kpathsea: Path searching library for TeX-related files.
+i kpathsea.i386-linux: i386-linux files of kpathsea
+i l2picfaq: LaTeX pictures "how-to" (German).
+i l2tabu: Obsolete packages and commands.
+i l2tabu-english: English translation of "Obsolete packages and commands".
+i l2tabu-french: French translation of l2tabu.
+i l2tabu-italian: Italian Translation of Obsolete packages and commands
+i l2tabu-spanish: Spanish translation of "Obsolete packages and commands".
+i l3experimental: Experimental LaTeX3 concepts.
+i l3kernel: LaTeX3 programming conventions.
+i l3packages: High-level LaTeX3 concepts.
+i lacheck: LaTeX checker.
+i lacheck.i386-linux: i386-linux files of lacheck
+i latex: A TeX macro package that defines LaTeX.
+i latex-bib-ex: Examples for the book Bibliografien mit LaTeX.
+i latex-bin: LaTeX executables and man pages.
+i latex-bin.i386-linux: i386-linux files of latex-bin
+i latex-brochure: A publicity flyer for LaTeX.
+i latex-course: A LaTeX course as a projected presentation.
+i latex-doc-ptr: A direction-finder for LaTeX documentation.
+i latex-fonts: A collection of fonts used in LaTeX distributions.
+i latex-git-log: Typeset git log information.
+i latex-git-log.i386-linux: i386-linux files of latex-git-log
+i latex-graphics-companion: Examples from The LaTeX Graphics Companion.
+i latex-notes-zh-cn: Chinese Introduction to TeX and LaTeX.
+i latex-referenz: Examples from the book "LaTeX Referenz".
+i latex-tabellen: LaTeX Tabellen.
+i latex-veryshortguide: The Very Short Guide to LaTeX.
+i latex-web-companion: Examples from The LaTeX Web Companion.
+i latex2e-help-texinfo: Unoffical reference manual covering LaTeX2e.
+i latex2e-help-texinfo-spanish: (shortdesc missing)
+i latex2man: Translate LaTeX-based manual pages into Unix man format.
+i latex2man.i386-linux: i386-linux files of latex2man
+i latex4wp: A LaTeX guide specifically designed for word processor users.
+i latex4wp-it: LaTeX guide for word processor users, in Italian.
+i latexcheat: A LaTeX cheat sheet.
+i latexcheat-esmx: A LaTeX cheat sheet, in Spanish.
+i latexcheat-ptbr: A LaTeX cheat sheet, in Brazilian Portuguese.
+i latexconfig: (shortdesc missing)
+i latexcourse-rug: A LaTeX course book.
+i latexdiff: Determine and mark up significant differences between latex files.
+i latexdiff.i386-linux: i386-linux files of latexdiff
+i latexfileinfo-pkgs: A comparison of packages showing LaTeX file information.
+i latexfileversion: Prints the version and date of a LaTeX class or style file.
+i latexfileversion.i386-linux: i386-linux files of latexfileversion
+i latexindent: Indent a LaTeX document, highlighting the programming structure.
+i latexindent.i386-linux: i386-linux files of latexindent
+i latexmk: Fully automated LaTeX document generation.
+i latexmk.i386-linux: i386-linux files of latexmk
+i latexmp: Interface for LaTeX-based typesetting in MetaPost
+i latexpand: Expand \input and \include in a LaTeX document.
+i latexpand.i386-linux: i386-linux files of latexpand
+i layaureo: A package to improve the A4 page layout.
+i lcdftypetools: A bundle of outline font manipulation tools.
+i lcdftypetools.i386-linux: i386-linux files of lcdftypetools
+i lineno: Line numbers on paragraphs.
+i listings: Typeset source code listings using LaTeX.
+i listings-ext: Automated input of source.
+i listings-ext.i386-linux: i386-linux files of listings-ext
+i lithuanian: Lithuanian language support.
+i lm: Latin modern fonts in outline formats.
+i lm-math: OpenType maths fonts for Latin Modern.
+i logicproof: Box proofs for propositional and predicate logic.
+i lpform: Typesetting linear programming formulations and sets of equations
+i lplfitch: Fitch-style natural deduction proofs.
+i lshort-chinese: Introduction to LaTeX, in Chinese.
+i lshort-czech: Czech translation of the "Short Introduction to LaTeX2e".
+i lshort-dutch: Introduction to LaTeX in Dutch.
+i lshort-english: A (Not So) Short Introduction to LaTeX2e.
+i lshort-finnish: Finnish introduction to LaTeX.
+i lshort-french: Short introduction to LaTeX, French translation.
+i lshort-german: German version of A Short Introduction to LaTeX2e: LaTeX2e-Kurzbeschreibung.
+i lshort-italian: Introduction to LaTeX in Italian.
+i lshort-polish: Introduction to LaTeX in Polish.
+i lshort-portuguese: Introduction to LaTeX in Portuguese.
+i lshort-slovak: Slovak introduction to LaTeX.
+i lshort-slovenian: Slovenian translation of lshort.
+i lshort-spanish: Short introduction to LaTeX, Spanish translation.
+i lshort-turkish: Turkish introduction to LaTeX.
+i ltxfileinfo: Print version info for latex class or style file.
+i ltxfileinfo.i386-linux: i386-linux files of ltxfileinfo
+i ltximg: Split LaTeX files to sanitise a conversion process.
+i ltximg.i386-linux: i386-linux files of ltximg
+i ltxmisc: Miscellaneous LaTeX packages, etc.
+i lua-alt-getopt: Process application arguments the same way as getopt_long.
+i lua-check-hyphen: Mark hyphenations in a document, for checking.
+i lua-visual-debug: Visual debugging with LuaLaTeX.
+i lua2dox: Auto-documentation of lua code.
+i lua2dox.i386-linux: i386-linux files of lua2dox
+i luabibentry: Repeat BibTeX entries in a LuaLaTeX document body.
+i luabidi: Bidirectional typesetting with LuaLaTeX.
+i luacode: Helper for executing lua code from within TeX.
+i luaindex: Create index using lualatex.
+i luainputenc: Replacing inputenc for use in LuaTeX.
+i luaintro: Examples from the book "Einfuhrung in LuaTeX und LuaLaTeX".
+i lualatex-doc: A guide to use of LaTeX with LuaTeX.
+i lualatex-doc-de: Guide to LuaLaTeX (German translation).
+i lualatex-math: Fixes for mathematics-related LuaLaTeX issues.
+i lualibs: Additional Lua functions for LuaTeX macro programmers.
+i luamplib: Use LuaTeX's built-in MetaPost interpreter.
+i luaotfload: OpenType 'loader' for Plain TeX and LaTeX.
+i luaotfload.i386-linux: i386-linux files of luaotfload
+i luasseq: Drawing spectral sequences in LuaLaTeX.
+i luatex: The LuaTeX engine.
+i luatex.i386-linux: i386-linux files of luatex
+i luatexbase: Basic resource management for LuaTeX code.
+i luatexko: Typeset Korean with Lua(La)TeX.
+i luatextra: Additional macros for Plain TeX and LaTeX in LuaTeX.
+i luatodonotes: Add editing annotations in a LuaLaTeX document.
+i luaxml: Lua library for reading and serialising XML files.
+i macros2e: A list of internal LaTeX2e macros.
+i mafr: Mathematics in accord with French usage.
+i makecmds: The new \makecommand command always (re)defines a command.
+i makeindex: Process index output to produce typesettable code.
+i makeindex.i386-linux: i386-linux files of makeindex
+i marvosym: Martin Vogel's Symbols (marvosym) font.
+i match_parens: Easily detect mismatched parens.
+i match_parens.i386-linux: i386-linux files of match_parens
+i math-e: Examples from the book Typesetting Mathematics with LaTeX.
+i mathcomp: Text symbols in maths mode.
+i mathpazo: Fonts to typeset mathematics to match Palatino.
+i mathspec: Specify arbitrary fonts for mathematics in XeTeX.
+i mathtools: Mathematical tools to use with amsmath.
+i mattens: Matrices/tensor typesetting.
+i mdwtools: Miscellaneous tools by Mark Wooding.
+i memdesign: Notes on book design
+i memoir: Typeset fiction, non-fiction and mathematical books.
+i metafont: A system for specifying fonts.
+i metafont-beginners: An introductory tutorial for Metafont.
+i metafont.i386-linux: i386-linux files of metafont
+i metago: MetaPost output of Go positions.
+i metalogo: Extended TeX logo macros.
+i metaobj: MetaPost package providing high-level objects.
+i metaplot: Plot-manipulation macros for use in Metapost.
+i metapost: A development of Metafont for creating graphics.
+i metapost-examples: Example drawings using MetaPost.
+i metapost.i386-linux: i386-linux files of metapost
+i metauml: MetaPost library for typesetting UML diagrams.
+i mex: Polish formats for TeX.
+i mex.i386-linux: i386-linux files of mex
+i mf2pt1: Produce PostScript Type 1 fonts from Metafont source.
+i mf2pt1.i386-linux: i386-linux files of mf2pt1
+i mflogo: LaTeX support for Metafont logo fonts.
+i mfnfss: Packages to typeset oldgerman and pandora fonts in LaTeX.
+i mfpic: Draw Metafont/post pictures from (La)TeX commands.
+i mfpic4ode: Macros to draw direction fields and solutions of ODEs.
+i mfware: Supporting tools for use with Metafont.
+i mfware.i386-linux: i386-linux files of mfware
+i mhequ: Multicolumn equations, tags, labels, sub-numbering.
+i microtype: Subliminal refinements towards typographical perfection.
+i microtype-de: Translation into German of the documentation of microtype.
+i mil3: Samples from Math into LaTeX, third edition.
+i mkjobtexmf: Generate a texmf tree for a particular job.
+i mkjobtexmf.i386-linux: i386-linux files of mkjobtexmf
+i mkpattern: A utility for making hyphenation patterns.
+i mp3d: 3D animations.
+i mpattern: Patterns in MetaPost.
+i mpcolornames: Extend list of predefined colour names for MetaPost.
+i mpgraphics: Process and display MetaPost figures inline.
+i mptopdf: mpost to PDF, native MetaPost graphics inclusion
+i mptopdf.i386-linux: i386-linux files of mptopdf
+i ms: Various LaTeX packages by Martin Schroder.
+i multido: A loop facility for Generic TeX.
+i multiobjective: Symbols for multiobjective optimisation etc.
+i mwcls: Polish-oriented document classes.
+i natbib: Flexible bibliography support.
+i natded: Typeset natural deduction proofs.
+i nath: Natural mathematics notation.
+i ncntrsbk: URW "Base 35" font pack for LaTeX.
+i newsletr: Macros for making newsletters with Plain TeX.
+i norasi-c90: TeX support (from CJK) for the norasi font
+i ntgclass: "European" versions of standard classes.
+i oberdiek: A bundle of packages submitted by Heiko Oberdiek.
+i odsfile: Read OpenDocument Spreadsheet documents as LaTeX tables.
+i ordinalpt: Counters as ordinal numbers in Portuguese.
+i ot-tableau: Optimality Theory tableaux in LaTeX.
+i oubraces: Braces over and under a formula.
+i palatino: URW "Base 35" font pack for LaTeX.
+i parskip: Layout with zero \parindent, non-zero \parskip.
+i patgen: Generate hyphenation patterns.
+i patgen.i386-linux: i386-linux files of patgen
+i patgen2-tutorial: A tutorial on the use of Patgen 2.
+i path: Typeset paths, making them breakable.
+i pdfcrop: Crop PDF graphics.
+i pdfcrop.i386-linux: i386-linux files of pdfcrop
+i pdfjam: Shell scripts interfacing to pdfpages.
+i pdfjam.i386-linux: i386-linux files of pdfjam
+i pdfpages: Include PDF documents in LaTeX.
+i pdftex: A TeX extension for direct creation of PDF.
+i pdftex-def: Colour and Graphics support for PDFTeX.
+i pdftex.i386-linux: i386-linux files of pdftex
+i pdftools: PDF-related utilities, including PostScript-to-PDF conversion
+i pdftools.i386-linux: i386-linux files of pdftools
+i pfarrei: LaTeX support of pastors' and priests' work.
+i pfarrei.i386-linux: i386-linux files of pfarrei
+i pgf: Create PostScript and PDF graphics in TeX.
+i philokalia: A font to typeset the Philokalia Books.
+i pictexsum: A summary of PicTeX commands.
+i piechartmp: Draw pie-charts using MetaPost.
+i pitex: Documentation macros.
+i pkfix: Replace pk fonts in PostScript with Type 1 fonts.
+i pkfix-helper: Make PostScript files accessible to pkfix.
+i pkfix-helper.i386-linux: i386-linux files of pkfix-helper
+i pkfix.i386-linux: i386-linux files of pkfix
+i pl: Polish extension of CM fonts in Type 1 format.
+i placeat: (shortdesc missing)
+i placeins-plain: Insertions that keep their place.
+i plain: The Plain TeX format.
+i plain-doc: A list of plain.tex cs names.
+i plipsum: 'Lorem ipsum' for Plain TeX developers.
+i plnfss: Font selection for Plain TeX.
+i plstmary: St. Mary's Road font support for plain TeX.
+i polski: Typeset Polish documents with LaTeX and Polish fonts.
+i polyglossia: Modern multilingual typesetting with XeLaTeX.
+i powerdot: A presentation class.
+i present: Presentations with Plain TeX.
+i presentations: Examples from the book Presentationen mit LaTeX.
+i presentations-en: Examples from the book Presentations with LaTeX.
+i proba: Shortcuts commands to symbols used in probability texts.
+i przechlewski-book: Examples from Przechlewski's LaTeX book.
+i ps2pkm: Generate a PK font from an Adobe Type 1 font.
+i ps2pkm.i386-linux: i386-linux files of ps2pkm
+i psfrag: Replace strings in encapsulated PostScript figures.
+i psfrag-italian: PSfrag documentation in Italian.
+i pslatex: Use PostScript fonts by default.
+i psnfss: Font support for common PostScript fonts.
+i pspicture: PostScript picture support.
+i pstools: Produce Encapsulated PostScript from PostScript.
+i pstools.i386-linux: i386-linux files of pstools
+i pstricks-examples: PSTricks examples.
+i pstricks-examples-en: Examples from PSTricks book (English edition).
+i psutils: PostScript utilities.
+i psutils.i386-linux: i386-linux files of psutils
+i ptext: A 'lipsum' for Persian.
+i purifyeps: Make EPS work with both LaTeX/dvips and pdfLaTeX.
+i purifyeps.i386-linux: i386-linux files of purifyeps
+i pxfonts: Palatino-like fonts in support of mathematics.
+i pythontex: Run Python from within a document, typesetting the results.
+i pythontex.i386-linux: i386-linux files of pythontex
+i qpxqtx: (shortdesc missing)
+i r_und_s: Chemical hazard codes.
+i rcs: Use RCS (revision control system) tags in LaTeX documents.
+i realscripts: Access OpenType subscript and superscript glyphs.
+i rec-thy: Commands to typeset recursion theory papers.
+i repere: Diagrams for school mathematics
+i resumemac: Plain TeX macros for resumes.
+i revtex: Styles for various Physics Journals.
+i ribbonproofs: Drawing ribbon proofs.
+i roex: (shortdesc missing)
+i rotating: Rotation tools, including rotated full-page floats.
+i rsfs: Ralph Smith's Formal Script font.
+i sansmath: Maths in a sans font.
+i savesym: Redefine symbols where names conflict.
+i scheme-basic: basic scheme (plain and latex)
+i scheme-medium: medium scheme (small + more packages and languages)
+i scheme-minimal: minimal scheme (plain only)
+i scheme-small: small scheme (basic + xetex, metapost, a few languages)
+i section: Modifying section commands in LaTeX.
+i seetexk: Utilities for manipulating DVI files.
+i seetexk.i386-linux: i386-linux files of seetexk
+i selnolig: Selectively disable typographic ligatures.
+i seminar: Make overhead slides.
+i sepnum: Print numbers in a "friendly" format.
+i setspace: Set space between lines.
+i showhyphens: Show all possible hyphenations in LuaLaTeX.
+i shuffle: A symbol for the shuffle product.
+i simplified-latex: A Simplified Introduction to LaTeX.
+i skaknew: The skak chess fonts redone in Adobe Type 1.
+i skmath: Extensions to the maths command repertoir.
+i slideshow: Generate slideshow with MetaPost.
+i spanish-mx: Typeset Spanish as in Mexico.
+i spelling: Support for spell-checking of LuaTeX documents.
+i splines: MetaPost macros for drawing cubic spline interpolants.
+i statex: Statistics style.
+i statex2: Statistics style.
+i stmaryrd: St Mary Road symbols for theoretical computer science.
+i sty2dtx: Create a .dtx file from a .sty file.
+i sty2dtx.i386-linux: i386-linux files of sty2dtx
+i suanpan: MetaPost macros for drawing Chinese and Japanese abaci.
+i subfig: Figures broken into subfigures
+i subsupscripts: A range of sub- and superscript commands.
+i susy: Macros for SuperSymmetry-related work.
+i svg-inkscape: How to include an SVG image in LaTeX using Inkscape.
+i swebib: Swedish bibliography styles.
+i syllogism: Typeset syllogisms in LaTeX.
+i symbol: URW "Base 35" font pack for LaTeX.
+i sympytexpackage: (shortdesc missing)
+i synctex: (shortdesc missing)
+i synctex.i386-linux: i386-linux files of synctex
+i synproof: Easy drawing of syntactic proofs.
+i t1utils: Simple Type 1 font manipulation programs.
+i t1utils.i386-linux: i386-linux files of t1utils
+i tablor: Create tables of signs and of variations.
+i tabulars-e: Examples from the book "Typesetting tables with LaTeX".
+i tabvar: Typesetting tables showing variations of functions.
+i tamethebeast: A manual about bibliographies and especially BibTeX.
+i tap: TeX macros for typesetting complex tables.
+i tds: The TeX Directory Structure standard.
+i tdsfrmath: Macros for French teachers of mathematics.
+i templates-fenn: Templates for TeX usage.
+i templates-sommer: Templates for TeX usage.
+i tensor: Typeset tensors.
+i tetex: scripts and files originally written for or included in teTeX
+i tetex.i386-linux: i386-linux files of tetex
+i tex: A sophisticated typesetting engine.
+i tex-ewd: Macros to typeset calculational proofs and programs in Dijkstra's style.
+i tex-font-errors-cheatsheet: Cheat sheet outlining the most common TeX font errors.
+i tex-gyre: TeX Fonts extending freely available URW fonts.
+i tex-gyre-math: Maths fonts to match tex-gyre text fonts.
+i tex-overview: An overview of the development of TeX.
+i tex-ps: TeX to PostScript generic macros and add-ons.
+i tex-refs: References for TeX and Friends
+i tex-virtual-academy-pl: (shortdesc missing)
+i tex.i386-linux: i386-linux files of tex
+i tex4ht: Convert (La)TeX to HTML/XML.
+i tex4ht.i386-linux: i386-linux files of tex4ht
+i texbytopic: Freed version of the book TeX by Topic.
+i texconfig: (shortdesc missing)
+i texconfig.i386-linux: i386-linux files of texconfig
+i texcount: Count words in a LaTeX document.
+i texcount.i386-linux: i386-linux files of texcount
+i texdef: Display the definitions of TeX commands.
+i texdef.i386-linux: i386-linux files of texdef
+i texdiff: Compare documents and produce tagged merge.
+i texdiff.i386-linux: i386-linux files of texdiff
+i texdirflatten: Collect files related to a LaTeX job in a single directory.
+i texdirflatten.i386-linux: i386-linux files of texdirflatten
+i texdoc: Documentation access for TeX distributions.
+i texdoc.i386-linux: i386-linux files of texdoc
+i texfot: Filter clutter from the output of a TeX run.
+i texfot.i386-linux: i386-linux files of texfot
+i texinfo: Texinfo documentation system.
+i texlive-common: TeX Live documentation (common elements)
+i texlive-cz: TeX Live manual (Czech/Slovak)
+i texlive-de: TeX Live manual (German)
+i texlive-docindex: top-level TeX Live doc.html, etc.
+i texlive-en: TeX Live manual (English)
+i texlive-fr: TeX Live manual (French)
+i texlive-it: TeX Live manual (Italian)
+i texlive-msg-translations: translations of the TeX Live installer and TeX Live Manager
+i texlive-pl: TeX Live manual (Polish)
+i texlive-scripts: TeX Live infrastructure programs
+i texlive-scripts.i386-linux: i386-linux files of texlive-scripts
+i texlive-zh-cn: TeX Live manual (Chinese)
+i texlive.infra: basic TeX Live infrastructure
+i texlive.infra.i386-linux: i386-linux files of texlive.infra
+i texliveonfly: On-the-fly download of missing TeX live packages.
+i texliveonfly.i386-linux: i386-linux files of texliveonfly
+i texloganalyser: Analyse TeX logs.
+i texloganalyser.i386-linux: i386-linux files of texloganalyser
+i textcase: Case conversion ignoring mathematics, etc.
+i textpath: Setting text along a path with MetaPost.
+i texware: Utility programs for use with TeX.
+i texware.i386-linux: i386-linux files of texware
+i texworks: Cross-platform friendly front end.
+i thmbox: Decorate theorem statements.
+i threeddice: Create images of dice with one, two, or three faces showing, using MetaPost.
+i thumbpdf: Thumbnails for pdfTeX and dvips/ps2pdf.
+i thumbpdf.i386-linux: i386-linux files of thumbpdf
+i tie: Allow multiple web change files.
+i tie.i386-linux: i386-linux files of tie
+i times: URW "Base 35" font pack for LaTeX.
+i timetable: Generate timetables.
+i tipa: Fonts and macros for IPA phonetics characters.
+i tipa-de: German translation of tipa documentation.
+i titlepages: Sample titlepages, and how to code them.
+i tlc2: Examples from "The LaTeX Companion", second edition.
+i tools: The LaTeX standard tools bundle.
+i tpic2pdftex: Use tpic commands in PDFTeX.
+i tpic2pdftex.i386-linux: i386-linux files of tpic2pdftex
+i translation-array-fr: French translation of the documentation of array.
+i translation-arsclassica-de: German version of arsclassica.
+i translation-biblatex-de: German translation of the documentation of biblatex.
+i translation-chemsym-de: German version of chemsym.
+i translation-dcolumn-fr: French translation of the documentation of dcolumn.
+i translation-ecv-de: German version of evc.
+i translation-enumitem-de: Enumitem documentation, in German.
+i translation-europecv-de: German version of europecv.
+i translation-filecontents-de: German version of filecontents.
+i translation-moreverb-de: German version of moreverb.
+i translation-natbib-fr: French translation of the documentation of natbib.
+i translation-tabbing-fr: French translation of the documentation of Tabbing.
+i treetex: Draw trees.
+i trimspaces: Trim spaces around an argument or within a macro.
+i ttfutils: (shortdesc missing)
+i ttfutils.i386-linux: i386-linux files of ttfutils
+i turkmen: Babel support for Turkmen.
+i turnstile: Typeset the (logic) turnstile notation.
+i txfonts: Times-like fonts in support of mathematics.
+i typehtml: Typeset HTML directly from LaTeX.
+i typeoutfileinfo: Display class/package/file information.
+i typeoutfileinfo.i386-linux: i386-linux files of typeoutfileinfo
+i ucharclasses: Font actions in XeTeX according to what is being processed.
+i udesoftec: Thesis class for the University of Duisburg-Essen.
+i uhc: Fonts for the Korean language.
+i ulem: Package for underlining.
+i umlaute: German input encodings in LaTeX.
+i underscore: Control the behaviour of "_" in text.
+i unicode-math: Unicode mathematics support for XeTeX and LuaTeX.
+i unisugar: Define syntactic sugar for Unicode LaTeX.
+i upquote: Show "realistic" quotes in verbatim.
+i url: Verbatim with URL-sensitive line breaks.
+i utf8mex: Tools to produce formats that read Polish language input.
+i utopia: Adobe Utopia fonts.
+i variations: Typeset tables of variations of functions.
+i varisize: Change font size in Plain TeX.
+i venn: Creating Venn diagrams with MetaPost.
+i visualfaq: A Visual LaTeX FAQ.
+i vlna: (shortdesc missing)
+i vlna.i386-linux: i386-linux files of vlna
+i voss-mathcol: Typesetting mathematics in colour, in (La)TeX.
+i voss-mathmode: A comprehensive review of mathematics in (La)TeX.
+i wadalab: Wadalab (Japanese) font packages.
+i wasy: The wasy fonts (Waldi symbol fonts).
+i wasysym: LaTeX support file to use the WASY2 fonts
+i web: original web programs tangle and weave
+i web.i386-linux: i386-linux files of web
+i webguide: Brief Guide to LaTeX Tools for Web publishing.
+i wrapfig: Produces figures which text can flow around.
+i xcjk2uni: Convert CJK characters to Unicode, in pdfTeX.
+i xcolor: Driver-independent color extensions for LaTeX and pdfLaTeX.
+i xdvi: A DVI previewer for the X Window System.
+i xdvi.i386-linux: i386-linux files of xdvi
+i xecjk: Support for CJK documents in XeLaTeX.
+i xecolor: Support for color in XeLaTeX.
+i xecyr: Using Cyrillic languages in XeTeX.
+i xeindex: Automatic index generation for XeLaTeX.
+i xepersian: Persian for LaTeX, using XeTeX.
+i xesearch: A string finder for XeTeX.
+i xetex: Unicode and OpenType-enabled TeX engine.
+i xetex-def: Colour and graphics support for XeTeX.
+i xetex-itrans: Itrans input maps for use with XeLaTeX.
+i xetex-pstricks: Running PStricks under XeTeX.
+i xetex-tibetan: XeTeX input maps for Unicode Tibetan.
+i xetex.i386-linux: i386-linux files of xetex
+i xetexconfig: Configuration files for XeTeX.
+i xetexfontinfo: Report font features in XeTeX.
+i xetexko: Typeset Korean with Xe(La)TeX.
+i xetexref: Reference documentation of XeTeX.
+i xevlna: Insert non-breakable spaces using XeTeX.
+i xii: Christmas silliness.
+i xindy: A general-purpose index processor.
+i xindy.i386-linux: i386-linux files of xindy
+i xkeyval: Extension of the keyval package.
+i xltxtra: "Extras" for LaTeX users of XeTeX.
+i xpinyin: Automatically add pinyin to Chinese characters.
+i xunicode: Generate Unicode characters from accented glyphs.
+i xypic-tut-pt: A tutorial for XY-pic, in Portuguese.
+i yhmath: Extended maths fonts for LaTeX.
+i ytableau: Many-featured Young tableaux and Young diagrams.
+i zapfchan: URW "Base 35" font pack for LaTeX.
+i zapfding: URW "Base 35" font pack for LaTeX.
+i zhmetrics: TFM subfont files for using Chinese fonts in 8-bit TeX.
+i zhnumber: Typeset Chinese representations of numbers.
+i zhspacing: Spacing for mixed CJK-English documents in XeTeX.
+i zxjafont: Set up Japanese font families for XeLaTeX.
+#+end_example
+
+
+* 安装所需字体
+将 org 文件转换为 pdf 时，本人习惯使用文泉驿微米黑和SimSun，同学可以根据自己的喜好来安装需要的字体。
+下面是本人 Debian 系统中安装字体的列表：
+
+#+BEGIN_SRC shell :output :results output verbatim :exports both :eval no
+dpkg --get-selections | grep ^fonts
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+fonts-arphic-ukai				install
+fonts-arphic-uming				install
+fonts-cwtex-fs					install
+fonts-cwtex-heib				install
+fonts-cwtex-kai					install
+fonts-cwtex-ming				install
+fonts-cwtex-yen					install
+fonts-droid					install
+fonts-freefont-ttf				install
+fonts-gfs-artemisia				install
+fonts-gfs-baskerville				install
+fonts-gfs-bodoni-classic			install
+fonts-gfs-didot					install
+fonts-gfs-didot-classic				install
+fonts-gfs-gazis					install
+fonts-gfs-neohellenic				install
+fonts-gfs-olga					install
+fonts-gfs-porson				install
+fonts-gfs-solomos				install
+fonts-gfs-theokritos				install
+fonts-hanazono					install
+fonts-inconsolata				install
+fonts-ipaexfont-gothic				install
+fonts-ipaexfont-mincho				install
+fonts-ipafont-gothic				install
+fonts-ipafont-mincho				install
+fonts-liberation				install
+fonts-lyx					install
+fonts-mplus					install
+fonts-opensymbol				install
+fonts-sil-gentium				install
+fonts-sil-gentium-basic				install
+fonts-stix					install
+fonts-ubuntu-title				install
+#+end_example
+
+
+* 配置 org-mode
+** 创建与 ctex 对应的 org-latex-class
+ #+BEGIN_SRC emacs-lisp
+ (setq org-latex-default-class "ctexart")
+
+ (add-to-list 'org-latex-classes
+              '("ctexart"
+                "\\documentclass[fancyhdr,fntef,nofonts,UTF8,a4paper,cs4size]{ctexart}"
+                ("\\section{%s}" . "\\section*{%s}")
+                ("\\subsection{%s}" . "\\subsection*{%s}")
+                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+ (add-to-list 'org-latex-classes
+              '("ctexrep"
+                "\\documentclass[fancyhdr,fntef,nofonts,UTF8,a4paper,cs4size]{ctexrep}"
+                ("\\part{%s}" . "\\part*{%s}")
+                ("\\chapter{%s}" . "\\chapter*{%s}")
+                ("\\section{%s}" . "\\section*{%s}")
+                ("\\subsection{%s}" . "\\subsection*{%s}")
+                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+
+ (add-to-list 'org-latex-classes
+              '("ctexbook"
+                "\\documentclass[fancyhdr,fntef,nofonts,UTF8,a4paper,cs4size]{ctexbook}"
+                ("\\part{%s}" . "\\part*{%s}")
+                ("\\chapter{%s}" . "\\chapter*{%s}")
+                ("\\section{%s}" . "\\section*{%s}")
+                ("\\subsection{%s}" . "\\subsection*{%s}")
+                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+
+ (add-to-list 'org-latex-classes
+              '("beamer"
+                "\\documentclass{beamer}
+            \\usepackage[fntef,nofonts,fancyhdr]{ctex}"
+                org-beamer-sectioning))
+
+ #+END_SRC
+
+** 解决 org-mode 默认设置与 ctex 冲突的问题
+ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，
+ 具体细节可以运行：
+
+ #+BEGIN_SRC emacs-lisp
+ C-h v org-latex-default-package-alist
+ #+END_SRC
+
+ 但下面几个宏包似乎和 xelatex 有冲突：
+
+ 1. inputenc
+ 2. fontenc
+ 3. ulem
+ 4. wasysym
+
+ 使用下面的代码调整（虽然org不建议自定义 org-latex-default-package-alist 变量）：
+
+ #+BEGIN_SRC emacs-lisp
+ (setf org-latex-default-packages-alist
+       (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
+ (setf org-latex-default-packages-alist
+       (remove '("T1" "fontenc" t) org-latex-default-packages-alist))
+ (setf org-latex-default-packages-alist
+       (remove '("normalem" "ulem" t) org-latex-default-packages-alist))
+ (setcar (rassoc '("wasysym" t)
+                 org-latex-default-packages-alist) "nointegrals")
+ #+END_SRC
+
+** LaTeX 宏包相关设置，比如设置字体，页面边距等
+ #+BEGIN_SRC emacs-lisp
+ (setq  org-latex-packages-alist
+        '("
+ %%% 默认使用的latex宏包 %%%
+ \\usepackage{tikz}
+ \\usepackage{CJKulem}
+ \\usepackage{graphicx}
+
+ %%% 设置中文字体 %%%
+ \\setCJKmainfont[ItalicFont={KaiTi_GB2312}]{SimSun}% 宋体和楷书
+ \\setCJKsansfont{WenQuanYi Micro Hei}% 文泉驿的黑体
+ \\setCJKmonofont{WenQuanYi Micro Hei}
+
+ %%% 设置页面边距 %%%
+ \\usepackage[top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm]{geometry} %
+ "))
+ #+END_SRC
+
+** 使用 ctex 来预览 LaTeX 片断
+ #+BEGIN_SRC emacs-lisp
+ ;; latex公式预览, 调整latex预览时使用的header,默认使用ctexart类
+ (setq org-format-latex-header
+       (replace-regexp-in-string
+        "\\\\documentclass{.*}"
+        "\\\\documentclass[nofonts,UTF8]{ctexart}"
+        org-format-latex-header))
+ #+END_SRC
+
+** 使用 XeLaTeX 编译 LaTeX 文件
+ #+BEGIN_SRC emacs-lisp
+ (setq org-latex-commands
+       '(("xelatex -interaction nonstopmode -output-directory %o %f"
+          "bibtex %b"
+          "xelatex -interaction nonstopmode -output-directory %o %f"
+          "xelatex -interaction nonstopmode -output-directory %o %f")
+         ("xelatex -interaction nonstopmode -output-directory %o %f")))
+ #+END_SRC
+
+** 预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间
+ #+BEGIN_SRC emacs-lisp
+ (defun my-org-latex-compile (orig-fun texfile &optional snippet)
+   (let ((org-latex-pdf-process
+          (if snippet (car (cdr org-latex-commands))
+            (car org-latex-commands))))
+     (funcall orig-fun texfile snippet)))
+
+ (advice-add 'org-latex-compile :around #'my-org-latex-compile)
+ #+END_SRC

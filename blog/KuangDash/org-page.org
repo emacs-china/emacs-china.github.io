@@ -1,0 +1,203 @@
+#+TITLE:       org-page 的配置与使用
+#+AUTHOR:      皐月中二
+#+EMAIL:       kuangdash@163.com
+#+DATE:        2015-04-15 周三
+#+URI:         /blog/%y/%m/%d/org-page的配置与使用
+#+TAGS:        org-page
+#+LANGUAGE:    zh-CN
+#+OPTIONS:     H:3 num:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: org-page的配置与使用
+
+#+BEGIN_HTML
+<p class="center">
+觉得咱（博客）还不够好，想修改咱？请点击以下按钮：<br/>
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/org-page.org">点我修改</a><br/>
+以上功能仅限emacs-china成员使用，需要登录github账号。
+</p>
+#+END_HTML
+
+* org-page 的特点
+
+这是一个基于 org-mode 、 git 和 emacs 自身（这三个你都得耍的起来）的静态站点生成器（static site generator），实现了 /org文档内容/ 和 /文档修饰（主题）/ 的分离。它本身具有高度的可定制性[fn:1]。
+
+* org-page 的安装
+
+使用命令 ~M-x package-list-packages~ 找到 =org-page= 安装即可，或者去这个链接 [[https://github.com/kelvinh/org-page][org-page]] 下载。
+
+* org-page 的用法
+
+首先，在想写 blog 的文件夹下用 ~git init~ 建立一个 git repository ，然后创建并进入 source 分支，再新建三个基本文件： 
++ blog 文件夹 :: 主要的 blog 文件放里面。
++ about.org 文件 :: 在这里介绍自己。
++ index.org 文件 :: 在这里写自己博客的首页。
+
+其实，有个 =op/new-repository= 命令，就是将上一个流程实现了一遍。
+
+接下来，还有一些参数要设置，英语好的话，请参考这里 [[https://github.com/kelvinh/org-page/blob/master/doc/quick-guide.org][quick-guide.org]] ，英语不好，请 *慎用* emacs 。
+
+html 页面的生成与发布都交给了 ~M-x op/do-publication~ 命令。（记得使用该命令前事先 commit source branch）
+
+* org-page 效果举例
+
++ 列表 :: +删除线+ _下划线_ *强调* ~代码~ 
++ 数学公式 :: $X(f)=\int{x(t)e^{-i 2\pi ft}dt}$ 
+
+_悬停卡片_[fn:4]
+
+1. 有序列表
+2. 有序列表
+
+* org-page 的主题定制
+
++ 正常定制法 :: 使用命令 ~M-x customize-group~ 再输入 =org-page= 即可。（这种定制法定制能力有限）
++ hack定制法 :: 参看 themes 文件夹，里面的 template 文件夹使用了 [[http://mustache.github.io/][mustache模板]] 。而另外一个 source 文件夹有 css、js 等文件，这些东西各位懂的……如果你是一个好的前端设计师的话，这些就能让你制作一个漂亮的界面了，毕竟标签不多。
+
+关于 org-page 的正常定制法以及 custom 页面里各个选项的含义，还请各位参照英文字典分析……
+
+下面讲解使用 hack 定制法时，一些有用的 hack 手法（如果不想自己 hack ，请点我右上角[fn:2]）：
+
+** 使用 org-page 管理多个站点
+
+在 emacs 的配置文件中定义如下函数：
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "~/github/org-page")
+  (require 'org-page)
+  (defun kd/custom-org-page (&optional site)
+    "choose the org-page's main repository"
+    (interactive (let ((sitet (completing-read "静态站点名: "
+                                  '("kuangdash" "emacs-china")
+                                  nil t nil nil "kuangdash")))
+                   (list sitet)))
+    (cond ((equal site "kuangdash")
+           (setq op/repository-directory "~/github/kuangdash.github.io"
+                 op/site-domain "kuangdash.github.io"
+                 op/theme 'kd_mdo
+                 op/personal-github-link "https://github.com/kuangdash"
+                 op/personal-disqus-shortname "kuangdash"
+                 op/personal-duoshuo-shortname "kuangdash"
+                 op/site-main-title "有为山深"
+                 op/site-sub-title "It's only when it is truly dark that we can see the stars"
+                 op/organization nil)
+           )
+
+          ;;emacs-china
+          ((equal site "emacs-china")
+           (setq op/repository-directory "~/github/emacs-china.github.io"
+                 op/site-domain "emacs-china.github.io"
+                 op/theme 'emacs_love
+                 op/personal-github-link "https://github.com/emacs-china"
+                 op/personal-disqus-shortname "emacs-china"
+                 op/personal-duoshuo-shortname "emacs-china"
+                 op/site-main-title "EMACS-CHINA"
+                 op/site-sub-title "=============>集思广益"
+                 op/organization t)
+           )
+          (t (message "error! no repository"))))
+#+END_SRC
+
+那个 =kd/custom-org-page= 函数才是代码的主体， =add-to-list= 和 =require= 则用来导入本函数对 =org-page= 的依赖关系。实际上，该 *交互* 函数是每次都重新定义了正常定制法的内容，看懂它然后使用吧（做个填空题就行）。
+
+我们还可以写一些其他代码，以方便对 org-page 生成的站点进行测试。
+
+** 对 org-page 生成的站点进行测试
+
+本人使用基于emacs的 [[https://github.com/skeeto/emacs-web-server][simple-httpd]] 来进行站点测试，根据实际情况，各位也可以用自己喜欢的 web 服务器来进行测试。
+
+接下来我们在配置文件中写一些其他代码，这样就能起到测试的效果了：
+
+#+BEGIN_SRC emacs-lisp :tangle no
+  (require 'simple-httpd)
+  (defun kd/test-org-page (&optional site)
+    "test the org-page's main repository"
+    (interactive (let ((sitet (completing-read "测试静态站点名: "
+                                  '("kuangdash" "emacs-china")
+                                  nil t nil nil "kuangdash")))
+                   (list sitet)))
+    (cond ((equal site "kuangdash")
+           (op/do-publication t nil "~/webRoot/kuangdash.github.io")
+           (httpd-serve-directory "~/webRoot/kuangdash.github.io")
+           (browse-url (format "http://%s:%d" system-name httpd-port))
+           )
+
+          ;;emacs-china
+          ((equal site "emacs-china")
+           (op/do-publication t nil "~/webRoot/emacs-china.github.io")
+           (httpd-serve-directory "~/webRoot/emacs-china.github.io")
+           (browse-url (format "http://%s:%d" system-name httpd-port))
+           )
+          (t (message "error! no repository"))))
+#+END_SRC
+
+这里也是填空题，修改字符串部分的内容就可以了。如果你觉得上面的步骤过于麻烦，可以直接使用 tumashu 先生的 [[http://tumashu.github.io/org-webpage/][org-webpage]] 项目：一个 org-page + emacs-web-server 的解决方案。
+
+* 本人在 org-page 和 org-mode 间周旋的记录
+
+由于我一直用 git 更新 org-page 和 org-mode 的源，所以这里会写一些两者遇上冲突的地方：
+
+** 插入 svg 图片的问题
+<2015-04-15 周三>
+
+如果你在 org-mode 文档里使用了 svg 图片，那么恭喜你，你用 org-page 导出的网页不会显示该图片。那么以下是我解决该问题的方法，写在配置文件里：
+
+#+BEGIN_SRC emacs-lisp
+  (require 'ox)
+  (require 'ox-html)
+
+  (defun kd/org-html--format-image (source attributes info)
+    "Return \"img\" tag with given SOURCE and ATTRIBUTES.
+  SOURCE is a string specifying the location of the image.
+  ATTRIBUTES is a plist, as returned by
+  `org-export-read-attribute'.  INFO is a plist used as
+  a communication channel."
+    (org-html-close-tag
+     "img"
+     (org-html--make-attribute-string
+      (org-combine-plists
+       (list :src source
+             :alt (if (string-match-p "^ltxpng/" source)
+                      (org-html-encode-plain-text
+                       (org-find-text-property-in-string 'org-latex-src source))
+                    (file-name-nondirectory source)))
+       attributes))
+     info))
+
+  (advice-add 'org-html--format-image :override #'kd/org-html--format-image)
+#+END_SRC
+
+代码的最后一行相信聪明的人已经看懂了，傻的人还没反应过来[fn:3]。
+
+** org-mode 的中文 target 和 radio target 无法导出
+<2015-04-15 周三>
+
+这个我上报了 org-mode 制作组的 maillist，目前好像还没添加进代码库，可以在配置文件里写下以下代码以修正。
+
+#+BEGIN_SRC emacs-lisp
+  (defun kd/org-export-solidify-link-text (s)
+    "Take link text S and make a safe target out of it."
+    (save-match-data
+      (mapconcat 'identity (org-split-string (prin1-to-string (encode-coding-string s 'utf-8)) "[^a-zA-Z0-9_.-:]+") "-")))
+
+  (advice-add 'org-export-solidify-link-text :override #'kd/org-export-solidify-link-text)
+#+END_SRC
+
+<2015-06-06 周六> 
+
+更新： org-export-solidify-link-text 已经被 org-mode 8.3 弃用， radio target 的中文导出已正常， target 本身仅作为链接的锚点使用，本身不再导出成具体文件。
+
+** org-mode 的 "src"_<language>{<body>}
+<2015-04-15 周三>
+
+这个还真没法用……
+
+* Footnotes
+
+[fn:1] ……如果你是前端工程师的话。
+
+[fn:2] （新手提示：想回去继续阅读博客本体，请点本句最左边）如果不想自己 hack 一个主题，可以使用博主自己的主题 [[https://github.com/kuangdash/emacs_love][emacs_love]] ，下载后放置于 org-page 的 themes 文件夹下，再用 ~M-x customize-group RET org-page~ 修改 =op/theme= 项为 emacs_love 即可。
+
+[fn:3] 参见 emacs manual 的 [[http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Advising-Functions][advice-add]] 函数。
+
+[fn:4] 这里是悬停卡片的内容哦~~~(该功能是emacs_love主题包提供的……)
+
+

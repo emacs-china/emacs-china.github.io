@@ -71,7 +71,12 @@ emacs自带各国输入法，当然也包括中文。
 + 项目链接：[[http://tumashu.github.io/org-webpage]]
 + 代码浏览：[[https://github.com/tumashu/org-webpage]]
 + 项目作者：tumashu
-+ 项目介绍：在 Kelvin Hu 先生的 org-page 基础上所写的 _静态站点生成器_[fn:1] 。相较 org-page ，org-webpage 更适合多站点管理时使用，本站点即是由它生成。
++ 项目介绍：在 Kelvin Hu 先生的 org-page 基础上所写的 _静态站点生成器_[fn:1] 。相较 org-page ，org-webpage 更适合多站点管理时使用。
+
+*** EGO
++ 项目链接：[[http://emacs-china.github.io/EGO]] （页面暂时未建好）
++ 代码浏览：[[https://github.com/emacs-china/EGO]]
++ 项目介绍：作为 emacs-china 静态站点的静态站点生成器。
 
 * 中文资料
 一些关于 emacs 的中文资料会放置在本站点的 [[http://emacs-china.github.io/blog/][Blog]] 目录下面，可以在 [[http://emacs-china.github.io/tags/][Tags]] 下面按标签索引文件，也可使用 search 框。

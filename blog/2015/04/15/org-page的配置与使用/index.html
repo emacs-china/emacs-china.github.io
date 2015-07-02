@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>org-page 的配置与使用 - EMACS-CHINA</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="author" content="皐月中二" />
+  <meta name="description" content="org-page的配置与使用" />
+  <style>
+   #ds-thread #ds-reset .ds-comment-body p {color: #ffffff;}
+   #ds-thread #ds-reset .ds-comment-body p a {color: #ff0;}
+   #ds-thread #ds-reset .ds-comment-body p a:hover {color: #0ff;}
+   #disqus_thread a {color: #00ffff;}
+  </style>
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css">
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css">
+  <script type="text/javascript"
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+  </script>
+  <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+  </script>
+</head>
+
+  <body><div class="container">
+<div>
+  <header class="masthead">
+    <h1 class="masthead-title"><a href="http://emacs-china.github.io/">EMACS-CHINA</a></h1>
+    <p>=============&gt;集思广益</p>
+    <nav class="site-nav">
+      <div class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#ffff00"/>
+          <path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#ffff00"/>
+          <path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#ffff00"/>
+        </svg>
+      </div>
+      <ul class="trigger">
+        <li><a href="http://emacs-china.github.io/years/">Years</a></li>
+        <li><a href="http://emacs-china.github.io/authors/">Authors</a></li>
+        <li><a href="http://emacs-china.github.io/tags/">Tags</a></li>
+        <li><a href="http://emacs-china.github.io/about/">About</a></li>
+        <li><a href="https://github.com/emacs-china">Github</a></li>
+        <li><a href="http://emacs-china.github.io/rss.xml">RSS</a></li>
+      </ul>
+    </nav>
+    <form method="get" id="searchform" action="http://www.gfsoso.com/search">
+      <input type="text" class="field" name="q" id="s" placeholder="Search">
+      <input type="hidden" name="as_sitesearch" value="emacs-china.github.io">
+    </form>
+  </header>
+</div>
+
+<div>
+<div class="post">
+<h1 class="title">org-page 的配置与使用</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">org-page 的特点</a></li>
+<li><a href="#orgheadline2">org-page 的安装</a></li>
+<li><a href="#orgheadline3">org-page 的用法</a></li>
+<li><a href="#orgheadline4">org-page 效果举例</a></li>
+<li><a href="#orgheadline5">org-page 的主题定制</a>
+<ul>
+<li><a href="#orgheadline6">使用 org-page 管理多个站点</a></li>
+<li><a href="#orgheadline7">对 org-page 生成的站点进行测试</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline8">本人在 org-page 和 org-mode 间周旋的记录</a>
+<ul>
+<li><a href="#orgheadline9">插入 svg 图片的问题</a></li>
+<li><a href="#orgheadline10">org-mode 的中文 target 和 radio target 无法导出</a></li>
+<li><a href="#orgheadline11">org-mode 的 "src"_&lt;language&gt;{&lt;body&gt;}</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p class="center">
+觉得咱（博客）还不够好，想修改咱？请点击以下按钮：<br/>
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/org-page.org">点我修改</a><br/>
+以上功能仅限emacs-china成员使用，需要登录github账号。
+</p>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">org-page 的特点</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+<p>
+这是一个基于 org-mode 、 git 和 emacs 自身（这三个你都得耍的起来）的静态站点生成器（static site generator），实现了 <i>org文档内容</i> 和 <i>文档修饰（主题）</i> 的分离。它本身具有高度的可定制性<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2">org-page 的安装</h2>
+<div class="outline-text-2" id="text-orgheadline2">
+<p>
+使用命令 <code>M-x package-list-packages</code> 找到 <code>org-page</code> 安装即可，或者去这个链接 <a href="https://github.com/kelvinh/org-page">org-page</a> 下载。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3">org-page 的用法</h2>
+<div class="outline-text-2" id="text-orgheadline3">
+<p>
+首先，在想写 blog 的文件夹下用 <code>git init</code> 建立一个 git repository ，然后创建并进入 source 分支，再新建三个基本文件： 
+</p>
+<dl class="org-dl">
+<dt>blog 文件夹</dt><dd>主要的 blog 文件放里面。</dd>
+<dt>about.org 文件</dt><dd>在这里介绍自己。</dd>
+<dt>index.org 文件</dt><dd>在这里写自己博客的首页。</dd>
+</dl>
+
+<p>
+其实，有个 <code>op/new-repository</code> 命令，就是将上一个流程实现了一遍。
+</p>
+
+<p>
+接下来，还有一些参数要设置，英语好的话，请参考这里 <a href="https://github.com/kelvinh/org-page/blob/master/doc/quick-guide.org">quick-guide.org</a> ，英语不好，请 <b>慎用</b> emacs 。
+</p>
+
+<p>
+html 页面的生成与发布都交给了 <code>M-x op/do-publication</code> 命令。（记得使用该命令前事先 commit source branch）
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4">org-page 效果举例</h2>
+<div class="outline-text-2" id="text-orgheadline4">
+<dl class="org-dl">
+<dt>列表</dt><dd><del>删除线</del> <span class="underline">下划线</span> <b>强调</b> <code>代码</code></dd>
+<dt>数学公式</dt><dd>\(X(f)=\int{x(t)e^{-i 2\pi ft}dt}\)</dd>
+</dl>
+
+<p>
+<span class="underline">悬停卡片</span><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
+</p>
+
+<ol class="org-ol">
+<li>有序列表</li>
+<li>有序列表</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5">org-page 的主题定制</h2>
+<div class="outline-text-2" id="text-orgheadline5">
+<dl class="org-dl">
+<dt>正常定制法</dt><dd>使用命令 <code>M-x customize-group</code> 再输入 <code>org-page</code> 即可。（这种定制法定制能力有限）</dd>
+<dt>hack定制法</dt><dd>参看 themes 文件夹，里面的 template 文件夹使用了 <a href="http://mustache.github.io/">mustache模板</a> 。而另外一个 source 文件夹有 css、js 等文件，这些东西各位懂的……如果你是一个好的前端设计师的话，这些就能让你制作一个漂亮的界面了，毕竟标签不多。</dd>
+</dl>
+
+<p>
+关于 org-page 的正常定制法以及 custom 页面里各个选项的含义，还请各位参照英文字典分析……
+</p>
+
+<p>
+下面讲解使用 hack 定制法时，一些有用的 hack 手法（如果不想自己 hack ，请点我右上角<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>）：
+</p>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6">使用 org-page 管理多个站点</h3>
+<div class="outline-text-3" id="text-orgheadline6">
+<p>
+在 emacs 的配置文件中定义如下函数：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(add-to-list 'load-path <span style="color: #7fffd4; font-style: italic;">"~/github/org-page"</span>)
+(<span style="color: #00ffff; font-weight: bold;">require</span> '<span style="color: #7fffd4; font-weight: bold;">org-page</span>)
+(<span style="color: #00ffff; font-weight: bold;">defun</span> <span style="color: #87cefa; font-weight: bold; font-style: italic;">kd/custom-org-page</span> (<span style="color: #98fb98; font-weight: bold;">&amp;optional</span> site)
+  <span style="font-weight: bold;">"choose the org-page's main repository"</span>
+  (<span style="color: #00ffff; font-weight: bold;">interactive</span> (<span style="color: #00ffff; font-weight: bold;">let</span> ((sitet (completing-read <span style="color: #7fffd4; font-style: italic;">"&#38745;&#24577;&#31449;&#28857;&#21517;: "</span>
+                                '(<span style="color: #7fffd4; font-style: italic;">"kuangdash"</span> <span style="color: #7fffd4; font-style: italic;">"emacs-china"</span>)
+                                nil t nil nil <span style="color: #7fffd4; font-style: italic;">"kuangdash"</span>)))
+                 (list sitet)))
+  (<span style="color: #00ffff; font-weight: bold;">cond</span> ((equal site <span style="color: #7fffd4; font-style: italic;">"kuangdash"</span>)
+         (<span style="color: #00ffff; font-weight: bold;">setq</span> op/repository-directory <span style="color: #7fffd4; font-style: italic;">"~/github/kuangdash.github.io"</span>
+               op/site-domain <span style="color: #7fffd4; font-style: italic;">"kuangdash.github.io"</span>
+               op/theme 'kd_mdo
+               op/personal-github-link <span style="color: #7fffd4; font-style: italic;">"https://github.com/kuangdash"</span>
+               op/personal-disqus-shortname <span style="color: #7fffd4; font-style: italic;">"kuangdash"</span>
+               op/personal-duoshuo-shortname <span style="color: #7fffd4; font-style: italic;">"kuangdash"</span>
+               op/site-main-title <span style="color: #7fffd4; font-style: italic;">"&#26377;&#20026;&#23665;&#28145;"</span>
+               op/site-sub-title <span style="color: #7fffd4; font-style: italic;">"It's only when it is truly dark that we can see the stars"</span>
+               op/organization nil)
+         )
+
+        <span style="color: #66cdaa; font-style: italic;">;;</span><span style="color: #66cdaa; font-style: italic;">emacs-china</span>
+        ((equal site <span style="color: #7fffd4; font-style: italic;">"emacs-china"</span>)
+         (<span style="color: #00ffff; font-weight: bold;">setq</span> op/repository-directory <span style="color: #7fffd4; font-style: italic;">"~/github/emacs-china.github.io"</span>
+               op/site-domain <span style="color: #7fffd4; font-style: italic;">"emacs-china.github.io"</span>
+               op/theme 'emacs_love
+               op/personal-github-link <span style="color: #7fffd4; font-style: italic;">"https://github.com/emacs-china"</span>
+               op/personal-disqus-shortname <span style="color: #7fffd4; font-style: italic;">"emacs-china"</span>
+               op/personal-duoshuo-shortname <span style="color: #7fffd4; font-style: italic;">"emacs-china"</span>
+               op/site-main-title <span style="color: #7fffd4; font-style: italic;">"EMACS-CHINA"</span>
+               op/site-sub-title <span style="color: #7fffd4; font-style: italic;">"=============&gt;&#38598;&#24605;&#24191;&#30410;"</span>
+               op/organization t)
+         )
+        (t (message <span style="color: #7fffd4; font-style: italic;">"error! no repository"</span>))))
+</pre>
+</div>
+
+<p>
+那个 <code>kd/custom-org-page</code> 函数才是代码的主体， <code>add-to-list</code> 和 <code>require</code> 则用来导入本函数对 <code>org-page</code> 的依赖关系。实际上，该 <b>交互</b> 函数是每次都重新定义了正常定制法的内容，看懂它然后使用吧（做个填空题就行）。
+</p>
+
+<p>
+我们还可以写一些其他代码，以方便对 org-page 生成的站点进行测试。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7">对 org-page 生成的站点进行测试</h3>
+<div class="outline-text-3" id="text-orgheadline7">
+<p>
+本人使用基于emacs的 <a href="https://github.com/skeeto/emacs-web-server">simple-httpd</a> 来进行站点测试，根据实际情况，各位也可以用自己喜欢的 web 服务器来进行测试。
+</p>
+
+<p>
+接下来我们在配置文件中写一些其他代码，这样就能起到测试的效果了：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">require</span> '<span style="color: #7fffd4; font-weight: bold;">simple-httpd</span>)
+(<span style="color: #00ffff; font-weight: bold;">defun</span> <span style="color: #87cefa; font-weight: bold; font-style: italic;">kd/test-org-page</span> (<span style="color: #98fb98; font-weight: bold;">&amp;optional</span> site)
+  <span style="font-weight: bold;">"test the org-page's main repository"</span>
+  (<span style="color: #00ffff; font-weight: bold;">interactive</span> (<span style="color: #00ffff; font-weight: bold;">let</span> ((sitet (completing-read <span style="color: #7fffd4; font-style: italic;">"&#27979;&#35797;&#38745;&#24577;&#31449;&#28857;&#21517;: "</span>
+                                '(<span style="color: #7fffd4; font-style: italic;">"kuangdash"</span> <span style="color: #7fffd4; font-style: italic;">"emacs-china"</span>)
+                                nil t nil nil <span style="color: #7fffd4; font-style: italic;">"kuangdash"</span>)))
+                 (list sitet)))
+  (<span style="color: #00ffff; font-weight: bold;">cond</span> ((equal site <span style="color: #7fffd4; font-style: italic;">"kuangdash"</span>)
+         (op/do-publication t nil <span style="color: #7fffd4; font-style: italic;">"~/webRoot/kuangdash.github.io"</span>)
+         (httpd-serve-directory <span style="color: #7fffd4; font-style: italic;">"~/webRoot/kuangdash.github.io"</span>)
+         (browse-url (format <span style="color: #7fffd4; font-style: italic;">"http://%s:%d"</span> system-name httpd-port))
+         )
+
+        <span style="color: #66cdaa; font-style: italic;">;;</span><span style="color: #66cdaa; font-style: italic;">emacs-china</span>
+        ((equal site <span style="color: #7fffd4; font-style: italic;">"emacs-china"</span>)
+         (op/do-publication t nil <span style="color: #7fffd4; font-style: italic;">"~/webRoot/emacs-china.github.io"</span>)
+         (httpd-serve-directory <span style="color: #7fffd4; font-style: italic;">"~/webRoot/emacs-china.github.io"</span>)
+         (browse-url (format <span style="color: #7fffd4; font-style: italic;">"http://%s:%d"</span> system-name httpd-port))
+         )
+        (t (message <span style="color: #7fffd4; font-style: italic;">"error! no repository"</span>))))
+</pre>
+</div>
+
+<p>
+这里也是填空题，修改字符串部分的内容就可以了。如果你觉得上面的步骤过于麻烦，可以直接使用 tumashu 先生的 <a href="http://tumashu.github.io/org-webpage/">org-webpage</a> 项目：一个 org-page + emacs-web-server 的解决方案。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8">本人在 org-page 和 org-mode 间周旋的记录</h2>
+<div class="outline-text-2" id="text-orgheadline8">
+<p>
+由于我一直用 git 更新 org-page 和 org-mode 的源，所以这里会写一些两者遇上冲突的地方：
+</p>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9">插入 svg 图片的问题</h3>
+<div class="outline-text-3" id="text-orgheadline9">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2015-04-15 周三&gt;</span></span>
+</p>
+
+<p>
+如果你在 org-mode 文档里使用了 svg 图片，那么恭喜你，你用 org-page 导出的网页不会显示该图片。那么以下是我解决该问题的方法，写在配置文件里：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">require</span> '<span style="color: #7fffd4; font-weight: bold;">ox</span>)
+(<span style="color: #00ffff; font-weight: bold;">require</span> '<span style="color: #7fffd4; font-weight: bold;">ox-html</span>)
+
+(<span style="color: #00ffff; font-weight: bold;">defun</span> <span style="color: #87cefa; font-weight: bold; font-style: italic;">kd/org-html--format-image</span> (source attributes info)
+  <span style="font-weight: bold;">"Return \"img\" tag with given SOURCE and ATTRIBUTES.</span>
+<span style="font-weight: bold;">SOURCE is a string specifying the location of the image.</span>
+<span style="font-weight: bold;">ATTRIBUTES is a plist, as returned by</span>
+<span style="font-weight: bold;">`</span><span style="color: #7fffd4; font-weight: bold;">org-export-read-attribute</span><span style="font-weight: bold;">'.  INFO is a plist used as</span>
+<span style="font-weight: bold;">a communication channel."</span>
+  (org-html-close-tag
+   <span style="color: #7fffd4; font-style: italic;">"img"</span>
+   (org-html--make-attribute-string
+    (org-combine-plists
+     (list <span style="color: #b0c4de; font-weight: bold;">:src</span> source
+           <span style="color: #b0c4de; font-weight: bold;">:alt</span> (<span style="color: #00ffff; font-weight: bold;">if</span> (string-match-p <span style="color: #7fffd4; font-style: italic;">"^ltxpng/"</span> source)
+                    (org-html-encode-plain-text
+                     (org-find-text-property-in-string 'org-latex-src source))
+                  (file-name-nondirectory source)))
+     attributes))
+   info))
+
+(advice-add 'org-html--format-image <span style="color: #b0c4de; font-weight: bold;">:override</span> #'kd/org-html--format-image)
+</pre>
+</div>
+
+<p>
+代码的最后一行相信聪明的人已经看懂了，傻的人还没反应过来<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10">org-mode 的中文 target 和 radio target 无法导出</h3>
+<div class="outline-text-3" id="text-orgheadline10">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2015-04-15 周三&gt;</span></span>
+</p>
+
+<p>
+这个我上报了 org-mode 制作组的 maillist，目前好像还没添加进代码库，可以在配置文件里写下以下代码以修正。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">defun</span> <span style="color: #87cefa; font-weight: bold; font-style: italic;">kd/org-export-solidify-link-text</span> (s)
+  <span style="font-weight: bold;">"Take link text S and make a safe target out of it."</span>
+  (<span style="color: #00ffff; font-weight: bold;">save-match-data</span>
+    (mapconcat 'identity (org-split-string (prin1-to-string (encode-coding-string s 'utf-8)) <span style="color: #7fffd4; font-style: italic;">"[</span><span style="color: #7fffd4; font-style: italic;">^</span><span style="color: #7fffd4; font-style: italic;">a-zA-Z0-9_.-:]+"</span>) <span style="color: #7fffd4; font-style: italic;">"-"</span>)))
+
+(advice-add 'org-export-solidify-link-text <span style="color: #b0c4de; font-weight: bold;">:override</span> #'kd/org-export-solidify-link-text)
+</pre>
+</div>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2015-06-06 周六&gt; </span></span> 
+</p>
+
+<p>
+更新： org-export-solidify-link-text 已经被 org-mode 8.3 弃用， radio target 的中文导出已正常， target 本身仅作为链接的锚点使用，本身不再导出成具体文件。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11">org-mode 的 "src"_&lt;language&gt;{&lt;body&gt;}</h3>
+<div class="outline-text-3" id="text-orgheadline11">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2015-04-15 周三&gt;</span></span>
+</p>
+
+<p>
+这个还真没法用……
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">&#33050;&#27880;: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+……如果你是前端工程师的话。
+</p></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+这里是悬停卡片的内容哦~~~(该功能是emacs_love主题包提供的……)
+</p></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
+（新手提示：想回去继续阅读博客本体，请点本句最左边）如果不想自己 hack 一个主题，可以使用博主自己的主题 <a href="https://github.com/kuangdash/emacs_love">emacs_love</a> ，下载后放置于 org-page 的 themes 文件夹下，再用 <code>M-x customize-group RET org-page</code> 修改 <code>op/theme</code> 项为 emacs_love 即可。
+</p></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara">
+参见 emacs manual 的 <a href="http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Advising-Functions">advice-add</a> 函数。
+</p></div>
+
+
+</div>
+</div>
+</div>
+</div>
+<div>
+  <div class="post-meta">
+    <span title="post date" class="post-info">2015-04-15</span>
+    <span title="last modification date" class="post-info">2015-06-09</span>
+    <span title="tags" class="post-info">:<a href="http://emacs-china.github.io/tags/org-page">org-page</a>:</span>
+    <span title="author" class="post-info"><a href="mailto:kuangdash@163.com">皐月中二</a></span>
+  </div>
+  <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
+  <section>
+    <h1>Comments</h1>
+    <div id="comment-wrap">
+      <a class="disqus_label">使用Disqus评论</a>
+      <a class="ds-label">使用多说评论</a>
+    </ul>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+     //var disqus_developer = 1;
+     var preempt_signal=false;
+     var disqus_identifier = "/blog/2015/04/15/org-page的配置与使用";
+     var disqus_url = "http://emacs-china.github.io/blog/2015/04/15/org-page的配置与使用";
+     var disqus_shortname = 'emacs-china';
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+       $('#disqus_thread').css('display','none');
+     })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <div class="ds-thread"></div>
+    <script type="text/javascript">
+     var duoshuoQuery = {short_name:'emacs-china'};
+     (function() {
+       var ds = document.createElement('script');
+       ds.type = 'text/javascript';ds.async = true;
+       ds.src = 'http://static.duoshuo.com/embed.js';
+       ds.charset = 'UTF-8';
+       (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+       $('.ds-thread').css('display','block');
+     })();
+    </script>
+  </section>
+  <script src="http://emacs-china.github.io/media/js/main.js"></script>
+  <div class="footer">
+    <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x(<a href="http://orgmode.org">Org mode</a> 8.x)</p>
+    <p>
+      Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:kuangdash@163.com">皐月中二</a>
+      &nbsp;&nbsp;-&nbsp;&nbsp;
+      Powered by <a href="https://github.com/emacs-china/EGO" target="_blank">EGO</a><br/>
+      <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
+      <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+    </p>
+  </div>
+    </div>
+
+  </div></body>
+</html>

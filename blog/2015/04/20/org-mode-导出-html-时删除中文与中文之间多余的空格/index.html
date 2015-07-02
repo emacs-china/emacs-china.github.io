@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>org-mode 导出 html 时删除中文与中文之间多余的空格 - EMACS-CHINA</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="author" content="Feng Shu" />
+  <meta name="keywords" content="org-mode, 中文多余空格" />
+  <style>
+   #ds-thread #ds-reset .ds-comment-body p {color: #ffffff;}
+   #ds-thread #ds-reset .ds-comment-body p a {color: #ff0;}
+   #ds-thread #ds-reset .ds-comment-body p a:hover {color: #0ff;}
+   #disqus_thread a {color: #00ffff;}
+  </style>
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css">
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css">
+  <script type="text/javascript"
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+  </script>
+  <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+  </script>
+</head>
+
+  <body><div class="container">
+<div>
+  <header class="masthead">
+    <h1 class="masthead-title"><a href="http://emacs-china.github.io/">EMACS-CHINA</a></h1>
+    <p>=============&gt;集思广益</p>
+    <nav class="site-nav">
+      <div class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#ffff00"/>
+          <path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#ffff00"/>
+          <path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#ffff00"/>
+        </svg>
+      </div>
+      <ul class="trigger">
+        <li><a href="http://emacs-china.github.io/years/">Years</a></li>
+        <li><a href="http://emacs-china.github.io/authors/">Authors</a></li>
+        <li><a href="http://emacs-china.github.io/tags/">Tags</a></li>
+        <li><a href="http://emacs-china.github.io/about/">About</a></li>
+        <li><a href="https://github.com/emacs-china">Github</a></li>
+        <li><a href="http://emacs-china.github.io/rss.xml">RSS</a></li>
+      </ul>
+    </nav>
+    <form method="get" id="searchform" action="http://www.gfsoso.com/search">
+      <input type="text" class="field" name="q" id="s" placeholder="Search">
+      <input type="hidden" name="as_sitesearch" value="emacs-china.github.io">
+    </form>
+  </header>
+</div>
+
+<div>
+<div class="post">
+<h1 class="title">org-mode 导出 html 时删除中文与中文之间多余的空格</h1>
+<p>
+org-mode 文档导出为 html 文档时， <b>单个换行符</b> 会转换为 <b>空格</b> ，但对于中文来说，这个空格
+是多余的，使用下面的代码可以将这些空格删除。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">defun</span> <span style="color: #87cefa; font-weight: bold; font-style: italic;">eh-org-clean-space</span> (text backend info)
+  <span style="font-weight: bold;">"&#22312;export&#20026;HTML&#26102;&#65292;&#21024;&#38500;&#20013;&#25991;&#20043;&#38388;&#19981;&#24517;&#35201;&#30340;&#31354;&#26684;"</span>
+  (<span style="color: #00ffff; font-weight: bold;">when</span> (org-export-derived-backend-p backend 'html)
+    (<span style="color: #00ffff; font-weight: bold;">let</span> ((regexp <span style="color: #7fffd4; font-style: italic;">"[[:multibyte:]]"</span>)
+          (string text))
+      <span style="color: #66cdaa; font-style: italic;">;; </span><span style="color: #66cdaa; font-style: italic;">org&#40664;&#35748;&#23558;&#19968;&#20010;&#25442;&#34892;&#31526;&#36716;&#25442;&#20026;&#31354;&#26684;&#65292;&#20294;&#20013;&#25991;&#19981;&#38656;&#35201;&#36825;&#20010;&#31354;&#26684;&#65292;&#21024;&#38500;&#12290;</span>
+      (<span style="color: #00ffff; font-weight: bold;">setq</span> string
+            (replace-regexp-in-string
+             (format <span style="color: #7fffd4; font-style: italic;">"</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">(</span><span style="color: #7fffd4; font-style: italic;">%s</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">)</span><span style="color: #7fffd4; font-style: italic;"> *\n *</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">(</span><span style="color: #7fffd4; font-style: italic;">%s</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">)</span><span style="color: #7fffd4; font-style: italic;">"</span> regexp regexp)
+             <span style="color: #7fffd4; font-style: italic;">"\\1\\2"</span> string))
+      <span style="color: #66cdaa; font-style: italic;">;; </span><span style="color: #66cdaa; font-style: italic;">&#21024;&#38500;&#31895;&#20307;&#20043;&#21069;&#30340;&#31354;&#26684;</span>
+      (<span style="color: #00ffff; font-weight: bold;">setq</span> string
+            (replace-regexp-in-string
+             (format <span style="color: #7fffd4; font-style: italic;">"</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">(</span><span style="color: #7fffd4; font-style: italic;">%s</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">)</span><span style="color: #7fffd4; font-style: italic;"> +</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">(</span><span style="color: #7fffd4; font-style: italic;">&lt;</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">)</span><span style="color: #7fffd4; font-style: italic;">"</span> regexp)
+             <span style="color: #7fffd4; font-style: italic;">"\\1\\2"</span> string))
+      <span style="color: #66cdaa; font-style: italic;">;; </span><span style="color: #66cdaa; font-style: italic;">&#21024;&#38500;&#31895;&#20307;&#20043;&#21518;&#30340;&#31354;&#26684;</span>
+      (<span style="color: #00ffff; font-weight: bold;">setq</span> string
+            (replace-regexp-in-string
+             (format <span style="color: #7fffd4; font-style: italic;">"</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">(</span><span style="color: #7fffd4; font-style: italic;">&gt;</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">)</span><span style="color: #7fffd4; font-style: italic;"> +</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">(</span><span style="color: #7fffd4; font-style: italic;">%s</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">\\</span><span style="color: #00ffff; font-weight: bold; font-style: italic;">)</span><span style="color: #7fffd4; font-style: italic;">"</span> regexp)
+             <span style="color: #7fffd4; font-style: italic;">"\\1\\2"</span> string))
+      string)))
+
+(add-to-list 'org-export-filter-paragraph-functions
+             'eh-org-clean-space)
+</pre>
+</div>
+
+</div>
+</div>
+<div>
+  <div class="post-meta">
+    <span title="post date" class="post-info">2015-04-20</span>
+    <span title="last modification date" class="post-info">2015-07-02</span>
+    <span title="tags" class="post-info">:<a href="http://emacs-china.github.io/tags/org-mode">org-mode</a>:</span>
+    <span title="author" class="post-info"><a href="mailto:tumashu@163.com">Feng Shu</a></span>
+  </div>
+  <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
+  <section>
+    <h1>Comments</h1>
+    <div id="comment-wrap">
+      <a class="disqus_label">使用Disqus评论</a>
+      <a class="ds-label">使用多说评论</a>
+    </ul>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+     //var disqus_developer = 1;
+     var preempt_signal=false;
+     var disqus_identifier = "/blog/2015/04/20/org-mode-导出-html-时删除中文与中文之间多余的空格/";
+     var disqus_url = "http://emacs-china.github.io/blog/2015/04/20/org-mode-导出-html-时删除中文与中文之间多余的空格/";
+     var disqus_shortname = 'emacs-china';
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+       $('#disqus_thread').css('display','none');
+     })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <div class="ds-thread"></div>
+    <script type="text/javascript">
+     var duoshuoQuery = {short_name:'emacs-china'};
+     (function() {
+       var ds = document.createElement('script');
+       ds.type = 'text/javascript';ds.async = true;
+       ds.src = 'http://static.duoshuo.com/embed.js';
+       ds.charset = 'UTF-8';
+       (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+       $('.ds-thread').css('display','block');
+     })();
+    </script>
+  </section>
+  <script src="http://emacs-china.github.io/media/js/main.js"></script>
+  <div class="footer">
+    <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x(<a href="http://orgmode.org">Org mode</a> 8.x)</p>
+    <p>
+      Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:tumashu@163.com">Feng Shu</a>
+      &nbsp;&nbsp;-&nbsp;&nbsp;
+      Powered by <a href="https://github.com/emacs-china/EGO" target="_blank">EGO</a><br/>
+      <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
+      <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+    </p>
+  </div>
+    </div>
+
+  </div></body>
+</html>

@@ -15,6 +15,13 @@
 </p>
 #+END_HTML
 
+* 本站使用简介
+一些关于 emacs 的中文资料会放置在本站点的 [[http://emacs-china.github.io/blog/][Blog]] 目录下面，可以在 [[http://emacs-china.github.io/tags/][Tags]] 下面按标签索引文件，也可使用 search 框。
+
+这些中文资料的 org-mode 原文件都在 https://github.com/emacs-china/emacs-china.github.io 项目的 source branch 下， _欢迎改进_[fn:1] 。
+
+另外，欢迎各位用 org-mode 文件投稿，我们不会修改一篇文章的 =author= 和 =email= 。（请好好学习 org-mode 的用法，hello-emacs 中有 darksun  写的 org-manual （ org-mode 的中文使用手册））
+
 * emacs-china 项目列表
 该项目列表可使用上面 “点我修改” 链接进行修改。要求：登录 github，并成为 emacs-china 的成员。
 
@@ -71,19 +78,12 @@ emacs自带各国输入法，当然也包括中文。
 + 项目链接：[[http://tumashu.github.io/org-webpage]]
 + 代码浏览：[[https://github.com/tumashu/org-webpage]]
 + 项目作者：tumashu
-+ 项目介绍：在 Kelvin Hu 先生的 org-page 基础上所写的 _静态站点生成器_[fn:1] 。相较 org-page ，org-webpage 更适合多站点管理时使用。
++ 项目介绍：在 Kelvin Hu 先生的 org-page 基础上所写的 _静态站点生成器_[fn:2] 。相较 org-page ，org-webpage 更适合多站点管理时使用。
 
 *** EGO
 + 项目链接：[[http://emacs-china.github.io/EGO]] （页面暂时未建好）
 + 代码浏览：[[https://github.com/emacs-china/EGO]]
 + 项目介绍：作为 emacs-china 静态站点的静态站点生成器。
-
-* 中文资料
-一些关于 emacs 的中文资料会放置在本站点的 [[http://emacs-china.github.io/blog/][Blog]] 目录下面，可以在 [[http://emacs-china.github.io/tags/][Tags]] 下面按标签索引文件，也可使用 search 框。
-
-这些中文资料的 org-mode 原文件都在 emacs-china.github.io 项目的 source branch 下， _欢迎改进_[fn:2] 。
-
-另外，欢迎各位用 org-mode 文件投稿，我们不会修改一篇文章的 =author= 和 =email= 。（请好好学习 org-mode 的用法，hello-emacs 中有 darksun  写的 org-manual （ org-mode 的中文使用手册））
 
 * 各种各样的联系方式
 + weibo : （待添加）
@@ -95,7 +95,14 @@ emacs自带各国输入法，当然也包括中文。
 期待和各位 emacs 中文用户的交流！
 
 * Footnotes
+:PROPERTIES:
+:ATTACH_DIR: d:/Fire_Workspace/synchronization/emacs_home/github/emacs-china.github.io/assets/
+:END:
 
-[fn:1] org-webpage 在 org-page 上添加了主题继承功能，但该观点未被 Kelvin Hu 采纳，后来独立出该分支，并集成了站点本地测试的功能。
+[fn:1] 请好好学习 git 和 github 的用法，非 emacs-china 成员可以在 fork 后，使用 pull request 的方式。
+[[file:assets/fork.png]]
+emacs-china 成员可以直接选择文档页面的 “点我修改” 链接（如果有的话）。
 
-[fn:2] 请好好学习 git 和 github 的用法，非 emacs-china 成员可以使用 pull request 的方式，emacs-china 成员可以直接选择文档页面的 “点我修改” 链接（如果有的话）。
+[fn:2] org-webpage 在 org-page 上添加了主题继承功能，但该观点未被 Kelvin Hu 采纳，后来独立出该分支，并集成了站点本地测试的功能。
+
+

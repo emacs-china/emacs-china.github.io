@@ -95,10 +95,6 @@ emacs自带各国输入法，当然也包括中文。
 期待和各位 emacs 中文用户的交流！
 
 * Footnotes
-:PROPERTIES:
-:ATTACH_DIR: d:/Fire_Workspace/synchronization/emacs_home/github/emacs-china.github.io/assets/
-:END:
-
 [fn:1] 请好好学习 git 和 github 的用法，非 emacs-china 成员可以在 fork 后，使用 pull request 的方式。
 [[file:assets/fork.png]]
 emacs-china 成员可以直接选择文档页面的 “点我修改” 链接（如果有的话）。

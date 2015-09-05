@@ -84,7 +84,7 @@
     (interactive (list (read-string "package-name? " "'")))
     (async-start
      `(lambda ()
-        (setq package-archives ,package-archives)
+        (setq package-archives ',package-archives)
         (package-initialize t)
         (package-install ,(read package-quote)))
      `(lambda (result)

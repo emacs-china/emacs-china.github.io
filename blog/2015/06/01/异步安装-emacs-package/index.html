@@ -47,7 +47,7 @@
         <li><a href="http://emacs-china.github.io/rss.xml">RSS</a></li>
       </ul>
     </nav>
-    <form method="get" id="searchform" action="http://www.gfsoso.com/search">
+    <form method="get" id="searchform" action="http://www.google.com/search">
       <input type="text" class="field" name="q" id="s" placeholder="Search">
       <input type="hidden" name="as_sitesearch" value="emacs-china.github.io">
     </form>
@@ -161,7 +161,7 @@
   (<span style="color: #00ffff; font-weight: bold;">interactive</span> (list (read-string <span style="color: #7fffd4; font-style: italic;">"package-name? "</span> <span style="color: #7fffd4; font-style: italic;">"'"</span>)))
   (<span style="color: #00ffff; font-weight: bold;">async-start</span>
    `(<span style="color: #00ffff; font-weight: bold;">lambda</span> ()
-      (<span style="color: #00ffff; font-weight: bold;">setq</span> package-archives ,package-archives)
+      (<span style="color: #00ffff; font-weight: bold;">setq</span> package-archives ',package-archives)
       (package-initialize t)
       (package-install ,(read package-quote)))
    `(<span style="color: #00ffff; font-weight: bold;">lambda</span> (result)
@@ -177,7 +177,7 @@
 <div>
   <div class="post-meta">
     <span title="post date" class="post-info">2015-06-01</span>
-    <span title="last modification date" class="post-info">2015-07-02</span>
+    <span title="last modification date" class="post-info">2015-09-05</span>
     <span title="tags" class="post-info">:<a href="http://emacs-china.github.io/tags/asynchronization">asynchronization</a> : <a href="http://emacs-china.github.io/tags/package-install">package install</a>:</span>
     <span title="author" class="post-info"><a href="mailto:kuangdash@163.com">皐月中二</a></span>
   </div>
@@ -225,7 +225,7 @@
     <p>
       Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:kuangdash@163.com">皐月中二</a>
       &nbsp;&nbsp;-&nbsp;&nbsp;
-      Powered by <a href="https://github.com/emacs-china/EGO" target="_blank">EGO</a><br/>
+      Powered by <a href="https://github.com/emacs-china/ego" target="_blank">ego</a><br/>
       <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
       <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
     </p>

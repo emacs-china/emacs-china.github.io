@@ -97,7 +97,9 @@ emacs自带各国输入法，当然也包括中文。
 
 * Footnotes
 [fn:1] 请好好学习 git 和 github 的用法，非 emacs-china 成员可以在 fork 后，使用 pull request 的方式。
+
 [[file:assets/fork.png]]
+
 emacs-china 成员可以直接选择文档页面的 “点我修改” 链接（如果有的话）。
 
 [fn:2] org-webpage 在 org-page 上添加了主题继承功能，但该观点未被 Kelvin Hu 采纳，后来独立出该分支，并集成了站点本地测试的功能。

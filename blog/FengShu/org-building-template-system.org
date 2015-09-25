@@ -12,12 +12,7 @@
 
 
 
-Emacs 拥有许多优秀的模板系统，其中最流行的莫过于 yasnippet 了，但本人发现，这个包功能
-太过强大，常常驾驭不了。。。。
-
-
-org-mode 自带的模板系统，简单却很实用，一般也不会出现那些莫名其妙的问题，
-下面是本人经常使用的模板：
+Emacs 拥有许多优秀的模板系统，其中最流行的莫过于 yasnippet 了，不过 org-mode 也有自带的一套模板，有兴趣的同学可以试试看：
 
 #+BEGIN_SRC emacs-lisp
 (setq org-structure-template-alist

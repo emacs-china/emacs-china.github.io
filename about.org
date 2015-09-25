@@ -9,4 +9,4 @@
 
 这是 emacs 中文用户在 github 上的一个信息交流站， *兴趣使然地* 搜集、整理、更新、维护关于 emacs 的中文资料。
 
-如果你对这些事情感兴趣，或者有自己写的好的 elisp 项目，欢迎加入我们，联系地址（电子邮箱）： emacs-china@googlegroups.com
+如果你对这些事情感兴趣，或者有自己写的好的 elisp 项目，欢迎加入我们，联系地址（电子邮箱）：[[mailto:emacs-china@googlegroups.com][emacs-china]]

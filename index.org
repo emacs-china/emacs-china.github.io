@@ -95,7 +95,7 @@ emacs自带各国输入法，当然也包括中文。
 + 代码浏览：[[https://github.com/emacs-china/EGO]]
 + 项目介绍：作为 emacs-china 静态站点的静态站点生成器。
 
-** 有用的工具们
+** 一些有用的工具
 
 *** uimage
 + 项目链接：[[https://github.com/lujun9972/hello-emacs]]

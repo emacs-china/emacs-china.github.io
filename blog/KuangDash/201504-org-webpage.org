@@ -13,7 +13,7 @@
 
 #+BEGIN_HTML
 <p class="center">
-<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/org-webpage.org">点我修改</a><br/>
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/201504-org-webpage.org">点我修改</a><br/>
 </p>
 #+END_HTML
 

@@ -91,9 +91,16 @@ emacs自带各国输入法，当然也包括中文。
 + 项目介绍：在 Kelvin Hu 先生的 org-page 基础上所写的 _静态站点生成器_[fn:2] 。相较 org-page ，org-webpage 更适合多站点管理时使用。
 
 *** EGO
-+ 项目链接：[[http://emacs-china.github.io/EGO]] （页面暂时未建好）
++ 项目链接：[[http://emacs-china.github.io/EGO]] 
 + 代码浏览：[[https://github.com/emacs-china/EGO]]
 + 项目介绍：作为 emacs-china 静态站点的静态站点生成器。
+
+** 一些有用的工具
+
+*** uimage
++ 项目链接：[[https://github.com/lujun9972/hello-emacs]]
++ 项目作者：[[https://github.com/lujun9972][DarkSun]]
++ 项目介绍：可以在 emacs 里显示互联网上的图片，和 iimage-mode 用法相同
 
 * Footnotes
 [fn:1] 请好好学习 git 和 github 的用法，非 emacs-china 成员可以在 fork 后，使用 pull request 的方式。

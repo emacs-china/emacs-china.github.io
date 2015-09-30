@@ -4,7 +4,6 @@
 #+DATE:        2015-04-20 一
 
 #+URI:         /blog/%y/%m/%d/%t/
-#+KEYWORDS:    org-mode, latex, ctex
 #+TAGS:        org-mode, latex, ctex
 
 #+LANGUAGE:    zh-CN

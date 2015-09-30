@@ -10,6 +10,12 @@
 #+LANGUAGE:    zh-CN
 #+OPTIONS:     H:4 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 
+#+BEGIN_HTML
+<p class="center">
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/201509-manage-emacs-china.org">点我修改</a><br/>
+</p>
+#+END_HTML
+
 建设 emacs-china 的想法缘起于早先的 [[http://emacser.com/][emacs 中文网]]。当时我自学 emacs ，比起英文资料，还是更倾向于阅读中文资料（惰性使然……），于是参考 emacs 中文网的一些教程进行设置，结果发现很多资料过时而且没有被积极地更新维护。本来的想法是在 emacs 中文网上就未更新的部分发表一些评论，可由于最开始的提交评论不成功，导致一大段总结的文字就此丢失（当时没事先存为文本），后面也就没再关注 emacs 中文网了。
 
 后来接触了 github （也是缘起 emacs ），开始了解到 github 上可以建设静态站点，就抱着学习 html 和 css 的想法开始折腾 gh-pages，于是遇上了 org-page 这个结合 emacs、git 和 org-mode 的静态站点生成器。再加上自己某天晚上对 emacs logo 的灵机一动，便搞了一个关于 emacs 的酷酷的 logo，然后在和一个 emacs QQ 群里的群友交流的过程中，诞生了将 emacs 中文网搬到 github 上的想法。
@@ -65,3 +71,17 @@ hub pull-request -m "depiction" -b emacs-china:source -h YOUR_USER:source
 这就是将你的 fork （ =YOUR_USER= ）发送合并请求到 =emacs-china= 上，当然，合并的是 =source= branch 下的内容。你也可以通过修改上面的命令，发送 =master= branch 的内容。注意：-m 后面的字符串是对本次操作的描述，不加 -m 选项会启动 vim 程序来处理该表述，在 windows cmd 下，这样会有问题。
 
 简短的介绍也是流畅操作的必要条件，欢迎提问~
+
+* 附录
+关于 emacs-china 文章里“点我修改”这个功能，可以用 yasnippet 定义以下模板自动生成，这个是我个人设置，结合实际情况修改即可：
+#+BEGIN_SRC snippet
+  # name: clickMeAlter
+  # key: >cma
+  # binding: direct-keybinding
+  # --
+  ,#+BEGIN_HTML
+  <p class="center">
+  <a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/`(buffer-name (current-buffer))`">点我修改</a><br/>
+  </p>
+  ,#+END_HTML
+#+END_SRC

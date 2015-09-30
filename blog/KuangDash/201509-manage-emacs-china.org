@@ -42,7 +42,8 @@ emacs-china 站点在配置文件里面的配置可以直接参照克隆后 repo
 
 注意：若是要将 emacs-china 发布到远端，以下命令必须先运行一次：
 #+BEGIN_SRC bash
-git checkout master
+git checkout YOUR_USER/master
+git checkout -b master
 #+END_SRC
 
 这里的 =master= 是 emacs-china 站点的 html 文件所在的 branch，如果 =git clone= 下来的文件是在 =source= branch 下，那么这个操作是必须的。（不然，非测试发布的情况会发生问题）

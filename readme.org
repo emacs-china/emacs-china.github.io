@@ -3,10 +3,12 @@
 #+author: emacs-china
 #+email: emacs-china@googlegroups.com
 
-下面是 emacs-china 的设置，将其写入 emacs-china 即可。你可以仿照它来设置自己的站点：
+下面是 emacs-china 的设置，安装好 [[https://github.com/emacs-china/EGO][EGO]] 后，将该设置写入配置即可管理 emacs-china 。
+
+CAUTION: 直接 clone emacs-china 后，需要 checkout master 和 source 后才能使用，否则会导致意外情况。
 
 #+BEGIN_SRC emacs-lisp
-  ;; the following is only needed if you install org-page manually
+  ;; the following is only needed if you install EGO manually
   (add-to-list 'load-path "path/to/EGO")
 
   (require 'ego)
@@ -27,6 +29,8 @@
                    :web-server-docroot "~/webRoot/emacs-china.github.io" ; 本地测试的目录
                    :web-server-port 5432)) ; 本地测试的端口
 #+END_SRC
+
+TIP: 你可以仿照上面来设置自己的站点。
 
 你可以通过以下方式发现 EGO 的设置方法（英文）
 

@@ -4,7 +4,6 @@
 #+DATE:        2015-04-20 一
 
 #+URI:         /blog/%y/%m/%d/%t/
-#+KEYWORDS:    org-mode, 中文多余空格
 #+TAGS:        org-mode
 
 #+LANGUAGE:    zh-CN

@@ -4,7 +4,6 @@
 #+DATE:        2015-06-01 周一
 
  #+URI:         /blog/%y/%m/%d/异步安装-emacs-package
- #+KEYWORDS:    asynchronization, package install
  #+TAGS:        asynchronization, package install
  #+DESCRIPTION: install packages asynchronically
 

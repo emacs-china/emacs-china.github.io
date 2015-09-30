@@ -1,0 +1,67 @@
+#+TITLE:       如何流畅地管理 emacs-china 主站点
+#+AUTHOR:      皐月中二
+#+EMAIL:       kuangdash@163.com
+#+DATE:        2015-09-27 周日
+
+#+URI:         /blog/%y/%m/%d/如何流畅地管理-emacs-china
+#+TAGS:        EGO
+#+DESCRIPTION: 让 emacs-china 主站点的更新简洁一些
+
+#+LANGUAGE:    zh-CN
+#+OPTIONS:     H:4 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+
+建设 emacs-china 的想法缘起于早先的 [[http://emacser.com/][emacs 中文网]]。当时我自学 emacs ，比起英文资料，还是更倾向于阅读中文资料（惰性使然……），于是参考 emacs 中文网的一些教程进行设置，结果发现很多资料过时而且没有被积极地更新维护。本来的想法是在 emacs 中文网上就未更新的部分发表一些评论，可由于最开始的提交评论不成功，导致一大段总结的文字就此丢失（当时没事先存为文本），后面也就没再关注 emacs 中文网了。
+
+后来接触了 github （也是缘起 emacs ），开始了解到 github 上可以建设静态站点，就抱着学习 html 和 css 的想法开始折腾 gh-pages，于是遇上了 org-page 这个结合 emacs、git 和 org-mode 的静态站点生成器。再加上自己某天晚上对 emacs logo 的灵机一动，便搞了一个关于 emacs 的酷酷的 logo，然后在和一个 emacs QQ 群里的群友交流的过程中，诞生了将 emacs 中文网搬到 github 上的想法。
+
+接着万恶的折腾就开始了…… 先是借用 org-page 生成 emacs-china 主站点，再是经由 tumashu 先生提议，将 org-page 替换成了 org-webpage（提供了更方便的多站点管理和主题设置功能），到最后因设计理念的不同，我选择了独立建设 EGO。
+
+结果折腾到现在，本来应该开始的 emacs 中文网搬运工作并未启动，只是兴趣使然地开了一个大坑。但我仍然认为 emacs-china 的建设，相对 emacs 中文网和 hick 兄的 emacsist.com 而言，是个正确的选择。
+
+#+BEGIN_CENTER
+[[file:201509-manage-emacs-china/screenshot-20150927-203850.png]]
+
+和  [[http://emacser.com/][emacs 中文网]] 站长的交流记录，未回复的信件
+#+END_CENTER
+
+不过，搬运并未开始（就目前来讲，emacs-china 下的 [[https:github.com/emacs-china/hello-emacs][hello-emacs]] 更有价值，只是未被整理），因为我并没有勇气独力承担这种公益性活动（可以想见 Richard Stallman 当初是做了怎样的抉择…… ），所以我在此写下这篇 blog，算是入坑向吧- -。
+
+* 管理 emacs-china 步骤一：安装 hub 
+玩 github，如果只知道 git 不知道 [[https://github.com/github/hub][hub]] ，那就孤陋寡闻了哈。当然，要使用好 hub，还是需要有 github 的账号，先注册完后再来下载 hub 吧，这里是下载地址：https://github.com/github/hub/releases
+
+使用 hub 的优点：不用每次操作 github 都依赖 github 的网页，毕竟国内载入 github 网页的速度并不快。
+
+以下要说明的流畅管理必须依赖 hub 这个 *命令行工具* 才行。
+
+* 管理 emacs-china 步骤二：安装 EGO
+目前并不提供 http://melpa.org 版本的包下载，还是请 =git clone= 之吧。这样如果有什么问题，也可以通过 github 的平台来改正。
+
+具体的安装和使用方法在这里：http://emacs-china.github.io/EGO ，开源世界需要各位的力量~
+
+* 管理 emacs-china 步骤三：克隆 emacs-china ，以及一些使用惯例
+直接从 emacs-china 上克隆 emacs-china.github.io 之后，再使用 hub fork 命令。（初次使用 hub 会要求你输入 github 的账号和密码，所以 windows 系统用户最好在类 bash 终端下使用这个功能）
+#+BEGIN_SRC bash
+git clone https://github.com/emacs-china/emacs-china.github.io YOUR_REPO
+cd YOUR_REPO
+hub fork
+#+END_SRC
+
+然后可以先在 YOUR_REPO 这个文件夹下开始用 EGO 测试 emacs-china 站点的导出。
+
+emacs-china 站点在配置文件里面的配置可以直接参照克隆后 repository 里的 readme.org 文件。
+
+注意：若是要将 emacs-china 发布到远端，以下命令必须先运行一次：
+#+BEGIN_SRC bash
+git checkout master
+#+END_SRC
+
+这里的 =master= 是 emacs-china 站点的 html 文件所在的 branch，如果 =git clone= 下来的文件是在 =source= branch 下，那么这个操作是必须的。（不然，非测试发布的情况会发生问题）
+
+假如有更新需要从个人的 fork 推送到主站点上，可以使用 hub pull-request 命令, 这里举例说明：
+#+BEGIN_SRC bash
+hub pull-request -m "depiction" -b emacs-china:source -h YOUR_USER:source
+#+END_SRC
+
+这就是将你的 fork （ =YOUR_USER= ）发送合并请求到 =emacs-china= 上，当然，合并的是 =source= branch 下的内容。你也可以通过修改上面的命令，发送 =master= branch 的内容。注意：-m 后面的字符串是对本次操作的描述，不加 -m 选项会启动 vim 程序来处理该表述，在 windows cmd 下，这样会有问题。
+
+简短的介绍也是流畅操作的必要条件，欢迎提问~

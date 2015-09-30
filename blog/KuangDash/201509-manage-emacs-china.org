@@ -4,7 +4,7 @@
 #+DATE:        2015-09-27 周日
 
 #+URI:         /blog/%y/%m/%d/如何流畅地管理-emacs-china
-#+TAGS:        EGO
+#+TAGS:        EGO, org-mode
 #+DESCRIPTION: 让 emacs-china 主站点的更新简洁一些
 
 #+LANGUAGE:    zh-CN

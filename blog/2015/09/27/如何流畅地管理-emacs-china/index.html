@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>如何流畅地管理 emacs-china 主站点 - EMACS-CHINA</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="author" content="皐月中二" />
+  <meta name="description" content="让 emacs-china 主站点的更新简洁一些" />
+  <meta name="keywords" content="" />
+  <style>
+   #ds-thread #ds-reset .ds-comment-body p {color: #ffffff;}
+   #ds-thread #ds-reset .ds-comment-body p a {color: #ff0;}
+   #ds-thread #ds-reset .ds-comment-body p a:hover {color: #0ff;}
+   #disqus_thread a {color: #00ffff;}
+  </style>
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css">
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css">
+  <script type="text/javascript"
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+  </script>
+  <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+  </script>
+</head>
+
+  <body><div class="container">
+<div>
+  <header class="masthead">
+    <h1 class="masthead-title"><a href="http://emacs-china.github.io/">EMACS-CHINA</a></h1>
+    <p>=============&gt;集思广益</p>
+    <nav class="site-nav">
+      <div class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#ffff00"/>
+          <path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#ffff00"/>
+          <path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#ffff00"/>
+        </svg>
+      </div>
+      <ul class="trigger">
+        <li><a href="http://emacs-china.github.io/years/">Years</a></li>
+        <li><a href="http://emacs-china.github.io/authors/">Authors</a></li>
+        <li><a href="http://emacs-china.github.io/tags/">Tags</a></li>
+        <li><a href="http://emacs-china.github.io/about/">About</a></li>
+        <li><a href="https://github.com/emacs-china">Github</a></li>
+        <li><a href="http://emacs-china.github.io/rss.xml">RSS</a></li>
+      </ul>
+    </nav>
+    <form method="get" id="searchform" action="http://www.google.com/search">
+      <input type="text" class="field" name="q" id="s" placeholder="Search">
+      <input type="hidden" name="as_sitesearch" value="emacs-china.github.io">
+    </form>
+  </header>
+</div>
+
+<div>
+<div class="post">
+<h1 class="title">如何流畅地管理 emacs-china 主站点</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">管理 emacs-china 步骤一：安装 hub</a></li>
+<li><a href="#orgheadline2">管理 emacs-china 步骤二：安装 EGO</a></li>
+<li><a href="#orgheadline3">管理 emacs-china 步骤三：克隆 emacs-china ，以及一些使用惯例</a></li>
+<li><a href="#orgheadline6">附录</a>
+<ul>
+<li><a href="#orgheadline4">点我修改</a></li>
+<li><a href="#orgheadline5">缘起</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p class="center">
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/201509-manage-emacs-china.org">点我修改</a><br/>
+</p>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">管理 emacs-china 步骤一：安装 hub</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+<p>
+玩 github，如果只知道 git 不知道 <a href="https://github.com/github/hub">hub</a> ，那就孤陋寡闻了哈。当然，要使用好 hub，还是需要有 github 的账号，先注册完后再来下载 hub 吧，这里是下载地址：<a href="https://github.com/github/hub/releases">https://github.com/github/hub/releases</a>
+</p>
+
+<p>
+使用 hub 的优点：不用每次操作 github 都依赖 github 的网页，毕竟国内载入 github 网页的速度并不快。
+</p>
+
+<p>
+以下要说明的流畅管理必须依赖 hub 这个 <b>命令行工具</b> 才行。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2">管理 emacs-china 步骤二：安装 EGO</h2>
+<div class="outline-text-2" id="text-orgheadline2">
+<p>
+目前并不提供 <a href="http://melpa.org/">http://melpa.org/</a> 版本的包下载，还是请 <code>git clone</code> 之吧。这样如果有什么问题，也可以通过 github 的平台来改正。
+</p>
+
+<p>
+具体的安装和使用方法在这里：<a href="http://emacs-china.github.io/EGO">http://emacs-china.github.io/EGO</a> ，开源世界需要各位的力量~
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3">管理 emacs-china 步骤三：克隆 emacs-china ，以及一些使用惯例</h2>
+<div class="outline-text-2" id="text-orgheadline3">
+<p>
+直接从 emacs-china 上克隆 emacs-china.github.io 之后，再使用 hub fork 命令。（初次使用 hub 会要求你输入 github 的账号和密码，所以 windows 系统用户最好在类 bash 终端下使用这个功能）
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">git clone https://github.com/emacs-china/emacs-china.github.io YOUR_REPO
+<span style="color: #b0c4de; font-weight: bold;">cd</span> YOUR_REPO
+hub fork
+</pre>
+</div>
+
+<p>
+然后可以先在 YOUR_REPO 这个文件夹下开始用 EGO 测试 emacs-china 站点的导出。
+</p>
+
+<p>
+emacs-china 站点在配置文件里面的配置可以直接参照克隆后 repository 里的 readme.org 文件。
+</p>
+
+<p>
+注意：若是要将 emacs-china 发布到远端，以下命令必须先运行一次：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">git checkout YOUR_USER/master
+git checkout -b master
+</pre>
+</div>
+
+<p>
+这里的 <code>master</code> 是 emacs-china 站点的 html 文件所在的 branch，如果 <code>git clone</code> 下来的文件是在 <code>source</code> branch 下，那么这个操作是必须的。（不然，非测试发布的情况会发生问题）
+</p>
+
+<p>
+假如有更新需要从个人的 fork 推送到主站点上，可以使用 hub pull-request 命令, 这里举例说明：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">hub pull-request -m <span style="color: #7fffd4; font-style: italic;">"depiction"</span> -b emacs-china:source -h YOUR_USER:source
+</pre>
+</div>
+
+<p>
+这就是将你的 fork （ <code>YOUR_USER</code> ）发送合并请求到 <code>emacs-china</code> 上，当然，合并的是 <code>source</code> branch 下的内容。你也可以通过修改上面的命令，发送 <code>master</code> branch 的内容。注意：-m 后面的字符串是对本次操作的描述，不加 -m 选项会启动 vim 程序来处理该表述，在 windows cmd 下，这样会有问题。
+</p>
+
+<p>
+简短的介绍也是流畅操作的必要条件，欢迎提问~
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6">附录</h2>
+<div class="outline-text-2" id="text-orgheadline6">
+</div><div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4">点我修改</h3>
+<div class="outline-text-3" id="text-orgheadline4">
+<p>
+关于 emacs-china 文章里“点我修改”这个功能，可以用 yasnippet 定义以下模板自动生成，这个是我个人设置，结合实际情况修改即可：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-snippet"><span style="color: #66cdaa; font-style: italic;"># name: clickMeAlter</span>
+<span style="color: #66cdaa; font-style: italic;"># key: &gt;cma</span>
+<span style="color: #66cdaa; font-style: italic;"># binding: direct-keybinding</span>
+<span style="color: #66cdaa; font-style: italic;"># --</span>
+<span style="color: #66cdaa; font-style: italic;">#+BEGIN_HTML</span>
+&lt;p class="center"&gt;
+&lt;a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/`(buffer-name (current-buffer))`"&gt;&#28857;&#25105;&#20462;&#25913;&lt;/a&gt;&lt;br/&gt;
+&lt;/p&gt;
+<span style="color: #66cdaa; font-style: italic;">#+END_HTML</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5">缘起</h3>
+<div class="outline-text-3" id="text-orgheadline5">
+<p>
+建设 emacs-china 的想法缘起于早先的 <a href="http://emacser.com/">emacs 中文网</a>。当时我自学 emacs ，比起英文资料，还是更倾向于阅读中文资料（惰性使然……），于是参考 emacs 中文网的一些教程进行设置，结果发现很多资料过时而且没有被积极地更新维护。本来的想法是在 emacs 中文网上就未更新的部分发表一些评论，可由于最开始的提交评论不成功，导致一大段总结的文字就此丢失（当时没事先存为文本），后面也就没再关注 emacs 中文网了。
+</p>
+
+<p>
+后来接触了 github （也是缘起 emacs ），开始了解到 github 上可以建设静态站点，就抱着学习 html 和 css 的想法开始折腾 gh-pages，于是遇上了 org-page 这个结合 emacs、git 和 org-mode 的静态站点生成器。再加上自己某天晚上对 emacs logo 的灵机一动，便搞了一个关于 emacs 的酷酷的 logo，然后在和一个 emacs QQ 群里的群友交流的过程中，诞生了将 emacs 中文网搬到 github 上的想法。
+</p>
+
+<p>
+接着万恶的折腾就开始了…… 先是借用 org-page 生成 emacs-china 主站点，再是经由 tumashu 先生提议，将 org-page 替换成了 org-webpage（提供了更方便的多站点管理和主题设置功能），到最后因设计理念的不同，我选择了独立建设 EGO。
+</p>
+
+<p>
+结果折腾到现在，本来应该开始的 emacs 中文网搬运工作并未启动，只是兴趣使然地开了一个大坑。但我仍然认为 emacs-china 的建设，相对 emacs 中文网和 hick 兄的 emacsist.com 而言，是个正确的选择。
+</p>
+
+<div class="org-center">
+
+<div class="figure">
+<p><img src="http://emacs-china.github.io/assets/blog/2015/09/27/如何流畅地管理-emacs-china/screenshot-20150927-203850.png" alt="screenshot-20150927-203850.png" />
+</p>
+</div>
+
+<p>
+和  <a href="http://emacser.com/">emacs 中文网</a> 站长的交流记录，未回复的信件
+</p>
+</div>
+
+<p>
+不过，搬运并未开始（就目前来讲，emacs-china 下的 <a href="https:github.com/emacs-china/hello-emacs">hello-emacs</a> 更有价值，只是未被整理），因为我并没有勇气独力承担这种公益性活动（可以想见 Richard Stallman 当初是做了怎样的抉择），所以我在此写下这篇 blog，算是 <b>入坑向</b> 吧。
+</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<div>
+  <div class="post-meta">
+    <span title="post date" class="post-info">2015-09-27</span>
+    <span title="last modification date" class="post-info">2015-09-30</span>
+    <span title="tags" class="post-info">:<a href="http://emacs-china.github.io/tags/ego">EGO</a> : <a href="http://emacs-china.github.io/tags/org-mode">org-mode</a>:</span>
+    <span title="author" class="post-info"><a href="mailto:kuangdash@163.com">皐月中二</a></span>
+  </div>
+  <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
+  <section>
+    <h1>Comments</h1>
+    <div id="comment-wrap">
+      <a class="disqus_label">使用Disqus评论</a>
+      <a class="ds-label">使用多说评论</a>
+    </ul>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+     //var disqus_developer = 1;
+     var preempt_signal=false;
+     var disqus_identifier = "/blog/2015/09/27/如何流畅地管理-emacs-china";
+     var disqus_url = "http://emacs-china.github.io/blog/2015/09/27/如何流畅地管理-emacs-china";
+     var disqus_shortname = 'emacs-china';
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+       $('#disqus_thread').css('display','none');
+     })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <div class="ds-thread"></div>
+    <script type="text/javascript">
+     var duoshuoQuery = {short_name:'emacs-china'};
+     (function() {
+       var ds = document.createElement('script');
+       ds.type = 'text/javascript';ds.async = true;
+       ds.src = 'http://static.duoshuo.com/embed.js';
+       ds.charset = 'UTF-8';
+       (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+       $('.ds-thread').css('display','block');
+     })();
+    </script>
+  </section>
+  <script src="http://emacs-china.github.io/media/js/main.js"></script>
+  <div class="footer">
+    <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x(<a href="http://orgmode.org">Org mode</a> 8.x)</p>
+    <p>
+      Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:kuangdash@163.com">皐月中二</a>
+      &nbsp;&nbsp;-&nbsp;&nbsp;
+      Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
+      <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
+      <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+    </p>
+  </div>
+    </div>
+
+  </div></body>
+</html>

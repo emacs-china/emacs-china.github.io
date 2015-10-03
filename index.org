@@ -101,7 +101,7 @@ emacs自带各国输入法，当然也包括中文。
 *** uimage
 + 项目链接：[[https://github.com/lujun9972/uimage]]
 + 项目作者：[[https://github.com/lujun9972][DarkSun]]
-+ 项目介绍：可以在 emacs 里显示互联网上的图片，和 iimage-mode 用法相同
++ 项目介绍：可以在 emacs 里显示互联网上的图片，是 iimage-mode 的改进版
 
 * Footnotes
 [fn:1] 请好好学习 git 和 github 的用法，非 emacs-china 成员可以在 fork 后，使用 pull request 的方式。

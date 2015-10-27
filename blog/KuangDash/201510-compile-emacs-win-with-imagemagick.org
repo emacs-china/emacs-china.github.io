@@ -1,0 +1,60 @@
+#+TITLE:       在 windows 上编译支持 imagemagick 的 emacs
+#+AUTHOR:      皐月中二
+#+EMAIL:       kuangdash@163.com
+#+DATE:        2015-10-28 周三
+
+#+URI:         /blog/%y/%m/%d/在-windows-上编译支持-imagemagick-的-emacs
+#+TAGS:        imagemagick, emacs-compile, windows-system
+#+DESCRIPTION: 在 windows 系统上编译支持 imagemagick 的 emacs
+
+#+LANGUAGE:    zh-CN
+#+OPTIONS:     H:4 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+
+* 需求分析
+从最早的时候 gnu 官方提供的 emacs-w32 版本，再到 [[http://chriszheng.science][Chris-Zheng]] 编译出的 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] ，再到 msys2 自带的 emacs 版本（通过 pacman 安装），我个人一直在 windows 系统上使用 emacs，也算是 emacs 折腾界的资深人士了吧……这次就来谈谈诚如这篇标题所言的内容。
+
+首先感谢 [[http://chriszheng.science][Chris-Zheng]] ，他编译的 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 确实比官方的 emacs-w32 好了很多，而且也在博客里说明了编译的具体细节，这才有这篇文章。
+
+我在他的基础上进一步完善了 windows 上 emacs 的编译过程——如果使用 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 的话，就会发现其 elisp 里面以 image-transform 为前缀的函数是无效的，这是由于 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 在编译过程中使用了 =without imagemagick= 选项。这样一来，在 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 里面查看图片时，若图片大小过大，emacs 往往无法完全显示，也无法缩放。
+
+那么下面就来说明如何在 windows 上编译一个完整的 emacs。
+
+* 安装依赖
+1) 安装 [[http:msys2.github.io][msys2]] ，然后在里面安装 gcc 等工具（注意分 mingw64 和 mingw32）。这部分可以先参考 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 的设置
+2) 下载 emacs 的源代码，这部分也可以先参考 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 的设置
+
+* 编译步骤
+编译的时候就不能参考 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 的设置了。
+
+首先打开 msys2 的 mingw64 shell。（系统如果是 32 位的，就打开 mingw32 shell）
+
+然后打开 emacs 源码的 src/image.c 文件，找到下面代码片：
+#+BEGIN_SRC C
+  #if defined HAVE_NTGUI && defined WINDOWSNT
+  static bool init_imagemagick_functions (void);
+  #else
+  #define init_imagemagick_functions NULL
+  #endif
+#+END_SRC
+
+在这段代码后面插入一句 =#define init_imagemagick_functions NULL= ，记得编译之后将之改回，不然不方便以后从官方代码仓库更新 emacs 的源码。
+
+最后用普通的编译方式就可以了：
+#+BEGIN_SRC shell
+  ./configure
+  make
+  make install --prefix= ...
+#+END_SRC
+
+*注意* ：make install 后面的 prefix 决定了安装 emacs 的位置，关于这点可以查找其他资料。我个人建议就安装在 msys2 默认的那个 bin 文件夹中（就系统情况决定是 mingw32 还是 mingw64 文件夹下的 bin）
+
+* 后记：关于 emacs 源码的现状
+根据 emacs 邮件列表上的情况来看，目前维护 emacs 源码的两个 heads maintainer 退出了 emacs 的维护。
+
+虽然看起来这事儿很糟糕，不过 emacs 的现状主要还是依赖 emacs-lisp 开发的那些插件。这些用 emacs-lisp 编写的插件才是 emacs 强大编辑能力的精髓——然而这些插件的设计却还没优秀到能完全发挥 emacs-lisp 的潜能。
+
+所以总的来说，让 emacs “漂” 一阵子也无妨，比起考虑维护 emacs 源码，或许去维护 [[http:spacemacs.org][spacemacs]] 这种用 emacs 民间插件堆积起来“改装版 emacs”更有价值——spacemacs 未被处理的 issues 和 pull-request 一大堆啊。
+
+然而这还未妨碍 spacemacs 成为目前最优秀的 emacs 新手配置包兼最强大好用的文本编辑器。
+
+关于 spacemacs 和它的 layers 设置，以及 [[https://github.com/jwiegley/use-package][use-package]] 包的用法（spacemacs 神奇的启动速度全靠 use-package），还有通过 =org-babel-tangle= 用 layer 的 readme.org 生成 layer 的技巧，这次就不讲啦。好奇？根据我提供的线索尝试看看吧。

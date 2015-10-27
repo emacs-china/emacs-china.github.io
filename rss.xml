@@ -4,10 +4,17 @@
     <title>EMACS-CHINA</title>
     <link>http://emacs-china.github.io</link>
     <description>=============&gt;集思广益</description>
-    <pubDate>周六, 03 10月 2015 21:39:48 中国标准时间</pubDate>
-    <lastBuildDate>周六, 03 10月 2015 21:39:48 中国标准时间</lastBuildDate>
+    <pubDate>周三, 28 10月 2015 06:02:55 中国标准时间</pubDate>
+    <lastBuildDate>周三, 28 10月 2015 06:02:55 中国标准时间</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>ego static site generator (https://github.com/emacs-china/ego)</generator>
+<item>
+<title>在 windows 上编译支持 imagemagick 的 emacs</title>
+<link>http://emacs-china.github.io/blog/2015/10/28/在-windows-上编译支持-imagemagick-的-emacs</link>
+<description>在 windows 系统上编译支持 imagemagick 的 emacs</description>
+<pubDate>2015-10-28</pubDate>
+<guid>http://emacs-china.github.io/blog/2015/10/28/在-windows-上编译支持-imagemagick-的-emacs</guid>
+</item>
 <item>
 <title>使用 ctex 将 org 文件转化为 pdf</title>
 <link>http://emacs-china.github.io/blog/2015/04/20/使用-ctex-将-org-文件转化为-pdf/</link>

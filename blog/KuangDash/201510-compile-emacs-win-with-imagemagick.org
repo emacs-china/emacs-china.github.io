@@ -10,12 +10,22 @@
 #+LANGUAGE:    zh-CN
 #+OPTIONS:     H:4 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 
+#+BEGIN_QUOTE
+Happy Hacking! -- anonymity
+#+END_QUOTE
+
+#+BEGIN_HTML
+<p class="center">
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/201510-compile-emacs-win-with-imagemagick.org">点我修改</a><br/>
+</p>
+#+END_HTML
+
 * 需求分析
 从最早的时候 gnu 官方提供的 emacs-w32 版本，再到 [[http://chriszheng.science][Chris-Zheng]] 编译出的 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] ，再到 msys2 自带的 emacs 版本（通过 pacman 安装），我个人一直在 windows 系统上使用 emacs，也算是 emacs 折腾界的资深人士了吧……这次就来谈谈诚如这篇标题所言的内容。
 
-首先感谢 [[http://chriszheng.science][Chris-Zheng]] ，他编译的 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 确实比官方的 emacs-w32 好了很多，而且也在博客里说明了编译的具体细节，这才有这篇文章。
+首先要感谢 [[http://chriszheng.science][Chris-Zheng]] ，他编译的 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 确实比官方的 emacs-w32 好了很多，而且也在博客里说明了编译的具体细节，这才有这篇文章。
 
-我在他的基础上进一步完善了 windows 上 emacs 的编译过程——如果使用 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 的话，就会发现其 elisp 里面以 image-transform 为前缀的函数是无效的，这是由于 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 在编译过程中使用了 =without imagemagick= 选项。这样一来，在 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 里面查看图片时，若图片大小过大，emacs 往往无法完全显示，也无法缩放。
+我在他的基础上进一步完善了 windows 上 emacs 的编译过程——如果使用 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 的话，就会发现其 elisp 里面以 image-transform 为前缀的函数是无效的，这是由于 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 在编译过程中使用了 =without imagemagick= 选项。这样一来，在 [[http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 里面查看图片时，若图片大小过大，emacs 将会无法完全显示，也无法缩放。
 
 那么下面就来说明如何在 windows 上编译一个完整的 emacs。
 
@@ -39,7 +49,7 @@
 
 在这段代码后面插入一句 =#define init_imagemagick_functions NULL= ，记得编译之后将之改回，不然不方便以后从官方代码仓库更新 emacs 的源码。
 
-最后用普通的编译方式就可以了：
+最后在之前打开的 msys2 shell 里面，用普通的编译方式就可以了：
 #+BEGIN_SRC shell
   ./configure
   make
@@ -57,4 +67,4 @@
 
 然而这还未妨碍 spacemacs 成为目前最优秀的 emacs 新手配置包兼最强大好用的文本编辑器。
 
-关于 spacemacs 和它的 layers 设置，以及 [[https://github.com/jwiegley/use-package][use-package]] 包的用法（spacemacs 神奇的启动速度全靠 use-package），还有通过 =org-babel-tangle= 用 layer 的 readme.org 生成 layer 的技巧，这次就不讲啦。好奇？根据我提供的线索尝试看看吧。
+关于 spacemacs 和它的 layers 设置，以及 [[https://github.com/jwiegley/use-package][use-package]] 包的用法（spacemacs 神奇的启动速度全靠 use-package），还有通过 =org-babel-tangle= 用 layer 的 readme.org 生成 layer 的技巧，这次就不讲啦。若是对此不了解而感到好奇，就根据我提供的线索尝试看看吧。

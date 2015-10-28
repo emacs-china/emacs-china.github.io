@@ -82,15 +82,15 @@ Happy Hacking! -- anonymity
 <h2 id="orgheadline1">需求分析</h2>
 <div class="outline-text-2" id="text-orgheadline1">
 <p>
-从最早的时候 gnu 官方提供的 emacs-w32 版本，再到 <a href="http://chriszheng.science/">Chris-Zheng</a> 编译出的 <a href="http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> ，再到 msys2 自带的 emacs 版本（通过 pacman 安装），我个人一直在 windows 系统上使用 emacs，也算是 emacs 折腾界的资深人士了吧……这次就来谈谈诚如这篇标题所言的内容。
+从最早的时候 gnu 官方提供的 emacs-w32 版本，再到 <a href="http://chriszheng.science/">Chris-Zheng</a> 编译出的 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> ，再到 msys2 自带的 emacs 版本（通过 pacman 安装），我个人一直在 windows 系统上使用 emacs，也算是 emacs 折腾界的资深人士了吧……这次就来谈谈诚如这篇标题所言的内容。
 </p>
 
 <p>
-首先要感谢 <a href="http://chriszheng.science/">Chris-Zheng</a> ，他编译的 <a href="http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 确实比官方的 emacs-w32 好了很多，而且也在博客里说明了编译的具体细节，这才有这篇文章。
+首先要感谢 <a href="http://chriszheng.science/">Chris-Zheng</a> ，他编译的 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 确实比官方的 emacs-w32 好了很多，而且也在博客里说明了编译的具体细节，这才有这篇文章。
 </p>
 
 <p>
-我在他的基础上进一步完善了 windows 上 emacs 的编译过程——如果使用 <a href="http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的话，就会发现其 elisp 里面以 image-transform 为前缀的函数是无效的，这是由于 <a href="http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 在编译过程中使用了 <code>without imagemagick</code> 选项。这样一来，在 <a href="http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 里面查看图片时，若图片大小过大，emacs 将会无法完全显示，也无法缩放。
+我在他的基础上进一步完善了 windows 上 emacs 的编译过程——如果使用 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的话，就会发现其 elisp 里面以 image-transform 为前缀的函数是无效的，这是由于 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 在编译过程中使用了 <code>without imagemagick</code> 选项。这样一来，在 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 里面查看图片时，若图片大小过大，emacs 将会无法完全显示，也无法缩放。
 </p>
 
 <p>
@@ -103,8 +103,8 @@ Happy Hacking! -- anonymity
 <h2 id="orgheadline2">安装依赖</h2>
 <div class="outline-text-2" id="text-orgheadline2">
 <ol class="org-ol">
-<li>安装 <a href="http:msys2.github.io">msys2</a> ，然后在里面安装 gcc 等工具（注意分 mingw64 和 mingw32）。这部分可以先参考 <a href="http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置</li>
-<li>下载 emacs 的源代码，这部分也可以先参考 <a href="http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置</li>
+<li>安装 <a href="http://msys2.github.io/">msys2</a> ，然后在里面安装 gcc 等工具（注意分 mingw64 和 mingw32）。这部分可以先参考 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置</li>
+<li>下载 emacs 的源代码，这部分也可以先参考 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置</li>
 </ol>
 </div>
 </div>
@@ -113,7 +113,7 @@ Happy Hacking! -- anonymity
 <h2 id="orgheadline3">编译步骤</h2>
 <div class="outline-text-2" id="text-orgheadline3">
 <p>
-编译的时候就不能参考 <a href="http:chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置了。
+编译的时候就不能参考 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置了。
 </p>
 
 <p>
@@ -166,7 +166,7 @@ make install --prefix= ...
 </p>
 
 <p>
-所以总的来说，让 emacs “漂” 一阵子也无妨，比起考虑维护 emacs 源码，或许去维护 <a href="http:spacemacs.org">spacemacs</a> 这种用 emacs 民间插件堆积起来“改装版 emacs”更有价值——spacemacs 未被处理的 issues 和 pull-request 一大堆啊。
+所以总的来说，让 emacs “漂” 一阵子也无妨，比起考虑维护 emacs 源码，或许去维护 <a href="http://spacemacs.org/">spacemacs</a> 这种用 emacs 民间插件堆积起来“改装版 emacs”更有价值——spacemacs 未被处理的 issues 和 pull-request 一大堆啊。
 </p>
 
 <p>

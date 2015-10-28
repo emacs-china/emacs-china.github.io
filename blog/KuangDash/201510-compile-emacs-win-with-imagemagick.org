@@ -30,7 +30,7 @@ Happy Hacking! -- anonymity
 那么下面就来说明如何在 windows 上编译一个完整的 emacs。
 
 * 安装依赖
-1) 安装 [[http:msys2.github.io][msys2]] ，然后在里面安装 gcc 等工具（注意分 mingw64 和 mingw32）。这部分可以先参考 [[http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 的设置
+1) 安装 [[http://msys2.github.io][msys2]] ，然后在里面安装 gcc 等工具（注意分 mingw64 和 mingw32）。这部分可以先参考 [[http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 的设置
 2) 下载 emacs 的源代码，这部分也可以先参考 [[http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] 的设置
 
 * 编译步骤

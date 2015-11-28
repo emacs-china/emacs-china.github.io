@@ -33,9 +33,9 @@
     (async-start
      `(lambda ()
         (setq package-archives
-              '(("gnu"         . "http://elpa.gnu.org/packages/"); 这里是你的包 ‘源’
+              '(("gnu"         . "http://elpa.gnu.org/packages/"); 这里是你的包 ‘源’，这个源上的包比较老
                 ("org"         . "http://orgmode.org/elpa/")
-                ("melpa"       . "http://melpa.milkbox.net/packages/")
+                ("melpa"       . "http://melpa.org/packages/")   ; melpa的新域名，milkbox比较老
                 ("marmalade"   . "http://marmalade-repo.org/packages/"))); 或者用 ,package-archives 替代掉这个列表，这点具体见 kd/package-install
         (require 'finder-inf nil t)
         ;; Initialize the package system if necessary.

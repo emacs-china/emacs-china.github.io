@@ -26,7 +26,7 @@
 * 管理 emacs-china 步骤二：安装 EGO
 目前并不提供 http://melpa.org 版本的包下载，还是请 =git clone= 之吧。这样如果有什么问题，也可以通过 github 的平台来改正。
 
-具体的安装和使用方法在这里：http://emacs-china.github.io/EGO，开源世界需要各位的力量~
+具体的安装和使用方法在这里：http://emacs-china.github.io/EGO， 开源世界需要各位的力量~
 
 * 管理 emacs-china 步骤三：克隆 emacs-china，以及一些使用惯例
 直接从 emacs-china 上克隆 emacs-china.github.io 之后，再使用 hub fork 命令。（初次使用 hub 会要求你输入 github 的账号和密码，所以 windows 系统用户最好在类 bash 终端下使用这个功能）

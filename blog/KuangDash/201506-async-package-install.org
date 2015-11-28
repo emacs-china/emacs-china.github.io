@@ -10,7 +10,7 @@
 #+LANGUAGE:    zh-CN
 #+OPTIONS:     H:4 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 
-这里将分享两段代码，说明如何在 emacs 24 中异步安装 packages （我想大部分人都有等待 list-packages 命令的经历，在 emacs 25 里面已经解决了这个问题，但对于目前使用 emacs 24 的同学，这篇 blog 还是有些用处的吧。）
+这里将分享两段代码，说明如何在 emacs 24 中异步安装 packages（我想大部分人都有等待 list-packages 命令的经历，在 emacs 25 里面已经解决了这个问题，但对于目前使用 emacs 24 的同学，这篇 blog 还是有些用处的吧。）
 
 #+BEGIN_HTML
 <p class="center">
@@ -19,7 +19,7 @@
 #+END_HTML
 
 * 先决条件 ~ prerequisite
-首先，这个解决方法依赖 [[https://github.com/jwiegley/emacs-async][async]] 包。（如果你的 emacs 上安装了 helm ，那么就不必担心这个依赖了。helm 自带该包）
+首先，这个解决方法依赖 [[https://github.com/jwiegley/emacs-async][async]] 包。（如果你的 emacs 上安装了 helm，那么就不必担心这个依赖了。helm 自带该包）
 #+BEGIN_SRC emacs-lisp
   (require 'async)
 #+END_SRC
@@ -32,11 +32,12 @@
     (interactive)
     (async-start
      `(lambda ()
-        (setq package-archives
-              '(("gnu"         . "http://elpa.gnu.org/packages/"); 这里是你的包 ‘源’，这个源上的包比较老
-                ("org"         . "http://orgmode.org/elpa/")
-                ("melpa"       . "http://melpa.org/packages/")   ; melpa的新域名，milkbox比较老
-                ("marmalade"   . "http://marmalade-repo.org/packages/"))); 或者用 ,package-archives 替代掉这个列表，这点具体见 kd/package-install
+        (setq package-archives ; 这里是你的包源列表
+              '(("gnu"         . "http://elpa.gnu.org/packages/"); gnu 官方的源
+                ("org"         . "http://orgmode.org/elpa/")     ; org-mode 包源也是一部分
+                ("melpa"       . "http://melpa.org/packages/")   ; melpa 包源，基于 github
+                ("marmalade"   . "http://marmalade-repo.org/packages/"))); 目前这个包源不推荐使用
+                ;; 或者用 ,package-archives 替代掉这个列表，这点具体见 kd/package-install
         (require 'finder-inf nil t)
         ;; Initialize the package system if necessary.
         (package-initialize t)
@@ -90,3 +91,6 @@
         (package-initialize nil)
         (message "done, this is %s" result))))
 #+END_SRC
+
+* 使用插件 paradox
+paradox 支持从 melpa 包源获取某个在 github 上的 emacs 包的星级评价，同时也是异步的。

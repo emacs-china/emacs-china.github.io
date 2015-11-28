@@ -36,7 +36,7 @@
               '(("gnu"         . "http://elpa.gnu.org/packages/"); gnu 官方的源
                 ("org"         . "http://orgmode.org/elpa/")     ; org-mode 包源也是一部分
                 ("melpa"       . "http://melpa.org/packages/")   ; melpa 包源，基于 github
-                ("marmalade"   . "http://marmalade-repo.org/packages/"))); 目前这个包源不推荐使用
+                ("marmalade"   . "http://marmalade-repo.org/packages/"))); 目前这个包源不推荐使用，最好转向 melpa
                 ;; 或者用 ,package-archives 替代掉这个列表，这点具体见 kd/package-install
         (require 'finder-inf nil t)
         ;; Initialize the package system if necessary.

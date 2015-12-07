@@ -53,7 +53,7 @@ Happy Hacking! -- anonymity
 #+BEGIN_SRC shell
   ./configure
   make
-  make install --prefix= ...
+  make install prefix= ...
 #+END_SRC
 
 *注意* ：make install 后面的 prefix 决定了安装 emacs 的位置，关于这点可以查找其他资料。我个人建议就安装在 msys2 默认的那个 bin 文件夹中（就系统情况决定是 mingw32 还是 mingw64 文件夹下的 bin）

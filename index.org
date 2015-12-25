@@ -20,16 +20,16 @@
 
 这些中文资料的 org-mode 原文件都在 [[https://github.com/emacs-china/emacs-china.github.io][emacs-china 主页]] 项目的 source branch 下， _欢迎改进_[fn:1] 。
 
-如何优雅地管理 emacs-china ？参见：[[ego-link:blog/KuangDash/201509-manage-emacs-china.org][流畅地管理 emacs-china]]
+如何优雅地管理 emacs-china？参见：[[ego-link:blog/KuangDash/201509-manage-emacs-china.org][流畅地管理 emacs-china]]
 
 目前所有文档仅支持 org-mode 文件格式，关于该格式及项目的中文详细介绍，请参考：[[https://github.com/emacs-china/hello-emacs/blob/master/org-manual.org][org-mode 7.8 中文手册]]
 
 * 各种各样的联系方式
-+ gitter(内部使用) : [[https://gitter.im/emacs-china][点击我]]
-+ email : 点击页面最底下的 emacs-china 链接
++ 这个站点的 [[https://github.com/emacs-china/emacs-china.github.io/issues][issues]] （github 的 issues 功能实际上能拿来当论坛用了）
++ gitter（emacs-china 成员内部使用） : [[https://gitter.im/emacs-china][点击我]]
++ email : [[https://groups.google.com/group/emacs-china][emacs-china 邮件列表]]
 + IRC : （待添加）
-+ weibo : （待添加）
-+ QQ群 : 59134186
++ QQ 群 : 59134186
 
 期待和各位 emacs 中文用户的交流！
 
@@ -58,7 +58,7 @@
 
 ** 字体与输入法
 
-emacs自带各国输入法，当然也包括中文。
+emacs 自带各国输入法，当然也包括中文。
 
 *** chinese-fonts-setup
 + 项目链接：[[https://github.com/tumashu/chinese-fonts-setup]]
@@ -83,13 +83,13 @@ emacs自带各国输入法，当然也包括中文。
 *** org-page
 + 项目链接：[[https://github.com/kelvinh/org-page]]
 + 项目作者：Kelvin Hu
-+ 项目介绍：静态站点生成器，基于 emacs、 org-mode 和 git （git 功能的添加使它支持 增量式的文档发布功能） ，简约美观，设计合理。
++ 项目介绍：静态站点生成器，基于 emacs、org-mode 和 git（git 功能的添加使它支持 增量式的文档发布功能） ，简约美观，设计合理。
 
 *** org-webpage
 + 项目链接：[[http://tumashu.github.io/org-webpage]]
 + 代码浏览：[[https://github.com/tumashu/org-webpage]]
 + 项目作者：tumashu
-+ 项目介绍：在 Kelvin Hu 先生的 org-page 基础上所写的 _静态站点生成器_[fn:2] 。相较 org-page ，org-webpage 更适合多站点管理时使用。
++ 项目介绍：在 Kelvin Hu 先生的 org-page 基础上所写的 _静态站点生成器_[fn:2] 。相较 org-page，org-webpage 更适合多站点管理时使用。
 
 *** EGO
 + 项目链接：[[http://emacs-china.github.io/EGO]] 

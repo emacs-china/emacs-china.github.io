@@ -1,0 +1,21 @@
+#+TITLE:       关于
+#+AUTHOR:      emacs-china
+#+EMAIL:       emacs-china@googlegroups.com
+
+#+URI:     /about/
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+DESCRIPTION:  about
+
+这是 emacs 中文用户在 github 上的一个信息交流站， *兴趣使然地* 搜集、整理、更新、维护关于 emacs 的中文资料。
+
+如果您对这些事情感兴趣，或者有自己写的好的 elisp 项目，欢迎加入我们。
+
+嗯？如何申请加入？请通过以下试炼：
+#+BEGIN_QUOTE
+用 [[https://github.com/emacs-china/EGO][EGO]] 更新这个主站点，具体流程可以参考 [[http://emacs-china.org/blog/2015/09/27/%25E5%25A6%2582%25E4%25BD%2595%25E6%25B5%2581%25E7%2595%2585%25E5%259C%25B0%25E7%25AE%25A1%25E7%2590%2586-emacs-china/][如何流畅地管理 emacs-china 主站点]] 。
+
+注一：更新的内容可以是一篇 blog 或者本站点首页上的项目列表。
+
+注二：您的 pull-request 经审核通过并合并后，就会接收到成员邀请了。
+#+END_QUOTE

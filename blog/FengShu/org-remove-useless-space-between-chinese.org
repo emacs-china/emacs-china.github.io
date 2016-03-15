@@ -1,0 +1,41 @@
+#+TITLE:       org-mode 导出 html 时删除中文与中文之间多余的空格
+#+AUTHOR:      Feng Shu
+#+EMAIL:       tumashu@163.com
+#+DATE:        2015-04-20 一
+
+#+URI:         /blog/%y/%m/%d/%t/
+#+TAGS:        org-mode
+
+#+LANGUAGE:    zh-CN
+#+OPTIONS:     H:3 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+
+
+org-mode 文档导出为 html 文档时， *单个换行符* 会转换为 *空格* ，但对于中文来说，这个空格
+是多余的，使用下面的代码可以将这些空格删除。
+
+#+BEGIN_SRC emacs-lisp
+(defun eh-org-clean-space (text backend info)
+  "在export为HTML时，删除中文之间不必要的空格"
+  (when (org-export-derived-backend-p backend 'html)
+    (let ((regexp "[[:multibyte:]]")
+          (string text))
+      ;; org默认将一个换行符转换为空格，但中文不需要这个空格，删除。
+      (setq string
+            (replace-regexp-in-string
+             (format "\\(%s\\) *\n *\\(%s\\)" regexp regexp)
+             "\\1\\2" string))
+      ;; 删除粗体之前的空格
+      (setq string
+            (replace-regexp-in-string
+             (format "\\(%s\\) +\\(<\\)" regexp)
+             "\\1\\2" string))
+      ;; 删除粗体之后的空格
+      (setq string
+            (replace-regexp-in-string
+             (format "\\(>\\) +\\(%s\\)" regexp)
+             "\\1\\2" string))
+      string)))
+
+(add-to-list 'org-export-filter-paragraph-functions
+             'eh-org-clean-space)
+#+END_SRC

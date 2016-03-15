@@ -12,7 +12,7 @@
 
 #+BEGIN_HTML
 <p class="center">
-<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/201509-manage-emacs-china.org">点我修改</a><br/>
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201509-manage-emacs-china.org">点我修改</a><br/>
 </p>
 #+END_HTML
 
@@ -68,7 +68,7 @@ hub pull-request -m "depiction" -b emacs-china:source -h YOUR_USER:source
   # --
   ,#+BEGIN_HTML
   <p class="center">
-  <a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/`(buffer-name (current-buffer))`">点我修改</a><br/>
+  <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/`(buffer-name (current-buffer))`">点我修改</a><br/>
   </p>
   ,#+END_HTML
 #+END_SRC

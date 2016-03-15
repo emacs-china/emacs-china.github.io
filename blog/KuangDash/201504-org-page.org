@@ -2,23 +2,23 @@
 #+AUTHOR:      皐月中二
 #+EMAIL:       kuangdash@163.com
 #+DATE:        2015-04-15 周三
-#+URI:         /blog/%y/%m/%d/org-page的配置与使用
+#+URI:         /blog/%y/%m/%d/org-page 的配置与使用
 #+TAGS:        org-page
 #+LANGUAGE:    zh-CN
 #+OPTIONS:     H:3 num:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
-#+DESCRIPTION: org-page的配置与使用
+#+DESCRIPTION: org-page 的配置与使用
 
 #+BEGIN_HTML
 <p class="center">
 觉得咱（博客）还不够好，想修改咱？请点击以下按钮：<br/>
-<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/201504-org-page.org">点我修改</a><br/>
-以上功能仅限emacs-china成员使用，需要登录github账号。
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201504-org-page.org">点我修改</a><br/>
+以上功能仅限 emacs-china 成员使用，需要登录 github 账号。
 </p>
 #+END_HTML
 
 * org-page 的特点
 
-这是一个基于 org-mode 、 git 和 emacs 自身（这三个你都得耍的起来）的静态站点生成器（static site generator），实现了 /org文档内容/ 和 /文档修饰（主题）/ 的分离。它本身具有高度的可定制性[fn:1]。
+这是一个基于 org-mode、git 和 emacs 自身（这三个你都得耍的起来）的静态站点生成器（static site generator），实现了 /org 文档内容/ 和 /文档修饰（主题）/ 的分离。它本身具有高度的可定制性[fn:1]。
 
 * org-page 的安装
 
@@ -26,14 +26,14 @@
 
 * org-page 的用法
 
-首先，在想写 blog 的文件夹下用 ~git init~ 建立一个 git repository ，然后创建并进入 source 分支，再新建三个基本文件： 
+首先，在想写 blog 的文件夹下用 ~git init~ 建立一个 git repository，然后创建并进入 source 分支，再新建三个基本文件： 
 + blog 文件夹 :: 主要的 blog 文件放里面。
 + about.org 文件 :: 在这里介绍自己。
 + index.org 文件 :: 在这里写自己博客的首页。
 
 其实，有个 =op/new-repository= 命令，就是将上一个流程实现了一遍。
 
-接下来，还有一些参数要设置，英语好的话，请参考这里 [[https://github.com/kelvinh/org-page/blob/master/doc/quick-guide.org][quick-guide.org]] ，英语不好，请 *慎用* emacs 。
+接下来，还有一些参数要设置，英语好的话，请参考这里 [[https://github.com/kelvinh/org-page/blob/master/doc/quick-guide.org][quick-guide.org]] ，英语不好，请 *慎用* emacs。
 
 html 页面的生成与发布都交给了 ~M-x op/do-publication~ 命令。（记得使用该命令前事先 commit source branch）
 
@@ -50,11 +50,11 @@ _悬停卡片_[fn:4]
 * org-page 的主题定制
 
 + 正常定制法 :: 使用命令 ~M-x customize-group~ 再输入 =org-page= 即可。（这种定制法定制能力有限）
-+ hack定制法 :: 参看 themes 文件夹，里面的 template 文件夹使用了 [[http://mustache.github.io/][mustache模板]] 。而另外一个 source 文件夹有 css、js 等文件，这些东西各位懂的……如果你是一个好的前端设计师的话，这些就能让你制作一个漂亮的界面了，毕竟标签不多。
++ hack 定制法 :: 参看 themes 文件夹，里面的 template 文件夹使用了 [[http://mustache.github.io/][mustache 模板]] 。而另外一个 source 文件夹有 css、js 等文件，这些东西各位懂的……如果你是一个好的前端设计师的话，这些就能让你制作一个漂亮的界面了，毕竟标签不多。
 
 关于 org-page 的正常定制法以及 custom 页面里各个选项的含义，还请各位参照英文字典分析……
 
-下面讲解使用 hack 定制法时，一些有用的 hack 手法（如果不想自己 hack ，请点我右上角[fn:2]）：
+下面讲解使用 hack 定制法时，一些有用的 hack 手法（如果不想自己 hack，请点我右上角[fn:2]）：
 
 ** 使用 org-page 管理多个站点
 
@@ -102,7 +102,7 @@ _悬停卡片_[fn:4]
 
 ** 对 org-page 生成的站点进行测试
 
-本人使用基于emacs的 [[https://github.com/skeeto/emacs-web-server][simple-httpd]] 来进行站点测试，根据实际情况，各位也可以用自己喜欢的 web 服务器来进行测试。
+本人使用基于 emacs 的 [[https://github.com/skeeto/emacs-web-server][simple-httpd]] 来进行站点测试，根据实际情况，各位也可以用自己喜欢的 web 服务器来进行测试。
 
 接下来我们在配置文件中写一些其他代码，这样就能起到测试的效果了：
 
@@ -183,7 +183,7 @@ _悬停卡片_[fn:4]
 
 <2015-06-06 周六> 
 
-更新： org-export-solidify-link-text 已经被 org-mode 8.3 弃用， radio target 的中文导出已正常， target 本身仅作为链接的锚点使用，本身不再导出成具体文件。
+更新：org-export-solidify-link-text 已经被 org-mode 8.3 弃用，radio target 的中文导出已正常，target 本身仅作为链接的锚点使用，本身不再导出成具体文件。
 
 ** org-mode 的 "src"_<language>{<body>}
 <2015-04-15 周三>
@@ -198,6 +198,6 @@ _悬停卡片_[fn:4]
 
 [fn:3] 参见 emacs manual 的 [[http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Advising-Functions][advice-add]] 函数。
 
-[fn:4] 这里是悬停卡片的内容哦~~~(该功能是emacs_love主题包提供的……)
+[fn:4] 这里是悬停卡片的内容哦~~~(该功能是 emacs_love 主题包提供的……)
 
 

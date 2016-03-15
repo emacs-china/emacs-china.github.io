@@ -14,7 +14,7 @@
 
 #+BEGIN_HTML
 <p class="center">
-<a href="https://github.com/emacs-china/emacs-china.github.io/edit/source/blog/KuangDash/201506-async-package-install.org">点我修改</a><br/>
+<a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201506-async-package-install.org">点我修改</a><br/>
 </p>
 #+END_HTML
 

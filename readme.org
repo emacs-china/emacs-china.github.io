@@ -42,3 +42,7 @@ TIP: 你可以仿照上面来设置自己的站点。
   C-h v ego/project-config-alist
   C-h v ego/config-fallback
 #+END_EXAMPLE
+
+
+  #+ATTR_HTML: title="Join the chat at https://gitter.im/emacs-china/emacs-china.github.io"
+  [[https://gitter.im/emacs-china/emacs-china.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge][file:https://badges.gitter.im/emacs-china/emacs-china.github.io.svg]]

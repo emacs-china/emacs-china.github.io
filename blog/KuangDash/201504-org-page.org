@@ -14,7 +14,7 @@
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201504-org-page.org">点我修改</a><br/>
 以上功能仅限 emacs-china 成员使用，需要登录 github 账号。
 </p>
-#+END_EXPORT HTML
+#+END_EXPORT
 
 * org-page 的特点
 

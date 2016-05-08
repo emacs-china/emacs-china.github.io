@@ -16,7 +16,7 @@
 <p class="center">
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201506-async-package-install.org">点我修改</a><br/>
 </p>
-#+END_EXPORT HTML
+#+END_EXPORT
 
 * 先决条件 ~ prerequisite
 首先，这个解决方法依赖 [[https://github.com/jwiegley/emacs-async][async]] 包。（如果你的 emacs 上安装了 helm，那么就不必担心这个依赖了。helm 自带该包）

@@ -18,7 +18,7 @@ Happy Hacking! -- anonymity
 <p class="center">
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201510-compile-emacs-win-with-imagemagick.org">点我修改</a><br/>
 </p>
-#+END_EXPORT HTML
+#+END_EXPORT
 
 * 需求分析
 从最早的时候 gnu 官方提供的 emacs-w32 版本，再到 [[http://chriszheng.science][Chris-Zheng]] 编译出的 [[http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline][emacsw64]] ，再到 msys2 自带的 emacs 版本（通过 pacman 安装），我个人一直在 windows 系统上使用 emacs，也算是 emacs 折腾界的资深人士了吧……这次就来谈谈诚如这篇标题所言的内容。

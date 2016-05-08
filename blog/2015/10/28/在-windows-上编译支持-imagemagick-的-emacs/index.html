@@ -3,9 +3,9 @@
 <head>
   <title>在 windows 上编译支持 imagemagick 的 emacs - EMACS-CHINA</title>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="author" content="皐月中二" />
   <meta name="description" content="在 windows 系统上编译支持 imagemagick 的 emacs" />
   <meta name="keywords" content="imagemagick, emacs-compile, windows-system" />
@@ -15,14 +15,8 @@
    #ds-thread #ds-reset .ds-comment-body p a:hover {color: #0ff;}
    #disqus_thread a {color: #00ffff;}
   </style>
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css">
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css">
-  <script type="text/javascript"
-          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
-  </script>
-  <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
-  </script>
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css"/>
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css"/>
 </head>
 
   <body><div class="container">
@@ -61,10 +55,10 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">需求分析</a></li>
-<li><a href="#orgheadline2">安装依赖</a></li>
-<li><a href="#orgheadline3">编译步骤</a></li>
-<li><a href="#orgheadline4">后记：关于 emacs 源码的现状</a></li>
+<li><a href="#org4800cc2">需求分析</a></li>
+<li><a href="#org3638aeb">安装依赖</a></li>
+<li><a href="#org526e22d">编译步骤</a></li>
+<li><a href="#org949fda8">后记：关于 emacs 源码的现状</a></li>
 </ul>
 </div>
 </div>
@@ -78,9 +72,9 @@ Happy Hacking! -- anonymity
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201510-compile-emacs-win-with-imagemagick.org">点我修改</a><br/>
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1">需求分析</h2>
-<div class="outline-text-2" id="text-orgheadline1">
+<div id="outline-container-org4800cc2" class="outline-2">
+<h2 id="org4800cc2">需求分析</h2>
+<div class="outline-text-2" id="text-org4800cc2">
 <p>
 从最早的时候 gnu 官方提供的 emacs-w32 版本，再到 <a href="http://chriszheng.science/">Chris-Zheng</a> 编译出的 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> ，再到 msys2 自带的 emacs 版本（通过 pacman 安装），我个人一直在 windows 系统上使用 emacs，也算是 emacs 折腾界的资深人士了吧……这次就来谈谈诚如这篇标题所言的内容。
 </p>
@@ -99,9 +93,9 @@ Happy Hacking! -- anonymity
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2">安装依赖</h2>
-<div class="outline-text-2" id="text-orgheadline2">
+<div id="outline-container-org3638aeb" class="outline-2">
+<h2 id="org3638aeb">安装依赖</h2>
+<div class="outline-text-2" id="text-org3638aeb">
 <ol class="org-ol">
 <li>安装 <a href="http://msys2.github.io/">msys2</a> ，然后在里面安装 gcc 等工具（注意分 mingw64 和 mingw32）。这部分可以先参考 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置</li>
 <li>下载 emacs 的源代码，这部分也可以先参考 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置</li>
@@ -109,9 +103,9 @@ Happy Hacking! -- anonymity
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3">编译步骤</h2>
-<div class="outline-text-2" id="text-orgheadline3">
+<div id="outline-container-org526e22d" class="outline-2">
+<h2 id="org526e22d">编译步骤</h2>
+<div class="outline-text-2" id="text-org526e22d">
 <p>
 编译的时候就不能参考 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置了。
 </p>
@@ -154,9 +148,9 @@ make install <span style="color: #dbdb95;">prefix</span>= ...
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4">后记：关于 emacs 源码的现状</h2>
-<div class="outline-text-2" id="text-orgheadline4">
+<div id="outline-container-org949fda8" class="outline-2">
+<h2 id="org949fda8">后记：关于 emacs 源码的现状</h2>
+<div class="outline-text-2" id="text-org949fda8">
 <p>
 根据 emacs 邮件列表上的情况来看，目前维护 emacs 源码的两个 heads maintainer 退出了 emacs 的维护。
 </p>
@@ -184,7 +178,7 @@ make install <span style="color: #dbdb95;">prefix</span>= ...
 <div>
   <div class="post-meta">
     <span title="post date" class="post-info">2015-10-28</span>
-    <span title="last modification date" class="post-info">2015-12-01</span>
+    <span title="last modification date" class="post-info">2016-05-09</span>
     <span title="tags" class="post-info">:<a href="http://emacs-china.github.io/tags/imagemagick">imagemagick</a> : <a href="http://emacs-china.github.io/tags/emacs-compile">emacs-compile</a> : <a href="http://emacs-china.github.io/tags/windows-system">windows-system</a>:</span>
     <span title="author" class="post-info"><a href="mailto:kuangdash &lt;at&gt; 163 &lt;dot&gt; com">皐月中二</a></span>
   </div>
@@ -192,7 +186,7 @@ make install <span style="color: #dbdb95;">prefix</span>= ...
   <section>
     <h1>Comments</h1>
     <div id="comment-wrap">
-      <a class="disqus_label">使用Disqus评论</a>
+      <a class="disqus_label">使用 Disqus 评论</a>
       <a class="ds-label">使用多说评论</a>
     </ul>
     <div id="disqus_thread"></div>
@@ -228,7 +222,7 @@ make install <span style="color: #dbdb95;">prefix</span>= ...
   </section>
   <script src="http://emacs-china.github.io/media/js/main.js"></script>
   <div class="footer">
-    <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x(<a href="http://orgmode.org">Org mode</a> 8.x)</p>
+    <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.x(<a href="http://orgmode.org">Org mode</a> 8.x)</p>
     <p>
       Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:kuangdash &lt;at&gt; 163 &lt;dot&gt; com">皐月中二</a>
       &nbsp;&nbsp;-&nbsp;&nbsp;
@@ -238,6 +232,12 @@ make install <span style="color: #dbdb95;">prefix</span>= ...
     </p>
   </div>
     </div>
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+    </script>
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+    </script>
 
   </div></body>
 </html>

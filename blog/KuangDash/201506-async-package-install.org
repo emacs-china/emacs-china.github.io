@@ -12,11 +12,11 @@
 
 这里将分享两段代码，说明如何在 emacs 24 中异步安装 packages（我想大部分人都有等待 list-packages 命令的经历，在 emacs 25 里面已经解决了这个问题，但对于目前使用 emacs 24 的同学，这篇 blog 还是有些用处的吧。）
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 <p class="center">
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201506-async-package-install.org">点我修改</a><br/>
 </p>
-#+END_HTML
+#+END_EXPORT HTML
 
 * 先决条件 ~ prerequisite
 首先，这个解决方法依赖 [[https://github.com/jwiegley/emacs-async][async]] 包。（如果你的 emacs 上安装了 helm，那么就不必担心这个依赖了。helm 自带该包）

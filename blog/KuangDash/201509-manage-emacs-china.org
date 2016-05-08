@@ -10,11 +10,11 @@
 #+LANGUAGE:    zh-CN
 #+OPTIONS:     H:4 num:nil toc:t \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 <p class="center">
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201509-manage-emacs-china.org">点我修改</a><br/>
 </p>
-#+END_HTML
+#+END_EXPORT HTML
 
 * 管理 emacs-china 步骤一：安装 hub 
 玩 github，如果只知道 git 不知道 [[https://github.com/github/hub][hub]] ，那就孤陋寡闻了哈。当然，要使用好 hub，还是需要有 github 的账号，先注册完后再来下载 hub 吧，这里是下载地址：https://github.com/github/hub/releases
@@ -66,11 +66,11 @@ hub pull-request -m "depiction" -b emacs-china:source -h YOUR_USER:source
   # key: >cma
   # binding: direct-keybinding
   # --
-  ,#+BEGIN_HTML
+  ,#+BEGIN_EXPORT HTML
   <p class="center">
   <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/`(buffer-name (current-buffer))`">点我修改</a><br/>
   </p>
-  ,#+END_HTML
+  ,#+END_EXPORT HTML
 #+END_SRC
 
 ** 缘起

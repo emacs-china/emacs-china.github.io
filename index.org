@@ -9,11 +9,18 @@
 #+ATTR_HTML: :class center
 [[./assets/dragon2.svg]]
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT HTML
 <p class="center">
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/index.org">点我修改</a><br/>
 </p>
-#+END_HTML
+
+<script>
+                          ((window.gitter = {}).chat = {}).options = {
+                              room: 'emacs-china/emacs-china.github.io'
+                          };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+#+END_EXPORT HTML
 
 * 本站使用简介
 一些关于 emacs 的中文资料会放置在本站点的 [[http://emacs-china.github.io/blog/][Blog]] 目录下面，可以在 [[http://emacs-china.github.io/tags/][Tags]] 下面按标签索引文件，也可使用 search 框。

@@ -3,9 +3,9 @@
 <head>
   <title>使用 ctex 将 org 文件转化为 pdf - EMACS-CHINA</title>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="author" content="Feng Shu" />
   <meta name="keywords" content="org-mode, latex, ctex" />
   <style>
@@ -14,14 +14,8 @@
    #ds-thread #ds-reset .ds-comment-body p a:hover {color: #0ff;}
    #disqus_thread a {color: #00ffff;}
   </style>
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css">
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css">
-  <script type="text/javascript"
-          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
-  </script>
-  <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
-  </script>
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css"/>
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css"/>
 </head>
 
   <body><div class="container">
@@ -60,25 +54,25 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">安装 texlive</a></li>
-<li><a href="#orgheadline2">安装所需字体</a></li>
-<li><a href="#orgheadline9">配置 org-mode</a>
+<li><a href="#orgfa6e80e">安装 texlive</a></li>
+<li><a href="#org3f8f308">安装所需字体</a></li>
+<li><a href="#org8700471">配置 org-mode</a>
 <ul>
-<li><a href="#orgheadline3">创建与 ctex 对应的 org-latex-class</a></li>
-<li><a href="#orgheadline4">解决 org-mode 默认设置与 ctex 冲突的问题</a></li>
-<li><a href="#orgheadline5">LaTeX 宏包相关设置，比如设置字体，页面边距等</a></li>
-<li><a href="#orgheadline6">使用 ctex 来预览 LaTeX 片断</a></li>
-<li><a href="#orgheadline7">使用 XeLaTeX 编译 LaTeX 文件</a></li>
-<li><a href="#orgheadline8">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</a></li>
+<li><a href="#org79e5959">创建与 ctex 对应的 org-latex-class</a></li>
+<li><a href="#orgcac4191">解决 org-mode 默认设置与 ctex 冲突的问题</a></li>
+<li><a href="#orge6fa09d">LaTeX 宏包相关设置，比如设置字体，页面边距等</a></li>
+<li><a href="#orge78348b">使用 ctex 来预览 LaTeX 片断</a></li>
+<li><a href="#org8d74412">使用 XeLaTeX 编译 LaTeX 文件</a></li>
+<li><a href="#orgba4565a">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1">安装 texlive</h2>
-<div class="outline-text-2" id="text-orgheadline1">
+<div id="outline-container-orgfa6e80e" class="outline-2">
+<h2 id="orgfa6e80e">安装 texlive</h2>
+<div class="outline-text-2" id="text-orgfa6e80e">
 <p>
 安装 texlive 可以使用两种方式
 </p>
@@ -88,14 +82,12 @@
 </ol>
 
 <p>
-由于 Debian 自带的 texlive 版本相对比较旧，所以本人使用 tlmgr 来安装texlive，
-具体安装方式请参考：<a href="http://www.tug.org/texlive/quickinstall.html">TexLive快速安装手册</a> 。
+由于 Debian 自带的 texlive 版本相对比较旧，所以本人使用 tlmgr 来安装texlive，具体安装方式请参考：<a href="http://www.tug.org/texlive/quickinstall.html">TexLive快速安装手册</a> 。
 </p>
 
 <p>
 注：LaTeX 系统安装不完整或者没有安装 org-mode 依赖的 LaTeX 宏包时，
-org-mode 不能正确生成 pdf 文档，同学可以参考本人的 LaTeX 宏包列表，来寻找没有安装
-的宏包。
+org-mode 不能正确生成 pdf 文档，同学可以参考本人的 LaTeX 宏包列表，来寻找没有安装的宏包。
 </p>
 
 <div class="org-src-container">
@@ -988,12 +980,11 @@ i zxjafont: Set up Japanese font families for XeLaTeX.
 </div>
 
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2">安装所需字体</h2>
-<div class="outline-text-2" id="text-orgheadline2">
+<div id="outline-container-org3f8f308" class="outline-2">
+<h2 id="org3f8f308">安装所需字体</h2>
+<div class="outline-text-2" id="text-org3f8f308">
 <p>
-将 org 文件转换为 pdf 时，本人习惯使用文泉驿微米黑和SimSun，同学可以根据自己的喜好来安装需要的字体。
-下面是本人 Debian 系统中安装字体的列表：
+将 org 文件转换为 pdf 时，本人习惯使用文泉驿微米黑和SimSun，同学可以根据自己的喜好来安装需要的字体。下面是本人 Debian 系统中安装字体的列表：
 </p>
 
 <div class="org-src-container">
@@ -1042,59 +1033,58 @@ fonts-ubuntu-title				install
 </div>
 
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9">配置 org-mode</h2>
-<div class="outline-text-2" id="text-orgheadline9">
-</div><div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3">创建与 ctex 对应的 org-latex-class</h3>
-<div class="outline-text-3" id="text-orgheadline3">
+<div id="outline-container-org8700471" class="outline-2">
+<h2 id="org8700471">配置 org-mode</h2>
+<div class="outline-text-2" id="text-org8700471">
+</div><div id="outline-container-org79e5959" class="outline-3">
+<h3 id="org79e5959">创建与 ctex 对应的 org-latex-class</h3>
+<div class="outline-text-3" id="text-org79e5959">
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">setq</span> org-latex-default-class <span style="color: #7fffd4; font-style: italic;">"ctexart"</span>)
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq org-latex-default-class <span style="color: #e67128;">"ctexart"</span><span style="color: #8c8c8c;">)</span>
 
-(add-to-list 'org-latex-classes
-             '(<span style="color: #7fffd4; font-style: italic;">"ctexart"</span>
-               <span style="color: #7fffd4; font-style: italic;">"\\documentclass[fancyhdr,fntef,nofonts,UTF8,a4paper,cs4size]{ctexart}"</span>
-               (<span style="color: #7fffd4; font-style: italic;">"\\section{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\section*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\subsection{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\subsection*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\subsubsection{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\subsubsection*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\paragraph{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\paragraph*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\subparagraph{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\subparagraph*{%s}"</span>)))
+<span style="color: #8c8c8c;">(</span>add-to-list 'org-latex-classes
+             '<span style="color: #93a8c6;">(</span><span style="color: #e67128;">"ctexart"</span>
+               <span style="color: #e67128;">"\\documentclass[fancyhdr,fntef,nofonts,UTF8,a4paper,cs4size]{ctexart}"</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\section{%s}"</span> . <span style="color: #e67128;">"\\section*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\subsection{%s}"</span> . <span style="color: #e67128;">"\\subsection*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\subsubsection{%s}"</span> . <span style="color: #e67128;">"\\subsubsection*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\paragraph{%s}"</span> . <span style="color: #e67128;">"\\paragraph*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\subparagraph{%s}"</span> . <span style="color: #e67128;">"\\subparagraph*{%s}"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 
-(add-to-list 'org-latex-classes
-             '(<span style="color: #7fffd4; font-style: italic;">"ctexrep"</span>
-               <span style="color: #7fffd4; font-style: italic;">"\\documentclass[fancyhdr,fntef,nofonts,UTF8,a4paper,cs4size]{ctexrep}"</span>
-               (<span style="color: #7fffd4; font-style: italic;">"\\part{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\part*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\chapter{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\chapter*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\section{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\section*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\subsection{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\subsection*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\subsubsection{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\subsubsection*{%s}"</span>)))
+<span style="color: #8c8c8c;">(</span>add-to-list 'org-latex-classes
+             '<span style="color: #93a8c6;">(</span><span style="color: #e67128;">"ctexrep"</span>
+               <span style="color: #e67128;">"\\documentclass[fancyhdr,fntef,nofonts,UTF8,a4paper,cs4size]{ctexrep}"</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\part{%s}"</span> . <span style="color: #e67128;">"\\part*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\chapter{%s}"</span> . <span style="color: #e67128;">"\\chapter*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\section{%s}"</span> . <span style="color: #e67128;">"\\section*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\subsection{%s}"</span> . <span style="color: #e67128;">"\\subsection*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\subsubsection{%s}"</span> . <span style="color: #e67128;">"\\subsubsection*{%s}"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 
-(add-to-list 'org-latex-classes
-             '(<span style="color: #7fffd4; font-style: italic;">"ctexbook"</span>
-               <span style="color: #7fffd4; font-style: italic;">"\\documentclass[fancyhdr,fntef,nofonts,UTF8,a4paper,cs4size]{ctexbook}"</span>
-               (<span style="color: #7fffd4; font-style: italic;">"\\part{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\part*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\chapter{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\chapter*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\section{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\section*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\subsection{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\subsection*{%s}"</span>)
-               (<span style="color: #7fffd4; font-style: italic;">"\\subsubsection{%s}"</span> . <span style="color: #7fffd4; font-style: italic;">"\\subsubsection*{%s}"</span>)))
+<span style="color: #8c8c8c;">(</span>add-to-list 'org-latex-classes
+             '<span style="color: #93a8c6;">(</span><span style="color: #e67128;">"ctexbook"</span>
+               <span style="color: #e67128;">"\\documentclass[fancyhdr,fntef,nofonts,UTF8,a4paper,cs4size]{ctexbook}"</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\part{%s}"</span> . <span style="color: #e67128;">"\\part*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\chapter{%s}"</span> . <span style="color: #e67128;">"\\chapter*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\section{%s}"</span> . <span style="color: #e67128;">"\\section*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\subsection{%s}"</span> . <span style="color: #e67128;">"\\subsection*{%s}"</span><span style="color: #b0b1a3;">)</span>
+               <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"\\subsubsection{%s}"</span> . <span style="color: #e67128;">"\\subsubsection*{%s}"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 
-(add-to-list 'org-latex-classes
-             '(<span style="color: #7fffd4; font-style: italic;">"beamer"</span>
-               <span style="color: #7fffd4; font-style: italic;">"\\documentclass{beamer}</span>
-<span style="color: #7fffd4; font-style: italic;">           \\usepackage[fntef,nofonts,fancyhdr]{ctex}"</span>
-               org-beamer-sectioning))
+<span style="color: #8c8c8c;">(</span>add-to-list 'org-latex-classes
+             '<span style="color: #93a8c6;">(</span><span style="color: #e67128;">"beamer"</span>
+               <span style="color: #e67128;">"\\documentclass{beamer}</span>
+<span style="color: #e67128;">           \\usepackage[fntef,nofonts,fancyhdr]{ctex}"</span>
+               org-beamer-sectioning<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4">解决 org-mode 默认设置与 ctex 冲突的问题</h3>
-<div class="outline-text-3" id="text-orgheadline4">
+<div id="outline-container-orgcac4191" class="outline-3">
+<h3 id="orgcac4191">解决 org-mode 默认设置与 ctex 冲突的问题</h3>
+<div class="outline-text-3" id="text-orgcac4191">
 <p>
-org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，
-具体细节可以运行：
+org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，具体细节可以运行：
 </p>
 
 <div class="org-src-container">
@@ -1120,88 +1110,88 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，
 
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">setf</span> org-latex-default-packages-alist
-      (remove '(<span style="color: #7fffd4; font-style: italic;">"AUTO"</span> <span style="color: #7fffd4; font-style: italic;">"inputenc"</span> t) org-latex-default-packages-alist))
-(<span style="color: #00ffff; font-weight: bold;">setf</span> org-latex-default-packages-alist
-      (remove '(<span style="color: #7fffd4; font-style: italic;">"T1"</span> <span style="color: #7fffd4; font-style: italic;">"fontenc"</span> t) org-latex-default-packages-alist))
-(<span style="color: #00ffff; font-weight: bold;">setf</span> org-latex-default-packages-alist
-      (remove '(<span style="color: #7fffd4; font-style: italic;">"normalem"</span> <span style="color: #7fffd4; font-style: italic;">"ulem"</span> t) org-latex-default-packages-alist))
-(setcar (rassoc '(<span style="color: #7fffd4; font-style: italic;">"wasysym"</span> t)
-                org-latex-default-packages-alist) <span style="color: #7fffd4; font-style: italic;">"nointegrals"</span>)
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setf org-latex-default-packages-alist
+      <span style="color: #93a8c6;">(</span>remove '<span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"AUTO"</span> <span style="color: #e67128;">"inputenc"</span> t<span style="color: #b0b1a3;">)</span> org-latex-default-packages-alist<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>setf org-latex-default-packages-alist
+      <span style="color: #93a8c6;">(</span>remove '<span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"T1"</span> <span style="color: #e67128;">"fontenc"</span> t<span style="color: #b0b1a3;">)</span> org-latex-default-packages-alist<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>setf org-latex-default-packages-alist
+      <span style="color: #93a8c6;">(</span>remove '<span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"normalem"</span> <span style="color: #e67128;">"ulem"</span> t<span style="color: #b0b1a3;">)</span> org-latex-default-packages-alist<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>setcar <span style="color: #93a8c6;">(</span>rassoc '<span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"wasysym"</span> t<span style="color: #b0b1a3;">)</span>
+                org-latex-default-packages-alist<span style="color: #93a8c6;">)</span> <span style="color: #e67128;">"nointegrals"</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5">LaTeX 宏包相关设置，比如设置字体，页面边距等</h3>
-<div class="outline-text-3" id="text-orgheadline5">
+<div id="outline-container-orge6fa09d" class="outline-3">
+<h3 id="orge6fa09d">LaTeX 宏包相关设置，比如设置字体，页面边距等</h3>
+<div class="outline-text-3" id="text-orge6fa09d">
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">setq</span>  org-latex-packages-alist
-       '(<span style="color: #7fffd4; font-style: italic;">"</span>
-<span style="color: #7fffd4; font-style: italic;">%%% &#40664;&#35748;&#20351;&#29992;&#30340;latex&#23439;&#21253; %%%</span>
-<span style="color: #7fffd4; font-style: italic;">\\usepackage{tikz}</span>
-<span style="color: #7fffd4; font-style: italic;">\\usepackage{CJKulem}</span>
-<span style="color: #7fffd4; font-style: italic;">\\usepackage{graphicx}</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq  org-latex-packages-alist
+       '<span style="color: #93a8c6;">(</span><span style="color: #e67128;">"</span>
+<span style="color: #e67128;">%%% &#40664;&#35748;&#20351;&#29992;&#30340;latex&#23439;&#21253; %%%</span>
+<span style="color: #e67128;">\\usepackage{tikz}</span>
+<span style="color: #e67128;">\\usepackage{CJKulem}</span>
+<span style="color: #e67128;">\\usepackage{graphicx}</span>
 
-<span style="color: #7fffd4; font-style: italic;">%%% &#35774;&#32622;&#20013;&#25991;&#23383;&#20307; %%%</span>
-<span style="color: #7fffd4; font-style: italic;">\\setCJKmainfont[ItalicFont={KaiTi_GB2312}]{SimSun}% &#23435;&#20307;&#21644;&#26999;&#20070;</span>
-<span style="color: #7fffd4; font-style: italic;">\\setCJKsansfont{WenQuanYi Micro Hei}% &#25991;&#27849;&#39551;&#30340;&#40657;&#20307;</span>
-<span style="color: #7fffd4; font-style: italic;">\\setCJKmonofont{WenQuanYi Micro Hei}</span>
+<span style="color: #e67128;">%%% &#35774;&#32622;&#20013;&#25991;&#23383;&#20307; %%%</span>
+<span style="color: #e67128;">\\setCJKmainfont[ItalicFont={KaiTi_GB2312}]{SimSun}% &#23435;&#20307;&#21644;&#26999;&#20070;</span>
+<span style="color: #e67128;">\\setCJKsansfont{WenQuanYi Micro Hei}% &#25991;&#27849;&#39551;&#30340;&#40657;&#20307;</span>
+<span style="color: #e67128;">\\setCJKmonofont{WenQuanYi Micro Hei}</span>
 
-<span style="color: #7fffd4; font-style: italic;">%%% &#35774;&#32622;&#39029;&#38754;&#36793;&#36317; %%%</span>
-<span style="color: #7fffd4; font-style: italic;">\\usepackage[top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm]{geometry} %</span>
-<span style="color: #7fffd4; font-style: italic;">"</span>))
+<span style="color: #e67128;">%%% &#35774;&#32622;&#39029;&#38754;&#36793;&#36317; %%%</span>
+<span style="color: #e67128;">\\usepackage[top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm]{geometry} %</span>
+<span style="color: #e67128;">"</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6">使用 ctex 来预览 LaTeX 片断</h3>
-<div class="outline-text-3" id="text-orgheadline6">
+<div id="outline-container-orge78348b" class="outline-3">
+<h3 id="orge78348b">使用 ctex 来预览 LaTeX 片断</h3>
+<div class="outline-text-3" id="text-orge78348b">
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp"><span style="color: #66cdaa; font-style: italic;">;; </span><span style="color: #66cdaa; font-style: italic;">latex&#20844;&#24335;&#39044;&#35272;, &#35843;&#25972;latex&#39044;&#35272;&#26102;&#20351;&#29992;&#30340;header,&#40664;&#35748;&#20351;&#29992;ctexart&#31867;</span>
-(<span style="color: #00ffff; font-weight: bold;">setq</span> org-format-latex-header
-      (replace-regexp-in-string
-       <span style="color: #7fffd4; font-style: italic;">"\\\\documentclass{.*}"</span>
-       <span style="color: #7fffd4; font-style: italic;">"\\\\documentclass[nofonts,UTF8]{ctexart}"</span>
-       org-format-latex-header))
+<pre class="src src-emacs-lisp"><span style="color: #74af68;">;; </span><span style="color: #74af68;">latex&#20844;&#24335;&#39044;&#35272;, &#35843;&#25972;latex&#39044;&#35272;&#26102;&#20351;&#29992;&#30340;header,&#40664;&#35748;&#20351;&#29992;ctexart&#31867;</span>
+<span style="color: #8c8c8c;">(</span>setq org-format-latex-header
+      <span style="color: #93a8c6;">(</span>replace-regexp-in-string
+       <span style="color: #e67128;">"\\\\documentclass{.*}"</span>
+       <span style="color: #e67128;">"\\\\documentclass[nofonts,UTF8]{ctexart}"</span>
+       org-format-latex-header<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7">使用 XeLaTeX 编译 LaTeX 文件</h3>
-<div class="outline-text-3" id="text-orgheadline7">
+<div id="outline-container-org8d74412" class="outline-3">
+<h3 id="org8d74412">使用 XeLaTeX 编译 LaTeX 文件</h3>
+<div class="outline-text-3" id="text-org8d74412">
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">setq</span> org-latex-commands
-      '((<span style="color: #7fffd4; font-style: italic;">"xelatex -interaction nonstopmode -output-directory %o %f"</span>
-         <span style="color: #7fffd4; font-style: italic;">"bibtex %b"</span>
-         <span style="color: #7fffd4; font-style: italic;">"xelatex -interaction nonstopmode -output-directory %o %f"</span>
-         <span style="color: #7fffd4; font-style: italic;">"xelatex -interaction nonstopmode -output-directory %o %f"</span>)
-        (<span style="color: #7fffd4; font-style: italic;">"xelatex -interaction nonstopmode -output-directory %o %f"</span>)))
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq org-latex-commands
+      '<span style="color: #93a8c6;">(</span><span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"xelatex -interaction nonstopmode -output-directory %o %f"</span>
+         <span style="color: #e67128;">"bibtex %b"</span>
+         <span style="color: #e67128;">"xelatex -interaction nonstopmode -output-directory %o %f"</span>
+         <span style="color: #e67128;">"xelatex -interaction nonstopmode -output-directory %o %f"</span><span style="color: #b0b1a3;">)</span>
+        <span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"xelatex -interaction nonstopmode -output-directory %o %f"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</h3>
-<div class="outline-text-3" id="text-orgheadline8">
+<div id="outline-container-orgba4565a" class="outline-3">
+<h3 id="orgba4565a">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</h3>
+<div class="outline-text-3" id="text-orgba4565a">
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">defun</span> <span style="color: #87cefa; font-weight: bold; font-style: italic;">my-org-latex-compile</span> (orig-fun texfile <span style="color: #98fb98; font-weight: bold;">&amp;optional</span> snippet)
-  (<span style="color: #00ffff; font-weight: bold;">let</span> ((org-latex-pdf-process
-         (<span style="color: #00ffff; font-weight: bold;">if</span> snippet (car (cdr org-latex-commands))
-           (car org-latex-commands))))
-    (funcall orig-fun texfile snippet)))
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">defun</span> <span style="color: #00ede1; font-weight: bold;">my-org-latex-compile</span> <span style="color: #93a8c6;">(</span>orig-fun texfile <span style="color: #34cae2;">&amp;optional</span> snippet<span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #ffad29; font-weight: bold;">let</span> <span style="color: #b0b1a3;">(</span><span style="color: #97b098;">(</span>org-latex-pdf-process
+         <span style="color: #aebed8;">(</span><span style="color: #ffad29; font-weight: bold;">if</span> snippet <span style="color: #b0b0b3;">(</span>car <span style="color: #90a890;">(</span>cdr org-latex-commands<span style="color: #90a890;">)</span><span style="color: #b0b0b3;">)</span>
+           <span style="color: #b0b0b3;">(</span>car org-latex-commands<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>
+    <span style="color: #b0b1a3;">(</span>funcall orig-fun texfile snippet<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 
-(advice-add 'org-latex-compile <span style="color: #b0c4de; font-weight: bold;">:around</span> #'my-org-latex-compile)
+<span style="color: #8c8c8c;">(</span>advice-add 'org-latex-compile <span style="color: #23d7d7;">:around</span> #'my-org-latex-compile<span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 </div>
@@ -1211,62 +1201,92 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，
 </div>
 </div>
 <div>
-  <div class="post-meta">
-    <span title="post date" class="post-info">2015-04-20</span>
-    <span title="last modification date" class="post-info">2015-09-25</span>
-    <span title="tags" class="post-info">:<a href="http://emacs-china.github.io/tags/org-mode">org-mode</a> : <a href="http://emacs-china.github.io/tags/latex">latex</a> : <a href="http://emacs-china.github.io/tags/ctex">ctex</a>:</span>
-    <span title="author" class="post-info"><a href="mailto:tumashu@163.com">Feng Shu</a></span>
-  </div>
-  <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
-  <section>
-    <h1>Comments</h1>
-    <div id="comment-wrap">
-      <a class="disqus_label">使用Disqus评论</a>
-      <a class="ds-label">使用多说评论</a>
+        <div class="post-meta">
+            <span title="post date" class="post-info">2015-04-20</span>
+            <span title="last modification date" class="post-info">2016-03-15</span>
+            <span title="tags" class="post-info"><a href="http://emacs-china.github.io/tags/org-mode">org-mode</a> : <a href="http://emacs-china.github.io/tags/latex">latex</a> : <a href="http://emacs-china.github.io/tags/ctex">ctex</a></span>
+            <span title="author" class="post-info">Feng Shu</span>
+        </div>
+    <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
+        <section>
+            <h1>Comments</h1>
+            <div id="comment-wrap">
+                    <a class="disqus_label">使用Disqus评论</a>
+                    <a class="ds-label">使用多说评论</a>
     </ul>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-     //var disqus_developer = 1;
-     var preempt_signal=false;
-     var disqus_identifier = "/blog/2015/04/20/使用-ctex-将-org-文件转化为-pdf/";
-     var disqus_url = "http://emacs-china.github.io/blog/2015/04/20/使用-ctex-将-org-文件转化为-pdf/";
-     var disqus_shortname = 'emacs-china';
-     /* * * DON'T EDIT BELOW THIS LINE * * */
-     (function() {
-       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-       $('#disqus_thread').css('display','none');
-     })();
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+         //var disqus_developer = 1;
+         var preempt_signal=false;
+         var disqus_identifier = "/blog/2015/04/20/使用-ctex-将-org-文件转化为-pdf/";
+         var disqus_url = "http://emacs-china.github.io/blog/2015/04/20/使用-ctex-将-org-文件转化为-pdf/";
+         var disqus_shortname = 'emacs-china';
+         /* * * DON'T EDIT BELOW THIS LINE * * */
+         (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+             $('#disqus_thread').css('display','none');
+         })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div class="ds-thread"></div>
+        <script type="text/javascript">
+         var duoshuoQuery = {short_name:'emacs-china'};
+         (function() {
+             var ds = document.createElement('script');
+             ds.type = 'text/javascript';ds.async = true;
+             ds.src = 'http://static.duoshuo.com/embed.js';
+             ds.charset = 'UTF-8';
+             (document.getElementsByTagName('head')[0]
+           || document.getElementsByTagName('body')[0]).appendChild(ds);
+             $('.ds-thread').css('display','block');
+         })();
+        </script>
+    <script>
+     /* comments */
+     var ego_disqus_thread=$('#disqus_thread');
+     var ego_ds_label=$('.ds-thread');
+     $('.disqus_label').click(function(){
+         ego_disqus_thread.show();
+         ego_ds_label.hide();
+     });
+     $('.ds-label').click(function(){
+         ego_disqus_thread.hide();
+         ego_ds_label.show();
+     });
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <div class="ds-thread"></div>
-    <script type="text/javascript">
-     var duoshuoQuery = {short_name:'emacs-china'};
-     (function() {
-       var ds = document.createElement('script');
-       ds.type = 'text/javascript';ds.async = true;
-       ds.src = 'http://static.duoshuo.com/embed.js';
-       ds.charset = 'UTF-8';
-       (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-       $('.ds-thread').css('display','block');
-     })();
-    </script>
-  </section>
-  <script src="http://emacs-china.github.io/media/js/main.js"></script>
-  <div class="footer">
-    <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x(<a href="http://orgmode.org">Org mode</a> 8.x)</p>
-    <p>
-      Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:tumashu@163.com">Feng Shu</a>
-      &nbsp;&nbsp;-&nbsp;&nbsp;
-      Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
-      <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
-      <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
-    </p>
-  </div>
+        </section>
+    <div class="footer">
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.x(<a href="http://orgmode.org">Org mode</a> 8.x)
+        </p>
+        <p>
+            Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:tumashu &lt;at&gt; 163 &lt;dot&gt; com">Feng Shu</a>
+            &nbsp;&nbsp;-&nbsp;&nbsp;
+            Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
+            &nbsp;&nbsp;-&nbsp;&nbsp;
+            Analysized by
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254938647'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254938647%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><br/>
+            <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
+            <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+            <script src="http://emacs-china.github.io/media/js/main.js"></script>
+        </p>
     </div>
+            </div>
+            <script type="text/javascript"
+                    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+            </script>
+            <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+            </script>
+            <script>
+             ((window.gitter = {}).chat = {}).options = {
+                 room: 'emacs-china/emacs-china.github.io'
+             };
+            </script>
+            <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</div>
 
   </div></body>
 </html>

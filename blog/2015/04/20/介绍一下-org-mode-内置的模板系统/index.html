@@ -3,9 +3,9 @@
 <head>
   <title>介绍一下 org-mode 内置的模板系统 - EMACS-CHINA</title>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="author" content="Feng Shu" />
   <meta name="keywords" content="org-mode" />
   <style>
@@ -14,14 +14,8 @@
    #ds-thread #ds-reset .ds-comment-body p a:hover {color: #0ff;}
    #disqus_thread a {color: #00ffff;}
   </style>
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css">
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css">
-  <script type="text/javascript"
-          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
-  </script>
-  <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
-  </script>
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css"/>
+  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css"/>
 </head>
 
   <body><div class="container">
@@ -62,17 +56,17 @@ Emacs 拥有许多优秀的模板系统，其中最流行的莫过于 yasnippet 
 
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">(<span style="color: #00ffff; font-weight: bold;">setq</span> org-structure-template-alist
-      (append '((<span style="color: #7fffd4; font-style: italic;">"r"</span> <span style="color: #7fffd4; font-style: italic;">"#+BEGIN_SRC R\n?\n#+END_SRC"</span>)
-                (<span style="color: #7fffd4; font-style: italic;">"e"</span> <span style="color: #7fffd4; font-style: italic;">"#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"</span>)
-                (<span style="color: #7fffd4; font-style: italic;">"ex"</span> <span style="color: #7fffd4; font-style: italic;">"#+BEGIN_EXAMPLE\n?\n#+END_EXAMPLE"</span>)
-                (<span style="color: #7fffd4; font-style: italic;">"rh"</span> <span style="color: #7fffd4; font-style: italic;">"#+PROPERTY: header-args:R  :session *R* :tangle yes :colnames yes :rownames no :width 700 :height 500 :exports both"</span>)
-                (<span style="color: #7fffd4; font-style: italic;">"rv"</span> <span style="color: #7fffd4; font-style: italic;">"#+BEGIN_SRC R :results value\n?\n#+END_SRC"</span>)
-                (<span style="color: #7fffd4; font-style: italic;">"ro"</span> <span style="color: #7fffd4; font-style: italic;">"#+BEGIN_SRC R :results output verbatim\n?\n#+END_SRC"</span>)
-                (<span style="color: #7fffd4; font-style: italic;">"rg"</span> <span style="color: #7fffd4; font-style: italic;">"#+BEGIN_SRC R :results graphics :file ?\n\n#+END_SRC"</span>)
-                (<span style="color: #7fffd4; font-style: italic;">"rs"</span> <span style="color: #7fffd4; font-style: italic;">"#+BEGIN_SRC R :results output silent\n?\n#+END_SRC"</span>)
-                (<span style="color: #7fffd4; font-style: italic;">"rd"</span> <span style="color: #7fffd4; font-style: italic;">"#+BEGIN_SRC R :colnames no :results value drawer\n`%c%` &lt;- function(a,b){c(a,b)}\n?\n#+END_SRC"</span>))
-              org-structure-template-alist))
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq org-structure-template-alist
+      <span style="color: #93a8c6;">(</span>append '<span style="color: #b0b1a3;">(</span><span style="color: #97b098;">(</span><span style="color: #e67128;">"r"</span> <span style="color: #e67128;">"#+BEGIN_SRC R\n?\n#+END_SRC"</span><span style="color: #97b098;">)</span>
+                <span style="color: #97b098;">(</span><span style="color: #e67128;">"e"</span> <span style="color: #e67128;">"#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"</span><span style="color: #97b098;">)</span>
+                <span style="color: #97b098;">(</span><span style="color: #e67128;">"ex"</span> <span style="color: #e67128;">"#+BEGIN_EXAMPLE\n?\n#+END_EXAMPLE"</span><span style="color: #97b098;">)</span>
+                <span style="color: #97b098;">(</span><span style="color: #e67128;">"rh"</span> <span style="color: #e67128;">"#+PROPERTY: header-args:R  :session *R* :tangle yes :colnames yes :rownames no :width 700 :height 500 :exports both"</span><span style="color: #97b098;">)</span>
+                <span style="color: #97b098;">(</span><span style="color: #e67128;">"rv"</span> <span style="color: #e67128;">"#+BEGIN_SRC R :results value\n?\n#+END_SRC"</span><span style="color: #97b098;">)</span>
+                <span style="color: #97b098;">(</span><span style="color: #e67128;">"ro"</span> <span style="color: #e67128;">"#+BEGIN_SRC R :results output verbatim\n?\n#+END_SRC"</span><span style="color: #97b098;">)</span>
+                <span style="color: #97b098;">(</span><span style="color: #e67128;">"rg"</span> <span style="color: #e67128;">"#+BEGIN_SRC R :results graphics :file ?\n\n#+END_SRC"</span><span style="color: #97b098;">)</span>
+                <span style="color: #97b098;">(</span><span style="color: #e67128;">"rs"</span> <span style="color: #e67128;">"#+BEGIN_SRC R :results output silent\n?\n#+END_SRC"</span><span style="color: #97b098;">)</span>
+                <span style="color: #97b098;">(</span><span style="color: #e67128;">"rd"</span> <span style="color: #e67128;">"#+BEGIN_SRC R :colnames no :results value drawer\n`%c%` &lt;- function(a,b){c(a,b)}\n?\n#+END_SRC"</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>
+              org-structure-template-alist<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 
@@ -101,62 +95,92 @@ Emacs 拥有许多优秀的模板系统，其中最流行的莫过于 yasnippet 
 </div>
 </div>
 <div>
-  <div class="post-meta">
-    <span title="post date" class="post-info">2015-04-20</span>
-    <span title="last modification date" class="post-info">2015-09-25</span>
-    <span title="tags" class="post-info">:<a href="http://emacs-china.github.io/tags/org-mode">org-mode</a>:</span>
-    <span title="author" class="post-info"><a href="mailto:tumashu@163.com">Feng Shu</a></span>
-  </div>
-  <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
-  <section>
-    <h1>Comments</h1>
-    <div id="comment-wrap">
-      <a class="disqus_label">使用Disqus评论</a>
-      <a class="ds-label">使用多说评论</a>
+        <div class="post-meta">
+            <span title="post date" class="post-info">2015-04-20</span>
+            <span title="last modification date" class="post-info">2016-03-15</span>
+            <span title="tags" class="post-info"><a href="http://emacs-china.github.io/tags/org-mode">org-mode</a></span>
+            <span title="author" class="post-info">Feng Shu</span>
+        </div>
+    <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
+        <section>
+            <h1>Comments</h1>
+            <div id="comment-wrap">
+                    <a class="disqus_label">使用Disqus评论</a>
+                    <a class="ds-label">使用多说评论</a>
     </ul>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-     //var disqus_developer = 1;
-     var preempt_signal=false;
-     var disqus_identifier = "/blog/2015/04/20/介绍一下-org-mode-内置的模板系统/";
-     var disqus_url = "http://emacs-china.github.io/blog/2015/04/20/介绍一下-org-mode-内置的模板系统/";
-     var disqus_shortname = 'emacs-china';
-     /* * * DON'T EDIT BELOW THIS LINE * * */
-     (function() {
-       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-       $('#disqus_thread').css('display','none');
-     })();
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+         //var disqus_developer = 1;
+         var preempt_signal=false;
+         var disqus_identifier = "/blog/2015/04/20/介绍一下-org-mode-内置的模板系统/";
+         var disqus_url = "http://emacs-china.github.io/blog/2015/04/20/介绍一下-org-mode-内置的模板系统/";
+         var disqus_shortname = 'emacs-china';
+         /* * * DON'T EDIT BELOW THIS LINE * * */
+         (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+             $('#disqus_thread').css('display','none');
+         })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div class="ds-thread"></div>
+        <script type="text/javascript">
+         var duoshuoQuery = {short_name:'emacs-china'};
+         (function() {
+             var ds = document.createElement('script');
+             ds.type = 'text/javascript';ds.async = true;
+             ds.src = 'http://static.duoshuo.com/embed.js';
+             ds.charset = 'UTF-8';
+             (document.getElementsByTagName('head')[0]
+           || document.getElementsByTagName('body')[0]).appendChild(ds);
+             $('.ds-thread').css('display','block');
+         })();
+        </script>
+    <script>
+     /* comments */
+     var ego_disqus_thread=$('#disqus_thread');
+     var ego_ds_label=$('.ds-thread');
+     $('.disqus_label').click(function(){
+         ego_disqus_thread.show();
+         ego_ds_label.hide();
+     });
+     $('.ds-label').click(function(){
+         ego_disqus_thread.hide();
+         ego_ds_label.show();
+     });
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <div class="ds-thread"></div>
-    <script type="text/javascript">
-     var duoshuoQuery = {short_name:'emacs-china'};
-     (function() {
-       var ds = document.createElement('script');
-       ds.type = 'text/javascript';ds.async = true;
-       ds.src = 'http://static.duoshuo.com/embed.js';
-       ds.charset = 'UTF-8';
-       (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-       $('.ds-thread').css('display','block');
-     })();
-    </script>
-  </section>
-  <script src="http://emacs-china.github.io/media/js/main.js"></script>
-  <div class="footer">
-    <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x(<a href="http://orgmode.org">Org mode</a> 8.x)</p>
-    <p>
-      Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:tumashu@163.com">Feng Shu</a>
-      &nbsp;&nbsp;-&nbsp;&nbsp;
-      Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
-      <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
-      <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
-    </p>
-  </div>
+        </section>
+    <div class="footer">
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.x(<a href="http://orgmode.org">Org mode</a> 8.x)
+        </p>
+        <p>
+            Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:tumashu &lt;at&gt; 163 &lt;dot&gt; com">Feng Shu</a>
+            &nbsp;&nbsp;-&nbsp;&nbsp;
+            Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
+            &nbsp;&nbsp;-&nbsp;&nbsp;
+            Analysized by
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254938647'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254938647%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><br/>
+            <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
+            <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+            <script src="http://emacs-china.github.io/media/js/main.js"></script>
+        </p>
     </div>
+            </div>
+            <script type="text/javascript"
+                    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+            </script>
+            <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+            </script>
+            <script>
+             ((window.gitter = {}).chat = {}).options = {
+                 room: 'emacs-china/emacs-china.github.io'
+             };
+            </script>
+            <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</div>
 
   </div></body>
 </html>

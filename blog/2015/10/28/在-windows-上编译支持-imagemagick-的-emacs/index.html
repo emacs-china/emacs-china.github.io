@@ -55,10 +55,10 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org4800cc2">需求分析</a></li>
-<li><a href="#org3638aeb">安装依赖</a></li>
-<li><a href="#org526e22d">编译步骤</a></li>
-<li><a href="#org949fda8">后记：关于 emacs 源码的现状</a></li>
+<li><a href="#orgb0bd8d0">需求分析</a></li>
+<li><a href="#orgd203ab4">安装依赖</a></li>
+<li><a href="#org807b7d2">编译步骤</a></li>
+<li><a href="#orgce0bcba">后记：关于 emacs 源码的现状</a></li>
 </ul>
 </div>
 </div>
@@ -72,9 +72,9 @@ Happy Hacking! -- anonymity
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201510-compile-emacs-win-with-imagemagick.org">点我修改</a><br/>
 </p>
 
-<div id="outline-container-org4800cc2" class="outline-2">
-<h2 id="org4800cc2">需求分析</h2>
-<div class="outline-text-2" id="text-org4800cc2">
+<div id="outline-container-orgb0bd8d0" class="outline-2">
+<h2 id="orgb0bd8d0">需求分析</h2>
+<div class="outline-text-2" id="text-orgb0bd8d0">
 <p>
 从最早的时候 gnu 官方提供的 emacs-w32 版本，再到 <a href="http://chriszheng.science/">Chris-Zheng</a> 编译出的 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> ，再到 msys2 自带的 emacs 版本（通过 pacman 安装），我个人一直在 windows 系统上使用 emacs，也算是 emacs 折腾界的资深人士了吧……这次就来谈谈诚如这篇标题所言的内容。
 </p>
@@ -93,9 +93,9 @@ Happy Hacking! -- anonymity
 </div>
 </div>
 
-<div id="outline-container-org3638aeb" class="outline-2">
-<h2 id="org3638aeb">安装依赖</h2>
-<div class="outline-text-2" id="text-org3638aeb">
+<div id="outline-container-orgd203ab4" class="outline-2">
+<h2 id="orgd203ab4">安装依赖</h2>
+<div class="outline-text-2" id="text-orgd203ab4">
 <ol class="org-ol">
 <li>安装 <a href="http://msys2.github.io/">msys2</a> ，然后在里面安装 gcc 等工具（注意分 mingw64 和 mingw32）。这部分可以先参考 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置</li>
 <li>下载 emacs 的源代码，这部分也可以先参考 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置</li>
@@ -103,9 +103,9 @@ Happy Hacking! -- anonymity
 </div>
 </div>
 
-<div id="outline-container-org526e22d" class="outline-2">
-<h2 id="org526e22d">编译步骤</h2>
-<div class="outline-text-2" id="text-org526e22d">
+<div id="outline-container-org807b7d2" class="outline-2">
+<h2 id="org807b7d2">编译步骤</h2>
+<div class="outline-text-2" id="text-org807b7d2">
 <p>
 编译的时候就不能参考 <a href="http://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline">emacsw64</a> 的设置了。
 </p>
@@ -148,9 +148,9 @@ make install <span style="color: #dbdb95;">prefix</span>= ...
 </div>
 </div>
 
-<div id="outline-container-org949fda8" class="outline-2">
-<h2 id="org949fda8">后记：关于 emacs 源码的现状</h2>
-<div class="outline-text-2" id="text-org949fda8">
+<div id="outline-container-orgce0bcba" class="outline-2">
+<h2 id="orgce0bcba">后记：关于 emacs 源码的现状</h2>
+<div class="outline-text-2" id="text-orgce0bcba">
 <p>
 根据 emacs 邮件列表上的情况来看，目前维护 emacs 源码的两个 heads maintainer 退出了 emacs 的维护。
 </p>
@@ -176,68 +176,92 @@ make install <span style="color: #dbdb95;">prefix</span>= ...
 </div>
 </div>
 <div>
-  <div class="post-meta">
-    <span title="post date" class="post-info">2015-10-28</span>
-    <span title="last modification date" class="post-info">2016-05-09</span>
-    <span title="tags" class="post-info">:<a href="http://emacs-china.github.io/tags/imagemagick">imagemagick</a> : <a href="http://emacs-china.github.io/tags/emacs-compile">emacs-compile</a> : <a href="http://emacs-china.github.io/tags/windows-system">windows-system</a>:</span>
-    <span title="author" class="post-info"><a href="mailto:kuangdash &lt;at&gt; 163 &lt;dot&gt; com">皐月中二</a></span>
-  </div>
-  <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
-  <section>
-    <h1>Comments</h1>
-    <div id="comment-wrap">
-      <a class="disqus_label">使用 Disqus 评论</a>
-      <a class="ds-label">使用多说评论</a>
+        <div class="post-meta">
+            <span title="post date" class="post-info">2015-10-28</span>
+            <span title="last modification date" class="post-info">2016-05-09</span>
+            <span title="tags" class="post-info"><a href="http://emacs-china.github.io/tags/imagemagick">imagemagick</a> : <a href="http://emacs-china.github.io/tags/emacs-compile">emacs-compile</a> : <a href="http://emacs-china.github.io/tags/windows-system">windows-system</a></span>
+            <span title="author" class="post-info">皐月中二</span>
+        </div>
+    <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
+        <section>
+            <h1>Comments</h1>
+            <div id="comment-wrap">
+                    <a class="disqus_label">使用Disqus评论</a>
+                    <a class="ds-label">使用多说评论</a>
     </ul>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-     //var disqus_developer = 1;
-     var preempt_signal=false;
-     var disqus_identifier = "/blog/2015/10/28/在-windows-上编译支持-imagemagick-的-emacs";
-     var disqus_url = "http://emacs-china.github.io/blog/2015/10/28/在-windows-上编译支持-imagemagick-的-emacs";
-     var disqus_shortname = 'emacs-china';
-     /* * * DON'T EDIT BELOW THIS LINE * * */
-     (function() {
-       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-       $('#disqus_thread').css('display','none');
-     })();
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+         //var disqus_developer = 1;
+         var preempt_signal=false;
+         var disqus_identifier = "/blog/2015/10/28/在-windows-上编译支持-imagemagick-的-emacs";
+         var disqus_url = "http://emacs-china.github.io/blog/2015/10/28/在-windows-上编译支持-imagemagick-的-emacs";
+         var disqus_shortname = 'emacs-china';
+         /* * * DON'T EDIT BELOW THIS LINE * * */
+         (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+             $('#disqus_thread').css('display','none');
+         })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div class="ds-thread"></div>
+        <script type="text/javascript">
+         var duoshuoQuery = {short_name:'emacs-china'};
+         (function() {
+             var ds = document.createElement('script');
+             ds.type = 'text/javascript';ds.async = true;
+             ds.src = 'http://static.duoshuo.com/embed.js';
+             ds.charset = 'UTF-8';
+             (document.getElementsByTagName('head')[0]
+           || document.getElementsByTagName('body')[0]).appendChild(ds);
+             $('.ds-thread').css('display','block');
+         })();
+        </script>
+    <script>
+     /* comments */
+     var ego_disqus_thread=$('#disqus_thread');
+     var ego_ds_label=$('.ds-thread');
+     $('.disqus_label').click(function(){
+         ego_disqus_thread.show();
+         ego_ds_label.hide();
+     });
+     $('.ds-label').click(function(){
+         ego_disqus_thread.hide();
+         ego_ds_label.show();
+     });
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <div class="ds-thread"></div>
-    <script type="text/javascript">
-     var duoshuoQuery = {short_name:'emacs-china'};
-     (function() {
-       var ds = document.createElement('script');
-       ds.type = 'text/javascript';ds.async = true;
-       ds.src = 'http://static.duoshuo.com/embed.js';
-       ds.charset = 'UTF-8';
-       (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-       $('.ds-thread').css('display','block');
-     })();
-    </script>
-  </section>
-  <script src="http://emacs-china.github.io/media/js/main.js"></script>
-  <div class="footer">
-    <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.x(<a href="http://orgmode.org">Org mode</a> 8.x)</p>
-    <p>
-      Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:kuangdash &lt;at&gt; 163 &lt;dot&gt; com">皐月中二</a>
-      &nbsp;&nbsp;-&nbsp;&nbsp;
-      Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
-      <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
-      <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
-    </p>
-  </div>
+        </section>
+    <div class="footer">
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.x(<a href="http://orgmode.org">Org mode</a> 8.x)
+        </p>
+        <p>
+            Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:kuangdash &lt;at&gt; 163 &lt;dot&gt; com">皐月中二</a>
+            &nbsp;&nbsp;-&nbsp;&nbsp;
+            Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
+            &nbsp;&nbsp;-&nbsp;&nbsp;
+            Analysized by
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254938647'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254938647%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><br/>
+            <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
+            <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+            <script src="http://emacs-china.github.io/media/js/main.js"></script>
+        </p>
     </div>
-    <script type="text/javascript"
-            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
-    </script>
-    <script type="text/x-mathjax-config">
-     MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
-    </script>
+            </div>
+            <script type="text/javascript"
+                    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+            </script>
+            <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });
+            </script>
+            <script>
+             ((window.gitter = {}).chat = {}).options = {
+                 room: 'emacs-china/emacs-china.github.io'
+             };
+            </script>
+            <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</div>
 
   </div></body>
 </html>

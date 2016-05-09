@@ -12,13 +12,6 @@
 <p class="center">
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/index.org">点我修改</a><br/>
 </p>
-
-<script>
-                          ((window.gitter = {}).chat = {}).options = {
-                              room: 'emacs-china/emacs-china.github.io'
-                          };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
 #+END_EXPORT
 
 * 本站使用简介

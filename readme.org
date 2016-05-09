@@ -21,7 +21,7 @@ CAUTION: 直接 clone emacs-china 后，需要 checkout master 和 source 后才
                    :site-domain "http://emacs-china.github.io/" ; 站点的网址
                    :site-main-title "EMACS-CHINA" ; 站点的标题
                    :site-sub-title "=============>集思广益" ; 站点的副标题
-                   :theme (default) ; 使用的主题
+                   :theme (emacs-china default) ; 使用的主题, 默认是 default
                    :summary (("years" :year :updates 10) ("authors" :authors) ("tags" :tags)) ; 导航栏的设置，有 category 和 summary 两种
                    :source-browse-url ("Github" "https://github.com/emacs-china") ; 你的工程源代码所在的位置
                    :personal-disqus-shortname "emacs-china" ; 使用 disqus 评论功能的话，它的短名称

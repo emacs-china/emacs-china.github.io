@@ -13,7 +13,7 @@
 
 嗯？如何申请加入？请通过以下试炼：
 #+BEGIN_QUOTE
-用 [[https://github.com/emacs-china/EGO][EGO]] 更新这个主站点，具体流程可以参考 [[http://emacs-china.org/blog/2015/09/27/%25E5%25A6%2582%25E4%25BD%2595%25E6%25B5%2581%25E7%2595%2585%25E5%259C%25B0%25E7%25AE%25A1%25E7%2590%2586-emacs-china/][如何流畅地管理 emacs-china 主站点]] 。
+用 [[https://github.com/emacs-china/EGO][EGO]] 更新这个博客，具体流程可以参考 [[http://emacs-china.github.io/blog/2015/09/27/%25E5%25A6%2582%25E4%25BD%2595%25E6%25B5%2581%25E7%2595%2585%25E5%259C%25B0%25E7%25AE%25A1%25E7%2590%2586-emacs-china/][如何流畅地管理 emacs-china 博客]] 。
 
 注一：更新的内容可以是一篇 blog 或者本站点首页上的项目列表。
 

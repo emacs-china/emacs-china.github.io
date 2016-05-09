@@ -1,4 +1,4 @@
-#+TITLE:       如何流畅地管理 emacs-china 主站点
+#+TITLE:       如何流畅地管理 emacs-china 博客
 #+AUTHOR:      皐月中二
 #+EMAIL:       kuangdash@163.com
 #+DATE:        2015-09-27 周日

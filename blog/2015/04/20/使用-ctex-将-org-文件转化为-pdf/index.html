@@ -54,25 +54,25 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfa6e80e">安装 texlive</a></li>
-<li><a href="#org3f8f308">安装所需字体</a></li>
-<li><a href="#org8700471">配置 org-mode</a>
+<li><a href="#org26c98cd">安装 texlive</a></li>
+<li><a href="#orgb14eae5">安装所需字体</a></li>
+<li><a href="#org9d9e9f3">配置 org-mode</a>
 <ul>
-<li><a href="#org79e5959">创建与 ctex 对应的 org-latex-class</a></li>
-<li><a href="#orgcac4191">解决 org-mode 默认设置与 ctex 冲突的问题</a></li>
-<li><a href="#orge6fa09d">LaTeX 宏包相关设置，比如设置字体，页面边距等</a></li>
-<li><a href="#orge78348b">使用 ctex 来预览 LaTeX 片断</a></li>
-<li><a href="#org8d74412">使用 XeLaTeX 编译 LaTeX 文件</a></li>
-<li><a href="#orgba4565a">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</a></li>
+<li><a href="#org29cff36">创建与 ctex 对应的 org-latex-class</a></li>
+<li><a href="#orgd4d9f0d">解决 org-mode 默认设置与 ctex 冲突的问题</a></li>
+<li><a href="#orgfe5de56">LaTeX 宏包相关设置，比如设置字体，页面边距等</a></li>
+<li><a href="#org9815f1e">使用 ctex 来预览 LaTeX 片断</a></li>
+<li><a href="#org286a831">使用 XeLaTeX 编译 LaTeX 文件</a></li>
+<li><a href="#org463950f">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfa6e80e" class="outline-2">
-<h2 id="orgfa6e80e">安装 texlive</h2>
-<div class="outline-text-2" id="text-orgfa6e80e">
+<div id="outline-container-org26c98cd" class="outline-2">
+<h2 id="org26c98cd">安装 texlive</h2>
+<div class="outline-text-2" id="text-org26c98cd">
 <p>
 安装 texlive 可以使用两种方式
 </p>
@@ -980,9 +980,9 @@ i zxjafont: Set up Japanese font families for XeLaTeX.
 </div>
 
 
-<div id="outline-container-org3f8f308" class="outline-2">
-<h2 id="org3f8f308">安装所需字体</h2>
-<div class="outline-text-2" id="text-org3f8f308">
+<div id="outline-container-orgb14eae5" class="outline-2">
+<h2 id="orgb14eae5">安装所需字体</h2>
+<div class="outline-text-2" id="text-orgb14eae5">
 <p>
 将 org 文件转换为 pdf 时，本人习惯使用文泉驿微米黑和SimSun，同学可以根据自己的喜好来安装需要的字体。下面是本人 Debian 系统中安装字体的列表：
 </p>
@@ -1033,12 +1033,12 @@ fonts-ubuntu-title				install
 </div>
 
 
-<div id="outline-container-org8700471" class="outline-2">
-<h2 id="org8700471">配置 org-mode</h2>
-<div class="outline-text-2" id="text-org8700471">
-</div><div id="outline-container-org79e5959" class="outline-3">
-<h3 id="org79e5959">创建与 ctex 对应的 org-latex-class</h3>
-<div class="outline-text-3" id="text-org79e5959">
+<div id="outline-container-org9d9e9f3" class="outline-2">
+<h2 id="org9d9e9f3">配置 org-mode</h2>
+<div class="outline-text-2" id="text-org9d9e9f3">
+</div><div id="outline-container-org29cff36" class="outline-3">
+<h3 id="org29cff36">创建与 ctex 对应的 org-latex-class</h3>
+<div class="outline-text-3" id="text-org29cff36">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq org-latex-default-class <span style="color: #e67128;">"ctexart"</span><span style="color: #8c8c8c;">)</span>
@@ -1080,9 +1080,9 @@ fonts-ubuntu-title				install
 </div>
 </div>
 
-<div id="outline-container-orgcac4191" class="outline-3">
-<h3 id="orgcac4191">解决 org-mode 默认设置与 ctex 冲突的问题</h3>
-<div class="outline-text-3" id="text-orgcac4191">
+<div id="outline-container-orgd4d9f0d" class="outline-3">
+<h3 id="orgd4d9f0d">解决 org-mode 默认设置与 ctex 冲突的问题</h3>
+<div class="outline-text-3" id="text-orgd4d9f0d">
 <p>
 org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，具体细节可以运行：
 </p>
@@ -1123,9 +1123,9 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
 </div>
 </div>
 
-<div id="outline-container-orge6fa09d" class="outline-3">
-<h3 id="orge6fa09d">LaTeX 宏包相关设置，比如设置字体，页面边距等</h3>
-<div class="outline-text-3" id="text-orge6fa09d">
+<div id="outline-container-orgfe5de56" class="outline-3">
+<h3 id="orgfe5de56">LaTeX 宏包相关设置，比如设置字体，页面边距等</h3>
+<div class="outline-text-3" id="text-orgfe5de56">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq  org-latex-packages-alist
@@ -1148,9 +1148,9 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
 </div>
 </div>
 
-<div id="outline-container-orge78348b" class="outline-3">
-<h3 id="orge78348b">使用 ctex 来预览 LaTeX 片断</h3>
-<div class="outline-text-3" id="text-orge78348b">
+<div id="outline-container-org9815f1e" class="outline-3">
+<h3 id="org9815f1e">使用 ctex 来预览 LaTeX 片断</h3>
+<div class="outline-text-3" id="text-org9815f1e">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp"><span style="color: #74af68;">;; </span><span style="color: #74af68;">latex&#20844;&#24335;&#39044;&#35272;, &#35843;&#25972;latex&#39044;&#35272;&#26102;&#20351;&#29992;&#30340;header,&#40664;&#35748;&#20351;&#29992;ctexart&#31867;</span>
@@ -1164,9 +1164,9 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
 </div>
 </div>
 
-<div id="outline-container-org8d74412" class="outline-3">
-<h3 id="org8d74412">使用 XeLaTeX 编译 LaTeX 文件</h3>
-<div class="outline-text-3" id="text-org8d74412">
+<div id="outline-container-org286a831" class="outline-3">
+<h3 id="org286a831">使用 XeLaTeX 编译 LaTeX 文件</h3>
+<div class="outline-text-3" id="text-org286a831">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq org-latex-commands
@@ -1180,9 +1180,9 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
 </div>
 </div>
 
-<div id="outline-container-orgba4565a" class="outline-3">
-<h3 id="orgba4565a">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</h3>
-<div class="outline-text-3" id="text-orgba4565a">
+<div id="outline-container-org463950f" class="outline-3">
+<h3 id="org463950f">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</h3>
+<div class="outline-text-3" id="text-org463950f">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">defun</span> <span style="color: #00ede1; font-weight: bold;">my-org-latex-compile</span> <span style="color: #93a8c6;">(</span>orig-fun texfile <span style="color: #34cae2;">&amp;optional</span> snippet<span style="color: #93a8c6;">)</span>
@@ -1265,9 +1265,6 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
             Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:tumashu &lt;at&gt; 163 &lt;dot&gt; com">Feng Shu</a>
             &nbsp;&nbsp;-&nbsp;&nbsp;
             Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
-            &nbsp;&nbsp;-&nbsp;&nbsp;
-            Analysized by
-            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254938647'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254938647%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><br/>
             <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
             <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
             <script src="http://emacs-china.github.io/media/js/main.js"></script>

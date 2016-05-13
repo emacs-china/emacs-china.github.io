@@ -55,21 +55,21 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1cc14ac">org-page 的特点</a></li>
-<li><a href="#org2072466">org-page 的安装</a></li>
-<li><a href="#org76d2f6b">org-page 的用法</a></li>
-<li><a href="#orga45be2b">org-page 效果举例</a></li>
-<li><a href="#orga9b3a20">org-page 的主题定制</a>
+<li><a href="#orgf8db23e">org-page 的特点</a></li>
+<li><a href="#orge48ee8c">org-page 的安装</a></li>
+<li><a href="#orgab2c299">org-page 的用法</a></li>
+<li><a href="#orga9e1edf">org-page 效果举例</a></li>
+<li><a href="#org990a9d9">org-page 的主题定制</a>
 <ul>
-<li><a href="#org63a9d8c">使用 org-page 管理多个站点</a></li>
-<li><a href="#org6454378">对 org-page 生成的站点进行测试</a></li>
+<li><a href="#org20e20bf">使用 org-page 管理多个站点</a></li>
+<li><a href="#orgce1f4bb">对 org-page 生成的站点进行测试</a></li>
 </ul>
 </li>
-<li><a href="#orgf4d383e">本人在 org-page 和 org-mode 间周旋的记录</a>
+<li><a href="#orgfe0df24">本人在 org-page 和 org-mode 间周旋的记录</a>
 <ul>
-<li><a href="#org1eb7afd">插入 svg 图片的问题</a></li>
-<li><a href="#orgd900b74">org-mode 的中文 target 和 radio target 无法导出</a></li>
-<li><a href="#orgf751534">org-mode 的 "src"_&lt;language&gt;{&lt;body&gt;}</a></li>
+<li><a href="#orgb16cd5f">插入 svg 图片的问题</a></li>
+<li><a href="#org483e30a">org-mode 的中文 target 和 radio target 无法导出</a></li>
+<li><a href="#orge071511">org-mode 的 "src"_&lt;language&gt;{&lt;body&gt;}</a></li>
 </ul>
 </li>
 </ul>
@@ -81,27 +81,27 @@
 以上功能仅限 emacs-china 成员使用，需要登录 github 账号。
 </p>
 
-<div id="outline-container-org1cc14ac" class="outline-2">
-<h2 id="org1cc14ac">org-page 的特点</h2>
-<div class="outline-text-2" id="text-org1cc14ac">
+<div id="outline-container-orgf8db23e" class="outline-2">
+<h2 id="orgf8db23e">org-page 的特点</h2>
+<div class="outline-text-2" id="text-orgf8db23e">
 <p>
 这是一个基于 org-mode、git 和 emacs 自身（这三个你都得耍的起来）的静态站点生成器（static site generator），实现了 <i>org 文档内容</i> 和 <i>文档修饰（主题）</i> 的分离。它本身具有高度的可定制性<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2072466" class="outline-2">
-<h2 id="org2072466">org-page 的安装</h2>
-<div class="outline-text-2" id="text-org2072466">
+<div id="outline-container-orge48ee8c" class="outline-2">
+<h2 id="orge48ee8c">org-page 的安装</h2>
+<div class="outline-text-2" id="text-orge48ee8c">
 <p>
 使用命令 <code>M-x package-list-packages</code> 找到 <code>org-page</code> 安装即可，或者去这个链接 <a href="https://github.com/kelvinh/org-page">org-page</a> 下载。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org76d2f6b" class="outline-2">
-<h2 id="org76d2f6b">org-page 的用法</h2>
-<div class="outline-text-2" id="text-org76d2f6b">
+<div id="outline-container-orgab2c299" class="outline-2">
+<h2 id="orgab2c299">org-page 的用法</h2>
+<div class="outline-text-2" id="text-orgab2c299">
 <p>
 首先，在想写 blog 的文件夹下用 <code>git init</code> 建立一个 git repository，然后创建并进入 source 分支，再新建三个基本文件： 
 </p>
@@ -125,9 +125,9 @@ html 页面的生成与发布都交给了 <code>M-x op/do-publication</code> 命
 </div>
 </div>
 
-<div id="outline-container-orga45be2b" class="outline-2">
-<h2 id="orga45be2b">org-page 效果举例</h2>
-<div class="outline-text-2" id="text-orga45be2b">
+<div id="outline-container-orga9e1edf" class="outline-2">
+<h2 id="orga9e1edf">org-page 效果举例</h2>
+<div class="outline-text-2" id="text-orga9e1edf">
 <dl class="org-dl">
 <dt>列表</dt><dd><del>删除线</del> <span class="underline">下划线</span> <b>强调</b> <code>代码</code></dd>
 <dt>数学公式</dt><dd>\(X(f)=\int{x(t)e^{-i 2\pi ft}dt}\)</dd>
@@ -144,9 +144,9 @@ html 页面的生成与发布都交给了 <code>M-x op/do-publication</code> 命
 </div>
 </div>
 
-<div id="outline-container-orga9b3a20" class="outline-2">
-<h2 id="orga9b3a20">org-page 的主题定制</h2>
-<div class="outline-text-2" id="text-orga9b3a20">
+<div id="outline-container-org990a9d9" class="outline-2">
+<h2 id="org990a9d9">org-page 的主题定制</h2>
+<div class="outline-text-2" id="text-org990a9d9">
 <dl class="org-dl">
 <dt>正常定制法</dt><dd>使用命令 <code>M-x customize-group</code> 再输入 <code>org-page</code> 即可。（这种定制法定制能力有限）</dd>
 <dt>hack 定制法</dt><dd>参看 themes 文件夹，里面的 template 文件夹使用了 <a href="http://mustache.github.io/">mustache 模板</a> 。而另外一个 source 文件夹有 css、js 等文件，这些东西各位懂的……如果你是一个好的前端设计师的话，这些就能让你制作一个漂亮的界面了，毕竟标签不多。</dd>
@@ -161,9 +161,9 @@ html 页面的生成与发布都交给了 <code>M-x op/do-publication</code> 命
 </p>
 </div>
 
-<div id="outline-container-org63a9d8c" class="outline-3">
-<h3 id="org63a9d8c">使用 org-page 管理多个站点</h3>
-<div class="outline-text-3" id="text-org63a9d8c">
+<div id="outline-container-org20e20bf" class="outline-3">
+<h3 id="org20e20bf">使用 org-page 管理多个站点</h3>
+<div class="outline-text-3" id="text-org20e20bf">
 <p>
 在 emacs 的配置文件中定义如下函数：
 </p>
@@ -216,9 +216,9 @@ html 页面的生成与发布都交给了 <code>M-x op/do-publication</code> 命
 </div>
 </div>
 
-<div id="outline-container-org6454378" class="outline-3">
-<h3 id="org6454378">对 org-page 生成的站点进行测试</h3>
-<div class="outline-text-3" id="text-org6454378">
+<div id="outline-container-orgce1f4bb" class="outline-3">
+<h3 id="orgce1f4bb">对 org-page 生成的站点进行测试</h3>
+<div class="outline-text-3" id="text-orgce1f4bb">
 <p>
 本人使用基于 emacs 的 <a href="https://github.com/skeeto/emacs-web-server">simple-httpd</a> 来进行站点测试，根据实际情况，各位也可以用自己喜欢的 web 服务器来进行测试。
 </p>
@@ -259,17 +259,17 @@ html 页面的生成与发布都交给了 <code>M-x op/do-publication</code> 命
 </div>
 </div>
 
-<div id="outline-container-orgf4d383e" class="outline-2">
-<h2 id="orgf4d383e">本人在 org-page 和 org-mode 间周旋的记录</h2>
-<div class="outline-text-2" id="text-orgf4d383e">
+<div id="outline-container-orgfe0df24" class="outline-2">
+<h2 id="orgfe0df24">本人在 org-page 和 org-mode 间周旋的记录</h2>
+<div class="outline-text-2" id="text-orgfe0df24">
 <p>
 由于我一直用 git 更新 org-page 和 org-mode 的源，所以这里会写一些两者遇上冲突的地方：
 </p>
 </div>
 
-<div id="outline-container-org1eb7afd" class="outline-3">
-<h3 id="org1eb7afd">插入 svg 图片的问题</h3>
-<div class="outline-text-3" id="text-org1eb7afd">
+<div id="outline-container-orgb16cd5f" class="outline-3">
+<h3 id="orgb16cd5f">插入 svg 图片的问题</h3>
+<div class="outline-text-3" id="text-orgb16cd5f">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-04-15 周三&gt;</span></span>
 </p>
@@ -311,9 +311,9 @@ html 页面的生成与发布都交给了 <code>M-x op/do-publication</code> 命
 </div>
 </div>
 
-<div id="outline-container-orgd900b74" class="outline-3">
-<h3 id="orgd900b74">org-mode 的中文 target 和 radio target 无法导出</h3>
-<div class="outline-text-3" id="text-orgd900b74">
+<div id="outline-container-org483e30a" class="outline-3">
+<h3 id="org483e30a">org-mode 的中文 target 和 radio target 无法导出</h3>
+<div class="outline-text-3" id="text-org483e30a">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-04-15 周三&gt;</span></span>
 </p>
@@ -343,9 +343,9 @@ html 页面的生成与发布都交给了 <code>M-x op/do-publication</code> 命
 </div>
 </div>
 
-<div id="outline-container-orgf751534" class="outline-3">
-<h3 id="orgf751534">org-mode 的 "src"_&lt;language&gt;{&lt;body&gt;}</h3>
-<div class="outline-text-3" id="text-orgf751534">
+<div id="outline-container-orge071511" class="outline-3">
+<h3 id="orge071511">org-mode 的 "src"_&lt;language&gt;{&lt;body&gt;}</h3>
+<div class="outline-text-3" id="text-orge071511">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-04-15 周三&gt;</span></span>
 </p>
@@ -446,9 +446,6 @@ html 页面的生成与发布都交给了 <code>M-x op/do-publication</code> 命
             Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:kuangdash &lt;at&gt; 163 &lt;dot&gt; com">皐月中二</a>
             &nbsp;&nbsp;-&nbsp;&nbsp;
             Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
-            &nbsp;&nbsp;-&nbsp;&nbsp;
-            Analysized by
-            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254938647'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254938647%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><br/>
             <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
             <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
             <script src="http://emacs-china.github.io/media/js/main.js"></script>

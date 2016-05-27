@@ -26,7 +26,7 @@
 * 各种各样的联系方式
 + 这个站点的 [[https://github.com/emacs-china/emacs-china.github.io/issues][issues]] （github 的 issues 功能实际上能拿来当论坛用了）
 + gitter（emacs-china 成员内部使用） : [[https://gitter.im/emacs-china][点击我]]
-+ email : [[https://groups.google.com/group/emacs-china][emacs-china 邮件列表]]
++ 论坛 : https://emacs-china.org/
 + IRC : （待添加）
 + QQ 群 : 59134186
 

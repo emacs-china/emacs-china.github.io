@@ -24,7 +24,7 @@
 以下要说明的流畅管理必须依赖 hub 这个 *命令行工具* 才行。
 
 * 管理 emacs-china 步骤二：安装 EGO
-目前并不提供 http://melpa.org 版本的包下载，还是请 =git clone= 之吧。这样如果有什么问题，也可以通过 github 的平台来改正。
+目前提供了 http://melpa.org 版本的包下载，这样方便解决包的依赖问题。你也可以选择 =git clone= 之吗，这样如果有什么问题，也可以通过 github 的平台来改正。
 
 具体的安装和使用方法在这里：http://emacs-china.github.io/EGO  ，开源世界需要各位的力量~
 

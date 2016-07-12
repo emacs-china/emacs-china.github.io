@@ -1,6 +1,6 @@
 #+TITLE:       关于
 #+AUTHOR:      emacs-china
-#+EMAIL:       emacs-china@googlegroups.com
+#+EMAIL:       kuangdash@163.com
 
 #+URI:     /about/
 #+LANGUAGE:    en

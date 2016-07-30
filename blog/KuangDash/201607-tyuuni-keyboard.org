@@ -16,13 +16,13 @@
 
 * 悬挂无线键鼠（土法制作）
 
-[[file:tyuuni-keyboardImg/IMG_20160729_002727.jpg]]
+[[file:201607-tyuuni-keyboardImg/IMG_20160729_002727.jpg]]
 
 
-[[file:tyuuni-keyboardImg/IMG_20160729_002815.jpg]]
+[[file:201607-tyuuni-keyboardImg/IMG_20160729_002815.jpg]]
 
 
-[[file:tyuuni-keyboardImg/IMG_20160729_004356.jpg]]
+[[file:201607-tyuuni-keyboardImg/IMG_20160729_004356.jpg]]
 
 
 基本上看完这几张图就能了解整体设计了。
@@ -42,7 +42,7 @@
 * 斜挎式悬挂无线键鼠
 借用之前说的用两条带子拉起的背包，先用下图展示它的“第二形态”：
 
-[[file:tyuuni-keyboardImg/IMG_20160729_113917.jpg]]
+[[file:201607-tyuuni-keyboardImg/IMG_20160729_113917.jpg]]
 
 这是一个斜挎包，实际上只要那个大盒盖子能和背包背部黏连，且有一层硬纸板挡住大盒盖子（仿制误触键盘鼠标），那么这套装备就能变成一个斜挎包，包里还能装点别的东西……
 
@@ -52,11 +52,11 @@
 
 * 在头戴式 AR 时代为 emacs、blender 等平面 PC 软件续命
 :PROPERTIES:
-:ATTACH_DIR: tyuuni-keyboardImg/
+:ATTACH_DIR: 201607-tyuuni-keyboardImg/
 :END:
 这里借用一下微软首页 hololens 的图：（当然我知道还有 magic leap）
 
-[[file:tyuuni-keyboardImg/hololens.png]]
+[[file:201607-tyuuni-keyboardImg/hololens.png]]
 
 我毫不怀疑这种产品将在未来几年内逐步替代 PC，但是如何操作这样的头戴式 AR 电脑呢？网上能找到两种方案：
 

@@ -1,6 +1,6 @@
 #+title: 欢迎来到 emacs-china
 #+author: emacs-china
-#+email: emacs-china@googlegroups.com
+#+email: kuangdash@163.com
 
 #+URI:     /
 #+OPTIONS:     H:4 num:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t

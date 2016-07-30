@@ -1,7 +1,7 @@
 # -*- coding: utf-8-unix; -*-
 #+title: 欢迎来到 emacs-china
 #+author: emacs-china
-#+email: emacs-china@googlegroups.com
+#+email: kuangdash@163.com
 
 下面是 emacs-china 的设置，安装好 [[https://github.com/emacs-china/EGO][EGO]] 后，将该设置写入配置即可管理 emacs-china。
 

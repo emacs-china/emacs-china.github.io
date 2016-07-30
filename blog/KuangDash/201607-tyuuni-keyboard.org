@@ -5,6 +5,7 @@
 #+email: kuangdash@163.com
 #+date: 2016-07-29 周五
 #+tags: keyboard, tyuuni-keyboard
+#+URI: /blog/%y/%m/%d/tyuuni-keyboard
 
 作为一个 emacs 兼 blender 用户，我本人虽然不痴迷于 HHKB 等高大上的键盘，但对键盘鼠标还是有一定要求的，所以自己倒腾了一套键盘鼠标配置。
 

@@ -15,14 +15,14 @@
    #ds-thread #ds-reset .ds-comment-body p a:hover {color: #0ff;}
    #disqus_thread a {color: #00ffff;}
   </style>
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css"/>
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css"/>
+  <link rel="stylesheet" href="https://emacs-china.github.io/media/css/main.css" type="text/css"/>
+  <link rel="stylesheet" href="https://emacs-china.github.io/media/css/comment.css" type="text/css"/>
 </head>
 
   <body><div class="container">
 <div>
   <header class="masthead">
-    <h1 class="masthead-title"><a href="http://emacs-china.github.io/">EMACS-CHINA</a></h1>
+    <h1 class="masthead-title"><a href="https://emacs-china.github.io/">EMACS-CHINA</a></h1>
     <p>=============&gt;集思广益</p>
     <nav class="site-nav">
       <div class="menu-icon">
@@ -33,12 +33,12 @@
         </svg>
       </div>
       <ul class="trigger">
-        <li><a href="http://emacs-china.github.io/years/">Years</a></li>
-        <li><a href="http://emacs-china.github.io/authors/">Authors</a></li>
-        <li><a href="http://emacs-china.github.io/tags/">Tags</a></li>
-        <li><a href="http://emacs-china.github.io/about/">About</a></li>
+        <li><a href="https://emacs-china.github.io/years/">Years</a></li>
+        <li><a href="https://emacs-china.github.io/authors/">Authors</a></li>
+        <li><a href="https://emacs-china.github.io/tags/">Tags</a></li>
+        <li><a href="https://emacs-china.github.io/about/">About</a></li>
         <li><a href="https://github.com/emacs-china">Github</a></li>
-        <li><a href="http://emacs-china.github.io/rss.xml">RSS</a></li>
+        <li><a href="https://emacs-china.github.io/rss.xml">RSS</a></li>
       </ul>
     </nav>
     <form method="get" id="searchform" action="http://www.google.com/search">
@@ -55,10 +55,10 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org13712c4">先决条件 ~ prerequisite</a></li>
-<li><a href="#org4eb7846">替代 list-packages 的命令 ~ the command used to replace <code>list-packages</code></a></li>
-<li><a href="#orgae67141">用于替代 package-install 的命令 ~ the command used to replace <code>package-install</code></a></li>
-<li><a href="#org5ab2920">使用插件 paradox</a></li>
+<li><a href="#org79dc1ce">先决条件 ~ prerequisite</a></li>
+<li><a href="#org831d138">替代 list-packages 的命令 ~ the command used to replace <code>list-packages</code></a></li>
+<li><a href="#orgaa680bc">用于替代 package-install 的命令 ~ the command used to replace <code>package-install</code></a></li>
+<li><a href="#org9459005">使用插件 paradox</a></li>
 </ul>
 </div>
 </div>
@@ -70,34 +70,32 @@
 <a href="https://github.com/emacs-china/emacs-china.github.io/edit/master/blog/KuangDash/201506-async-package-install.org">点我修改</a><br/>
 </p>
 
-<div id="outline-container-org13712c4" class="outline-2">
-<h2 id="org13712c4">先决条件 ~ prerequisite</h2>
-<div class="outline-text-2" id="text-org13712c4">
+<div id="outline-container-org79dc1ce" class="outline-2">
+<h2 id="org79dc1ce">先决条件 ~ prerequisite</h2>
+<div class="outline-text-2" id="text-org79dc1ce">
 <p>
 首先，这个解决方法依赖 <a href="https://github.com/jwiegley/emacs-async">async</a> 包。（如果你的 emacs 上安装了 helm，那么就不必担心这个依赖了。helm 自带该包）
 </p>
 <div class="org-src-container">
-
 <pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">async</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4eb7846" class="outline-2">
-<h2 id="org4eb7846">替代 list-packages 的命令 ~ the command used to replace <code>list-packages</code></h2>
-<div class="outline-text-2" id="text-org4eb7846">
+<div id="outline-container-org831d138" class="outline-2">
+<h2 id="org831d138">替代 list-packages 的命令 ~ the command used to replace <code>list-packages</code></h2>
+<div class="outline-text-2" id="text-org831d138">
 <p>
 这里我取名叫 <code>kd/list-packages</code> ，可以选个你喜欢的名字
 </p>
 <div class="org-src-container">
-
 <pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">defun</span> <span style="color: #00ede1; font-weight: bold;">kd/list-packages</span> <span style="color: #93a8c6;">()</span>
   <span style="color: #e67128;">"package-install async"</span>
-  <span style="color: #93a8c6;">(</span>interactive<span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #ffad29; font-weight: bold;">interactive</span><span style="color: #93a8c6;">)</span>
   <span style="color: #93a8c6;">(</span>async-start
    `<span style="color: #b0b1a3;">(</span><span style="color: #ffad29; font-weight: bold;">lambda</span> <span style="color: #97b098;">()</span>
-      <span style="color: #97b098;">(</span>setq package-archives <span style="color: #74af68;">; </span><span style="color: #74af68;">&#36825;&#37324;&#26159;&#20320;&#30340;&#21253;&#28304;&#21015;&#34920;</span>
+      <span style="color: #97b098;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span> package-archives <span style="color: #74af68;">; </span><span style="color: #74af68;">&#36825;&#37324;&#26159;&#20320;&#30340;&#21253;&#28304;&#21015;&#34920;</span>
             '<span style="color: #aebed8;">(</span><span style="color: #b0b0b3;">(</span><span style="color: #e67128;">"gnu"</span>         . <span style="color: #e67128;">"http://elpa.gnu.org/packages/"</span><span style="color: #b0b0b3;">)</span><span style="color: #74af68;">; </span><span style="color: #74af68;">gnu &#23448;&#26041;&#30340;&#28304;</span>
               <span style="color: #b0b0b3;">(</span><span style="color: #e67128;">"org"</span>         . <span style="color: #e67128;">"http://orgmode.org/elpa/"</span><span style="color: #b0b0b3;">)</span>     <span style="color: #74af68;">; </span><span style="color: #74af68;">org-mode &#21253;&#28304;&#20063;&#26159;&#19968;&#37096;&#20998;</span>
               <span style="color: #b0b0b3;">(</span><span style="color: #e67128;">"melpa"</span>       . <span style="color: #e67128;">"http://melpa.org/packages/"</span><span style="color: #b0b0b3;">)</span>   <span style="color: #74af68;">; </span><span style="color: #74af68;">melpa &#21253;&#28304;&#65292;&#22522;&#20110; github</span>
@@ -106,20 +104,20 @@
       <span style="color: #97b098;">(</span><span style="color: #ffad29; font-weight: bold;">require</span> '<span style="color: #008b8b;">finder-inf</span> nil t<span style="color: #97b098;">)</span>
       <span style="color: #74af68;">;; </span><span style="color: #74af68;">Initialize the package system if necessary.</span>
       <span style="color: #97b098;">(</span>package-initialize t<span style="color: #97b098;">)</span>
-      <span style="color: #97b098;">(</span>setq coding-system-for-write 'utf-8-unix<span style="color: #97b098;">)</span>
+      <span style="color: #97b098;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span> coding-system-for-write 'utf-8-unix<span style="color: #97b098;">)</span>
       <span style="color: #97b098;">(</span><span style="color: #ffad29; font-weight: bold;">let</span> <span style="color: #aebed8;">(</span>old-archives new-packages<span style="color: #aebed8;">)</span>
         <span style="color: #74af68;">;; </span><span style="color: #74af68;">Read the locally-cached archive-contents.</span>
         <span style="color: #aebed8;">(</span>package-read-all-archive-contents<span style="color: #aebed8;">)</span>
-        <span style="color: #aebed8;">(</span>setq old-archives package-archive-contents<span style="color: #aebed8;">)</span>
+        <span style="color: #aebed8;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span> old-archives package-archive-contents<span style="color: #aebed8;">)</span>
         <span style="color: #74af68;">;; </span><span style="color: #74af68;">Fetch the remote list of packages.</span>
         <span style="color: #aebed8;">(</span>package-refresh-contents<span style="color: #aebed8;">)</span>
         <span style="color: #74af68;">;; </span><span style="color: #74af68;">Find which packages are new.</span>
         <span style="color: #aebed8;">(</span><span style="color: #ffad29; font-weight: bold;">dolist</span> <span style="color: #b0b0b3;">(</span>elt package-archive-contents<span style="color: #b0b0b3;">)</span>
           <span style="color: #b0b0b3;">(</span><span style="color: #ffad29; font-weight: bold;">unless</span> <span style="color: #90a890;">(</span>assq <span style="color: #a2b6da;">(</span>car elt<span style="color: #a2b6da;">)</span> old-archives<span style="color: #90a890;">)</span>
-            <span style="color: #90a890;">(</span>push <span style="color: #a2b6da;">(</span>car elt<span style="color: #a2b6da;">)</span> new-packages<span style="color: #90a890;">)</span><span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span>
-        <span style="color: #aebed8;">(</span>setq result-prev <span style="color: #b0b0b3;">(</span>list new-packages package-archive-contents<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>
+            <span style="color: #90a890;">(</span><span style="color: #ffad29; font-weight: bold;">push</span> <span style="color: #a2b6da;">(</span>car elt<span style="color: #a2b6da;">)</span> new-packages<span style="color: #90a890;">)</span><span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span>
+        <span style="color: #aebed8;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span> result-prev <span style="color: #b0b0b3;">(</span>list new-packages package-archive-contents<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>
    `<span style="color: #b0b1a3;">(</span><span style="color: #ffad29; font-weight: bold;">lambda</span> <span style="color: #97b098;">(</span>result<span style="color: #97b098;">)</span>
-      <span style="color: #97b098;">(</span>setq package-archive-contents <span style="color: #aebed8;">(</span>cadr result<span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span>
+      <span style="color: #97b098;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span> package-archive-contents <span style="color: #aebed8;">(</span>cadr result<span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span>
       <span style="color: #97b098;">(</span><span style="color: #ffad29; font-weight: bold;">let</span> <span style="color: #aebed8;">(</span><span style="color: #b0b0b3;">(</span>new-packages <span style="color: #90a890;">(</span>car result<span style="color: #90a890;">)</span><span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span>
         <span style="color: #74af68;">;; </span><span style="color: #74af68;">Generate the Package Menu.</span>
         <span style="color: #aebed8;">(</span><span style="color: #ffad29; font-weight: bold;">let</span> <span style="color: #b0b0b3;">(</span><span style="color: #90a890;">(</span>buf <span style="color: #a2b6da;">(</span>get-buffer-create <span style="color: #e67128;">"*Packages*"</span><span style="color: #a2b6da;">)</span><span style="color: #90a890;">)</span><span style="color: #b0b0b3;">)</span>
@@ -144,20 +142,19 @@
 </div>
 </div>
 
-<div id="outline-container-orgae67141" class="outline-2">
-<h2 id="orgae67141">用于替代 package-install 的命令 ~ the command used to replace <code>package-install</code></h2>
-<div class="outline-text-2" id="text-orgae67141">
+<div id="outline-container-orgaa680bc" class="outline-2">
+<h2 id="orgaa680bc">用于替代 package-install 的命令 ~ the command used to replace <code>package-install</code></h2>
+<div class="outline-text-2" id="text-orgaa680bc">
 <p>
 这个是 <a href="https://github.com/lujun9972">darksun</a> 君写的命令，有问题的话不要怪我唷。
 </p>
 <div class="org-src-container">
-
 <pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">defun</span> <span style="color: #00ede1; font-weight: bold;">kd/package-install</span> <span style="color: #93a8c6;">(</span>package-quote<span style="color: #93a8c6;">)</span>
   <span style="color: #e67128;">"package-install async"</span>
-  <span style="color: #93a8c6;">(</span>interactive <span style="color: #b0b1a3;">(</span>list <span style="color: #97b098;">(</span>read-string <span style="color: #e67128;">"package-name? "</span> <span style="color: #e67128;">"'"</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #ffad29; font-weight: bold;">interactive</span> <span style="color: #b0b1a3;">(</span>list <span style="color: #97b098;">(</span>read-string <span style="color: #e67128;">"package-name? "</span> <span style="color: #e67128;">"'"</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>
   <span style="color: #93a8c6;">(</span>async-start
    `<span style="color: #b0b1a3;">(</span><span style="color: #ffad29; font-weight: bold;">lambda</span> <span style="color: #97b098;">()</span>
-      <span style="color: #97b098;">(</span>setq package-archives ',package-archives<span style="color: #97b098;">)</span>
+      <span style="color: #97b098;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span> package-archives ',package-archives<span style="color: #97b098;">)</span>
       <span style="color: #97b098;">(</span>package-initialize t<span style="color: #97b098;">)</span>
       <span style="color: #97b098;">(</span>package-install ,<span style="color: #aebed8;">(</span>read package-quote<span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>
    `<span style="color: #b0b1a3;">(</span><span style="color: #ffad29; font-weight: bold;">lambda</span> <span style="color: #97b098;">(</span>result<span style="color: #97b098;">)</span>
@@ -168,9 +165,9 @@
 </div>
 </div>
 
-<div id="outline-container-org5ab2920" class="outline-2">
-<h2 id="org5ab2920">使用插件 paradox</h2>
-<div class="outline-text-2" id="text-org5ab2920">
+<div id="outline-container-org9459005" class="outline-2">
+<h2 id="org9459005">使用插件 paradox</h2>
+<div class="outline-text-2" id="text-org9459005">
 <p>
 paradox 支持从 melpa 包源获取某个在 github 上的 emacs 包的星级评价，同时也是异步的。
 </p>
@@ -182,11 +179,11 @@ paradox 支持从 melpa 包源获取某个在 github 上的 emacs 包的星级�
 <div>
         <div class="post-meta">
             <span title="post date" class="post-info">2015-06-01</span>
-            <span title="last modification date" class="post-info">2016-05-09</span>
-            <span title="tags" class="post-info"><a href="http://emacs-china.github.io/tags/asynchronization">asynchronization</a> : <a href="http://emacs-china.github.io/tags/package-install">package install</a></span>
+            <span title="last modification date" class="post-info">2016-05-08</span>
+            <span title="tags" class="post-info"><a href="https://emacs-china.github.io/tags/asynchronization">asynchronization</a> : <a href="https://emacs-china.github.io/tags/package-install">package install</a></span>
             <span title="author" class="post-info">皐月中二</span>
         </div>
-    <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
+    <script src="https://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
         <section>
             <h1>Comments</h1>
             <div id="comment-wrap">
@@ -198,7 +195,7 @@ paradox 支持从 melpa 包源获取某个在 github 上的 emacs 包的星级�
          //var disqus_developer = 1;
          var preempt_signal=false;
          var disqus_identifier = "/blog/2015/06/01/异步安装-emacs-package";
-         var disqus_url = "http://emacs-china.github.io/blog/2015/06/01/异步安装-emacs-package";
+         var disqus_url = "https://emacs-china.github.io/blog/2015/06/01/异步安装-emacs-package";
          var disqus_shortname = 'emacs-china';
          /* * * DON'T EDIT BELOW THIS LINE * * */
          (function() {
@@ -238,7 +235,7 @@ paradox 支持从 melpa 包源获取某个在 github 上的 emacs 包的星级�
     </script>
         </section>
     <div class="footer">
-        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.x(<a href="http://orgmode.org">Org mode</a> 8.x)
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x(<a href="http://orgmode.org">Org mode</a> )
         </p>
         <p>
             Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:kuangdash &lt;at&gt; 163 &lt;dot&gt; com">皐月中二</a>
@@ -246,7 +243,7 @@ paradox 支持从 melpa 包源获取某个在 github 上的 emacs 包的星级�
             Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
             <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
             <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
-            <script src="http://emacs-china.github.io/media/js/main.js"></script>
+            <script src="https://emacs-china.github.io/media/js/main.js"></script>
         </p>
     </div>
             </div>

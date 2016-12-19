@@ -14,14 +14,14 @@
    #ds-thread #ds-reset .ds-comment-body p a:hover {color: #0ff;}
    #disqus_thread a {color: #00ffff;}
   </style>
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/main.css" type="text/css"/>
-  <link rel="stylesheet" href="http://emacs-china.github.io/media/css/comment.css" type="text/css"/>
+  <link rel="stylesheet" href="https://emacs-china.github.io/media/css/main.css" type="text/css"/>
+  <link rel="stylesheet" href="https://emacs-china.github.io/media/css/comment.css" type="text/css"/>
 </head>
 
   <body><div class="container">
 <div>
   <header class="masthead">
-    <h1 class="masthead-title"><a href="http://emacs-china.github.io/">EMACS-CHINA</a></h1>
+    <h1 class="masthead-title"><a href="https://emacs-china.github.io/">EMACS-CHINA</a></h1>
     <p>=============&gt;集思广益</p>
     <nav class="site-nav">
       <div class="menu-icon">
@@ -32,12 +32,12 @@
         </svg>
       </div>
       <ul class="trigger">
-        <li><a href="http://emacs-china.github.io/years/">Years</a></li>
-        <li><a href="http://emacs-china.github.io/authors/">Authors</a></li>
-        <li><a href="http://emacs-china.github.io/tags/">Tags</a></li>
-        <li><a href="http://emacs-china.github.io/about/">About</a></li>
+        <li><a href="https://emacs-china.github.io/years/">Years</a></li>
+        <li><a href="https://emacs-china.github.io/authors/">Authors</a></li>
+        <li><a href="https://emacs-china.github.io/tags/">Tags</a></li>
+        <li><a href="https://emacs-china.github.io/about/">About</a></li>
         <li><a href="https://github.com/emacs-china">Github</a></li>
-        <li><a href="http://emacs-china.github.io/rss.xml">RSS</a></li>
+        <li><a href="https://emacs-china.github.io/rss.xml">RSS</a></li>
       </ul>
     </nav>
     <form method="get" id="searchform" action="http://www.google.com/search">
@@ -54,25 +54,25 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org26c98cd">安装 texlive</a></li>
-<li><a href="#orgb14eae5">安装所需字体</a></li>
-<li><a href="#org9d9e9f3">配置 org-mode</a>
+<li><a href="#org8f30bbb">安装 texlive</a></li>
+<li><a href="#org7251b77">安装所需字体</a></li>
+<li><a href="#orgc32c5b5">配置 org-mode</a>
 <ul>
-<li><a href="#org29cff36">创建与 ctex 对应的 org-latex-class</a></li>
-<li><a href="#orgd4d9f0d">解决 org-mode 默认设置与 ctex 冲突的问题</a></li>
-<li><a href="#orgfe5de56">LaTeX 宏包相关设置，比如设置字体，页面边距等</a></li>
-<li><a href="#org9815f1e">使用 ctex 来预览 LaTeX 片断</a></li>
-<li><a href="#org286a831">使用 XeLaTeX 编译 LaTeX 文件</a></li>
-<li><a href="#org463950f">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</a></li>
+<li><a href="#orgd2da4dc">创建与 ctex 对应的 org-latex-class</a></li>
+<li><a href="#org4f51591">解决 org-mode 默认设置与 ctex 冲突的问题</a></li>
+<li><a href="#org4278f41">LaTeX 宏包相关设置，比如设置字体，页面边距等</a></li>
+<li><a href="#orgcffe70f">使用 ctex 来预览 LaTeX 片断</a></li>
+<li><a href="#org1a37b20">使用 XeLaTeX 编译 LaTeX 文件</a></li>
+<li><a href="#orgdb415d6">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org26c98cd" class="outline-2">
-<h2 id="org26c98cd">安装 texlive</h2>
-<div class="outline-text-2" id="text-org26c98cd">
+<div id="outline-container-org8f30bbb" class="outline-2">
+<h2 id="org8f30bbb">安装 texlive</h2>
+<div class="outline-text-2" id="text-org8f30bbb">
 <p>
 安装 texlive 可以使用两种方式
 </p>
@@ -91,7 +91,6 @@ org-mode 不能正确生成 pdf 文档，同学可以参考本人的 LaTeX 宏�
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-shell">/usr/local/texlive/2014/bin/i386-linux/tlmgr  info --only-installed
 </pre>
 </div>
@@ -980,15 +979,14 @@ i zxjafont: Set up Japanese font families for XeLaTeX.
 </div>
 
 
-<div id="outline-container-orgb14eae5" class="outline-2">
-<h2 id="orgb14eae5">安装所需字体</h2>
-<div class="outline-text-2" id="text-orgb14eae5">
+<div id="outline-container-org7251b77" class="outline-2">
+<h2 id="org7251b77">安装所需字体</h2>
+<div class="outline-text-2" id="text-org7251b77">
 <p>
 将 org 文件转换为 pdf 时，本人习惯使用文泉驿微米黑和SimSun，同学可以根据自己的喜好来安装需要的字体。下面是本人 Debian 系统中安装字体的列表：
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-shell">dpkg --get-selections | grep ^fonts
 </pre>
 </div>
@@ -1033,15 +1031,14 @@ fonts-ubuntu-title				install
 </div>
 
 
-<div id="outline-container-org9d9e9f3" class="outline-2">
-<h2 id="org9d9e9f3">配置 org-mode</h2>
-<div class="outline-text-2" id="text-org9d9e9f3">
-</div><div id="outline-container-org29cff36" class="outline-3">
-<h3 id="org29cff36">创建与 ctex 对应的 org-latex-class</h3>
-<div class="outline-text-3" id="text-org29cff36">
+<div id="outline-container-orgc32c5b5" class="outline-2">
+<h2 id="orgc32c5b5">配置 org-mode</h2>
+<div class="outline-text-2" id="text-orgc32c5b5">
+</div><div id="outline-container-orgd2da4dc" class="outline-3">
+<h3 id="orgd2da4dc">创建与 ctex 对应的 org-latex-class</h3>
+<div class="outline-text-3" id="text-orgd2da4dc">
 <div class="org-src-container">
-
-<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq org-latex-default-class <span style="color: #e67128;">"ctexart"</span><span style="color: #8c8c8c;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span> org-latex-default-class <span style="color: #e67128;">"ctexart"</span><span style="color: #8c8c8c;">)</span>
 
 <span style="color: #8c8c8c;">(</span>add-to-list 'org-latex-classes
              '<span style="color: #93a8c6;">(</span><span style="color: #e67128;">"ctexart"</span>
@@ -1080,15 +1077,14 @@ fonts-ubuntu-title				install
 </div>
 </div>
 
-<div id="outline-container-orgd4d9f0d" class="outline-3">
-<h3 id="orgd4d9f0d">解决 org-mode 默认设置与 ctex 冲突的问题</h3>
-<div class="outline-text-3" id="text-orgd4d9f0d">
+<div id="outline-container-org4f51591" class="outline-3">
+<h3 id="org4f51591">解决 org-mode 默认设置与 ctex 冲突的问题</h3>
+<div class="outline-text-3" id="text-org4f51591">
 <p>
 org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，具体细节可以运行：
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-emacs-lisp">C-h v org-latex-default-package-alist
 </pre>
 </div>
@@ -1109,12 +1105,11 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
 </p>
 
 <div class="org-src-container">
-
-<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setf org-latex-default-packages-alist
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">setf</span> org-latex-default-packages-alist
       <span style="color: #93a8c6;">(</span>remove '<span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"AUTO"</span> <span style="color: #e67128;">"inputenc"</span> t<span style="color: #b0b1a3;">)</span> org-latex-default-packages-alist<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
-<span style="color: #8c8c8c;">(</span>setf org-latex-default-packages-alist
+<span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">setf</span> org-latex-default-packages-alist
       <span style="color: #93a8c6;">(</span>remove '<span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"T1"</span> <span style="color: #e67128;">"fontenc"</span> t<span style="color: #b0b1a3;">)</span> org-latex-default-packages-alist<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
-<span style="color: #8c8c8c;">(</span>setf org-latex-default-packages-alist
+<span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">setf</span> org-latex-default-packages-alist
       <span style="color: #93a8c6;">(</span>remove '<span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"normalem"</span> <span style="color: #e67128;">"ulem"</span> t<span style="color: #b0b1a3;">)</span> org-latex-default-packages-alist<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 <span style="color: #8c8c8c;">(</span>setcar <span style="color: #93a8c6;">(</span>rassoc '<span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"wasysym"</span> t<span style="color: #b0b1a3;">)</span>
                 org-latex-default-packages-alist<span style="color: #93a8c6;">)</span> <span style="color: #e67128;">"nointegrals"</span><span style="color: #8c8c8c;">)</span>
@@ -1123,12 +1118,11 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
 </div>
 </div>
 
-<div id="outline-container-orgfe5de56" class="outline-3">
-<h3 id="orgfe5de56">LaTeX 宏包相关设置，比如设置字体，页面边距等</h3>
-<div class="outline-text-3" id="text-orgfe5de56">
+<div id="outline-container-org4278f41" class="outline-3">
+<h3 id="org4278f41">LaTeX 宏包相关设置，比如设置字体，页面边距等</h3>
+<div class="outline-text-3" id="text-org4278f41">
 <div class="org-src-container">
-
-<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq  org-latex-packages-alist
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span>  org-latex-packages-alist
        '<span style="color: #93a8c6;">(</span><span style="color: #e67128;">"</span>
 <span style="color: #e67128;">%%% &#40664;&#35748;&#20351;&#29992;&#30340;latex&#23439;&#21253; %%%</span>
 <span style="color: #e67128;">\\usepackage{tikz}</span>
@@ -1148,13 +1142,12 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
 </div>
 </div>
 
-<div id="outline-container-org9815f1e" class="outline-3">
-<h3 id="org9815f1e">使用 ctex 来预览 LaTeX 片断</h3>
-<div class="outline-text-3" id="text-org9815f1e">
+<div id="outline-container-orgcffe70f" class="outline-3">
+<h3 id="orgcffe70f">使用 ctex 来预览 LaTeX 片断</h3>
+<div class="outline-text-3" id="text-orgcffe70f">
 <div class="org-src-container">
-
 <pre class="src src-emacs-lisp"><span style="color: #74af68;">;; </span><span style="color: #74af68;">latex&#20844;&#24335;&#39044;&#35272;, &#35843;&#25972;latex&#39044;&#35272;&#26102;&#20351;&#29992;&#30340;header,&#40664;&#35748;&#20351;&#29992;ctexart&#31867;</span>
-<span style="color: #8c8c8c;">(</span>setq org-format-latex-header
+<span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span> org-format-latex-header
       <span style="color: #93a8c6;">(</span>replace-regexp-in-string
        <span style="color: #e67128;">"\\\\documentclass{.*}"</span>
        <span style="color: #e67128;">"\\\\documentclass[nofonts,UTF8]{ctexart}"</span>
@@ -1164,12 +1157,11 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
 </div>
 </div>
 
-<div id="outline-container-org286a831" class="outline-3">
-<h3 id="org286a831">使用 XeLaTeX 编译 LaTeX 文件</h3>
-<div class="outline-text-3" id="text-org286a831">
+<div id="outline-container-org1a37b20" class="outline-3">
+<h3 id="org1a37b20">使用 XeLaTeX 编译 LaTeX 文件</h3>
+<div class="outline-text-3" id="text-org1a37b20">
 <div class="org-src-container">
-
-<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>setq org-latex-commands
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">setq</span> org-latex-commands
       '<span style="color: #93a8c6;">(</span><span style="color: #b0b1a3;">(</span><span style="color: #e67128;">"xelatex -interaction nonstopmode -output-directory %o %f"</span>
          <span style="color: #e67128;">"bibtex %b"</span>
          <span style="color: #e67128;">"xelatex -interaction nonstopmode -output-directory %o %f"</span>
@@ -1180,11 +1172,10 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
 </div>
 </div>
 
-<div id="outline-container-org463950f" class="outline-3">
-<h3 id="org463950f">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</h3>
-<div class="outline-text-3" id="text-org463950f">
+<div id="outline-container-orgdb415d6" class="outline-3">
+<h3 id="orgdb415d6">预览 LaTeX 片断时，通过减少编译次数来缩短用户等待时间</h3>
+<div class="outline-text-3" id="text-orgdb415d6">
 <div class="org-src-container">
-
 <pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #ffad29; font-weight: bold;">defun</span> <span style="color: #00ede1; font-weight: bold;">my-org-latex-compile</span> <span style="color: #93a8c6;">(</span>orig-fun texfile <span style="color: #34cae2;">&amp;optional</span> snippet<span style="color: #93a8c6;">)</span>
   <span style="color: #93a8c6;">(</span><span style="color: #ffad29; font-weight: bold;">let</span> <span style="color: #b0b1a3;">(</span><span style="color: #97b098;">(</span>org-latex-pdf-process
          <span style="color: #aebed8;">(</span><span style="color: #ffad29; font-weight: bold;">if</span> snippet <span style="color: #b0b0b3;">(</span>car <span style="color: #90a890;">(</span>cdr org-latex-commands<span style="color: #90a890;">)</span><span style="color: #b0b0b3;">)</span>
@@ -1204,10 +1195,10 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
         <div class="post-meta">
             <span title="post date" class="post-info">2015-04-20</span>
             <span title="last modification date" class="post-info">2016-03-15</span>
-            <span title="tags" class="post-info"><a href="http://emacs-china.github.io/tags/org-mode">org-mode</a> : <a href="http://emacs-china.github.io/tags/latex">latex</a> : <a href="http://emacs-china.github.io/tags/ctex">ctex</a></span>
+            <span title="tags" class="post-info"><a href="https://emacs-china.github.io/tags/org-mode">org-mode</a> : <a href="https://emacs-china.github.io/tags/latex">latex</a> : <a href="https://emacs-china.github.io/tags/ctex">ctex</a></span>
             <span title="author" class="post-info">Feng Shu</span>
         </div>
-    <script src="http://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
+    <script src="https://emacs-china.github.io/media/js/jquery-2.1.3.min.js"></script>
         <section>
             <h1>Comments</h1>
             <div id="comment-wrap">
@@ -1219,7 +1210,7 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
          //var disqus_developer = 1;
          var preempt_signal=false;
          var disqus_identifier = "/blog/2015/04/20/使用-ctex-将-org-文件转化为-pdf/";
-         var disqus_url = "http://emacs-china.github.io/blog/2015/04/20/使用-ctex-将-org-文件转化为-pdf/";
+         var disqus_url = "https://emacs-china.github.io/blog/2015/04/20/使用-ctex-将-org-文件转化为-pdf/";
          var disqus_shortname = 'emacs-china';
          /* * * DON'T EDIT BELOW THIS LINE * * */
          (function() {
@@ -1259,7 +1250,7 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
     </script>
         </section>
     <div class="footer">
-        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.x(<a href="http://orgmode.org">Org mode</a> 8.x)
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x(<a href="http://orgmode.org">Org mode</a> )
         </p>
         <p>
             Copyright &copy; 2014 - <span id="footerYear"></span> <a href="mailto:tumashu &lt;at&gt; 163 &lt;dot&gt; com">Feng Shu</a>
@@ -1267,7 +1258,7 @@ org-mode 文件导出 LaTeX 文件时，默认会插入一些宏包的设置，�
             Powered by <a href="https://github.com/emacs-china/ego" target="_blank">EGO</a><br/>
             <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" style="border-width:0" alt="Creative Commons License" class="center"></a>
             <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
-            <script src="http://emacs-china.github.io/media/js/main.js"></script>
+            <script src="https://emacs-china.github.io/media/js/main.js"></script>
         </p>
     </div>
             </div>

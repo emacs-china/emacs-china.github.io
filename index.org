@@ -17,7 +17,7 @@
 * 本站使用简介
 一些关于 emacs 的中文资料会放置在本站点的 [[http://emacs-china.github.io/blog/][Blog]] 目录下面，可以在 [[http://emacs-china.github.io/tags/][Tags]] 下面按标签索引文件，也可使用 search 框。
 
-这些中文资料的 org-mode 原文件都在 [[https://github.com/emacs-china/emacs-china.github.io][emacs-china 主页]] 项目的 source branch 下， _欢迎改进_[fn:1] 。
+这些中文资料的 org-mode 原文件都在 [[https://github.com/emacs-china/emacs-china.github.io][emacs-china blog]] 项目的 master branch 下， _欢迎改进_[fn:1] 。
 
 如何优雅地管理 emacs-china？参见：[[ego-link:blog/KuangDash/201509-manage-emacs-china.org][流畅地管理 emacs-china]]
 

@@ -18,7 +18,7 @@ CAUTION: 直接 clone emacs-china 后，需要 checkout master 和 source 后才
                    :repository-directory "~/github/emacs-china.github.io" ; 站点的本地目录
                    :repository-org-branch "master" ; 源文件所在 branch
                    :repository-html-branch "master" ; html 文件所在 branch
-                   :site-domain "https://emacs-china.github.io/" ; 站点的网址
+                   :site-domain "http://emacs-china.github.io/" ; 站点的网址
                    :site-main-title "EMACS-CHINA" ; 站点的标题
                    :site-sub-title "=============>集思广益" ; 站点的副标题
                    :theme (emacs-china default) ; 使用的主题, 默认是 default
